@@ -1,0 +1,2 @@
+class Institution < UserProfile
+end

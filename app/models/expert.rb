@@ -1,0 +1,2 @@
+class Expert < UserProfile
+end

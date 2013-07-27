@@ -1,0 +1,2 @@
+class NGO < UserProfile
+end

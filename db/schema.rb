@@ -11,7 +11,49 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710190349) do
+ActiveRecord::Schema.define(:version => 20130727194942) do
+
+  create_table "activities", :force => true do |t|
+    t.integer  "user_profile_id"
+    t.string   "name"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "expertises", :force => true do |t|
+    t.integer  "user_profile_id"
+    t.string   "name"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "interests", :force => true do |t|
+    t.integer  "user_profile_id"
+    t.string   "name"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "media_interests", :force => true do |t|
+    t.integer  "user_profile_id"
+    t.string   "name"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "media_scopes", :force => true do |t|
+    t.integer  "user_profile_id"
+    t.string   "name"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "media_types", :force => true do |t|
+    t.integer  "user_profile_id"
+    t.string   "name"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -24,6 +66,55 @@ ActiveRecord::Schema.define(:version => 20130710190349) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
+  create_table "sectors", :force => true do |t|
+    t.integer  "user_profile_id"
+    t.string   "name"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "user_profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.string   "name"
+    t.text     "address"
+    t.string   "municipality"
+    t.string   "city"
+    t.string   "post_code"
+    t.string   "country"
+    t.string   "website"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "fax"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "linked_in"
+    t.string   "skype"
+    t.string   "google_plus"
+    t.string   "rep_name"
+    t.string   "rep_email"
+    t.datetime "established"
+    t.text     "mission_statement"
+    t.integer  "membership_number"
+    t.integer  "personnel_number"
+    t.integer  "head_local_projects"
+    t.integer  "head_national_projects"
+    t.integer  "head_regional_projects"
+    t.integer  "head_international_projects"
+    t.integer  "partner_local_projects"
+    t.integer  "partner_national_projects"
+    t.integer  "partner_regional_projects"
+    t.integer  "partner_international_projects"
+    t.integer  "previous_year_budget"
+    t.boolean  "gef_recipient"
+    t.boolean  "gmaps"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.float    "latitude"
+    t.float    "longitude"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -35,11 +126,16 @@ ActiveRecord::Schema.define(:version => 20130710190349) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "name"
   end
 
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 

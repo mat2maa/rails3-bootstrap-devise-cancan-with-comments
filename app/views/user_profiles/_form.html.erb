@@ -1,0 +1,44 @@
+<%= simple_form_for(@user_profile) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :user_id %>
+    <%= f.input :type %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :municipality %>
+    <%= f.input :city %>
+    <%= f.input :post_code %>
+    <%= f.input :country %>
+    <%= f.input :website %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.input :mobile %>
+    <%= f.input :fax %>
+    <%= f.input :facebook %>
+    <%= f.input :twitter %>
+    <%= f.input :linked_in %>
+    <%= f.input :skype %>
+    <%= f.input :google_plus %>
+    <%= f.input :rep_name %>
+    <%= f.input :rep_email %>
+    <%= f.input :established %>
+    <%= f.input :mission_statement %>
+    <%= f.input :membership_number %>
+    <%= f.input :personnel_number %>
+    <%= f.input :head_local_projects %>
+    <%= f.input :head_national_projects %>
+    <%= f.input :head_regional_projects %>
+    <%= f.input :head_international_projects %>
+    <%= f.input :partner_local_projects %>
+    <%= f.input :partner_national_projects %>
+    <%= f.input :partner_regional_projects %>
+    <%= f.input :partner_international_projects %>
+    <%= f.input :previous_year_budget %>
+    <%= f.input :gef_recipient %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -12,10 +12,10 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: rails3_bootstrap_devise_cancan_development
+  database: ekosfera_development
   pool: 5
-  username: root
-  password:
+  username: ekosfera
+  password: ekosfera
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -25,18 +25,18 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: rails3_bootstrap_devise_cancan_test
+  database: ekosfera_test
   pool: 5
-  username: root
-  password:
+  username: ekosfera
+  password: ekosfera
   socket: /tmp/mysql.sock
 
 production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: rails3_bootstrap_devise_cancan_production
+  database: ekosfera_production
   pool: 5
-  username: root
-  password:
+  username: ekosfera
+  password: ekosfera
   socket: /tmp/mysql.sock

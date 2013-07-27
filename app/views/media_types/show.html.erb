@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User profile:</b>
+  <%= @media_type.user_profile_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @media_type.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_media_type_path(@media_type) %> |
+<%= link_to 'Back', media_types_path %>

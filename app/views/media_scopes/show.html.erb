@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User profile:</b>
+  <%= @media_scope.user_profile_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @media_scope.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_media_scope_path(@media_scope) %> |
+<%= link_to 'Back', media_scopes_path %>

@@ -1,0 +1,89 @@
+<h1>Listing user_profiles</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Type</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Municipality</th>
+    <th>City</th>
+    <th>Post code</th>
+    <th>Country</th>
+    <th>Website</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Mobile</th>
+    <th>Fax</th>
+    <th>Facebook</th>
+    <th>Twitter</th>
+    <th>Linked in</th>
+    <th>Skype</th>
+    <th>Google plus</th>
+    <th>Rep name</th>
+    <th>Rep email</th>
+    <th>Established</th>
+    <th>Mission statement</th>
+    <th>Membership number</th>
+    <th>Personnel number</th>
+    <th>Head local projects</th>
+    <th>Head national projects</th>
+    <th>Head regional projects</th>
+    <th>Head international projects</th>
+    <th>Partner local projects</th>
+    <th>Partner national projects</th>
+    <th>Partner regional projects</th>
+    <th>Partner international projects</th>
+    <th>Previous year budget</th>
+    <th>Gef recipient</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_profiles.each do |user_profile| %>
+  <tr>
+    <td><%= user_profile.user_id %></td>
+    <td><%= user_profile.type %></td>
+    <td><%= user_profile.name %></td>
+    <td><%= user_profile.address %></td>
+    <td><%= user_profile.municipality %></td>
+    <td><%= user_profile.city %></td>
+    <td><%= user_profile.post_code %></td>
+    <td><%= user_profile.country %></td>
+    <td><%= user_profile.website %></td>
+    <td><%= user_profile.email %></td>
+    <td><%= user_profile.phone %></td>
+    <td><%= user_profile.mobile %></td>
+    <td><%= user_profile.fax %></td>
+    <td><%= user_profile.facebook %></td>
+    <td><%= user_profile.twitter %></td>
+    <td><%= user_profile.linked_in %></td>
+    <td><%= user_profile.skype %></td>
+    <td><%= user_profile.google_plus %></td>
+    <td><%= user_profile.rep_name %></td>
+    <td><%= user_profile.rep_email %></td>
+    <td><%= user_profile.established %></td>
+    <td><%= user_profile.mission_statement %></td>
+    <td><%= user_profile.membership_number %></td>
+    <td><%= user_profile.personnel_number %></td>
+    <td><%= user_profile.head_local_projects %></td>
+    <td><%= user_profile.head_national_projects %></td>
+    <td><%= user_profile.head_regional_projects %></td>
+    <td><%= user_profile.head_international_projects %></td>
+    <td><%= user_profile.partner_local_projects %></td>
+    <td><%= user_profile.partner_national_projects %></td>
+    <td><%= user_profile.partner_regional_projects %></td>
+    <td><%= user_profile.partner_international_projects %></td>
+    <td><%= user_profile.previous_year_budget %></td>
+    <td><%= user_profile.gef_recipient %></td>
+    <td><%= link_to 'Show', user_profile %></td>
+    <td><%= link_to 'Edit', edit_user_profile_path(user_profile) %></td>
+    <td><%= link_to 'Destroy', user_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User profile', new_user_profile_path %>

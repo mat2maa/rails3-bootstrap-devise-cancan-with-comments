@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User profile:</b>
+  <%= @media_interest.user_profile_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @media_interest.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_media_interest_path(@media_interest) %> |
+<%= link_to 'Back', media_interests_path %>
