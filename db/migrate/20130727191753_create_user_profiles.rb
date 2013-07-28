@@ -21,6 +21,7 @@ class CreateUserProfiles < ActiveRecord::Migration
       t.string :google_plus
       t.string :rep_name
       t.string :rep_email
+      t.integer :media_type_id
       t.datetime :established
       t.text :mission_statement
       t.integer :membership_number

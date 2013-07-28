@@ -1,17 +1,84 @@
-<%= gmaps(
-        :map_options => {
-            detect_location: true,
-            center_on_user: true,
-            auto_zoom: false,
-            zoom: 16,
-            type: 'SATELLITE'
-        },
-        markers: {
-            data: @json
-        }
-    ) %>
+<% content_for :map do %>
+  <%= gmaps(
+          map_options: {
+              center_latitude: 41.637255074888465,
+              center_longitude: 21.741941953124297,
+              detect_location: false,
+              center_on_user: false,
+              auto_adjust: false,
+              auto_zoom: true,
+              zoom: 8,
+              type: 'ROADMAP',
+              raw: "{zoomControl: false, panControl: false, streetViewControl: false, mapTypeControl: false,
+            styles: styles}"
+          },
+          markers: {
+              data: @json
+          }
+      ) %>
+<% end %>
 
 <h3>Home</h3>
 <% @users.each do |user| %>
   <p>User: <%=link_to user.name, user %></p>
 <% end %>
+
+<script>
+  var styles = [
+    {
+      featureType: 'water',
+      elementType: 'all',
+      stylers: [
+        { hue: '#A9C3CE' },
+        { saturation: -39 },
+        { lightness: -3 },
+        { visibility: 'on' }
+      ]
+    },{
+      featureType: 'landscape',
+      elementType: 'all',
+      stylers: [
+        { hue: '#C6D3C4' },
+        { saturation: -46 },
+        { lightness: -10 },
+        { visibility: 'on' }
+      ]
+    },{
+      featureType: 'road',
+      elementType: 'all',
+      stylers: [
+        { hue: '#B39EC3' },
+        { saturation: -76 },
+        { lightness: 14 },
+        { visibility: 'on' }
+      ]
+    },{
+      featureType: 'poi',
+      elementType: 'all',
+      stylers: [
+        { hue: '#C5C780' },
+        { saturation: -10 },
+        { lightness: -18 },
+        { visibility: 'on' }
+      ]
+    },{
+      featureType: 'administrative.province',
+      elementType: 'all',
+      stylers: [
+        { hue: '#68A661' },
+        { saturation: 28 },
+        { lightness: 1 },
+        { visibility: 'on' }
+      ]
+    },{
+      featureType: 'administrative.country',
+      elementType: 'all',
+      stylers: [
+        { hue: '#68A661' },
+        { saturation: 28 },
+        { lightness: 1 },
+        { visibility: 'on' }
+      ]
+    }
+  ]
+</script>

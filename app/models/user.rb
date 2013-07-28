@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :user_profile
 
+  def with_user_profile
+    self.build_user_profile
+    self
+  end
 end

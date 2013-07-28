@@ -1,0 +1,72 @@
+<%= f.input :name, input_html: { class: 'ngo institution media' } %>
+<%= f.input :address, input_html: { class: 'ngo institution media' } %>
+<%= f.input :municipality, input_html: { class: 'ngo institution media' } %>
+<%= f.input :city, input_html: { class: 'ngo institution media' } %>
+<%= f.input :post_code, input_html: { class: 'ngo institution media' } %>
+<%= f.input :country, input_html: { class: 'ngo institution media' } %>
+<%= f.input :website, input_html: { class: 'ngo institution media' } %>
+<%= f.input :email, input_html: { class: 'ngo institution media' } %>
+<%= f.input :phone, input_html: { class: 'ngo institution media' } %>
+<%= f.input :mobile, input_html: { class: 'ngo institution media' } %>
+<%= f.input :fax, input_html: { class: 'ngo institution media' } %>
+<%= f.input :facebook, input_html: { class: 'ngo institution media' } %>
+<%= f.input :twitter, input_html: { class: 'ngo institution media' } %>
+<%= f.input :linked_in, input_html: { class: 'ngo institution media' } %>
+<%= f.input :skype, input_html: { class: 'ngo institution media' } %>
+<%= f.input :google_plus, input_html: { class: 'ngo institution media' } %>
+<%= f.input :rep_name, input_html: { class: 'ngo expert institution media' } %>
+<%= f.input :rep_email, input_html: { class: 'ngo expert institution media' } %>
+<%= f.input :activities,
+            as: :select,
+            multiple: true,
+            collection: Activity.order('name'),
+            input_html: { class: 'ngo' } %>
+<%= f.input :expertises,
+            as: :select,
+            multiple: true,
+            collection: Expertise.order('name'),
+            input_html: { class: 'expert' } %>
+<%= f.simple_fields_for :interests do |builder| %>
+  <%= builder.input :name,
+                    input_html: { class: 'organization' } %>
+  <%= builder.link_to_remove "Remove this interest" %>
+<% end %>
+<p><%= f.link_to_add "Add an interest", :interests %></p>
+
+<%= f.simple_fields_for :sectors do |builder| %>
+  <%= builder.input :name,
+                    input_html: { class: 'organization' } %>
+  <%= builder.link_to_remove "Remove this sector" %>
+<% end %>
+<p><%= f.link_to_add "Add a sector", :sectors %></p>
+
+<%= f.simple_fields_for :media_interests do |builder| %>
+  <%= builder.input :name,
+                    input_html: { class: 'media' } %>
+  <%= builder.link_to_remove "Remove this media interest" %>
+<% end %>
+<p><%= f.link_to_add "Add a media interest", :media_interests %></p>
+
+<%= f.input :media_scopes,
+            as: :select,
+            multiple: true,
+            collection: MediaScope.order('name'),
+            input_html: { class: 'media' } %>
+<%= f.input :media_type_id,
+            as: :select,
+            collection: MediaType.order('name'),
+            input_html: { class: 'media' } %>
+<%= f.input :established, input_html: { class: 'ngo' } %>
+<%= f.input :mission_statement, input_html: { class: 'ngo' } %>
+<%= f.input :membership_number, input_html: { class: 'ngo' } %>
+<%= f.input :personnel_number, input_html: { class: 'ngo' } %>
+<%= f.input :head_local_projects, input_html: { class: 'ngo' } %>
+<%= f.input :head_national_projects, input_html: { class: 'ngo' } %>
+<%= f.input :head_regional_projects, input_html: { class: 'ngo' } %>
+<%= f.input :head_international_projects, input_html: { class: 'ngo' } %>
+<%= f.input :partner_local_projects, input_html: { class: 'ngo' } %>
+<%= f.input :partner_national_projects, input_html: { class: 'ngo' } %>
+<%= f.input :partner_regional_projects, input_html: { class: 'ngo' } %>
+<%= f.input :partner_international_projects, input_html: { class: 'ngo' } %>
+<%= f.input :previous_year_budget, input_html: { class: 'ngo' } %>
+<%= f.input :gef_recipient, input_html: { class: 'ngo' } %>

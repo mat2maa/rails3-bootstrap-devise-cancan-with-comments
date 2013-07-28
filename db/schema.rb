@@ -11,48 +11,65 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130727194942) do
+ActiveRecord::Schema.define(:version => 20130728185436) do
 
   create_table "activities", :force => true do |t|
-    t.integer  "user_profile_id"
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "activities_user_profiles", :id => false, :force => true do |t|
+    t.integer  "activity_id"
+    t.integer  "user_profile_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
 
   create_table "expertises", :force => true do |t|
-    t.integer  "user_profile_id"
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "expertises_user_profiles", :id => false, :force => true do |t|
+    t.integer  "expertise_id"
+    t.integer  "user_profile_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
 
   create_table "interests", :force => true do |t|
-    t.integer  "user_profile_id"
     t.string   "name"
+    t.integer  "user_profile_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
 
   create_table "media_interests", :force => true do |t|
-    t.integer  "user_profile_id"
     t.string   "name"
+    t.integer  "user_profile_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
 
   create_table "media_scopes", :force => true do |t|
-    t.integer  "user_profile_id"
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "media_scopes_user_profiles", :id => false, :force => true do |t|
+    t.integer  "media_scope_id"
+    t.integer  "user_profile_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
 
   create_table "media_types", :force => true do |t|
-    t.integer  "user_profile_id"
     t.string   "name"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "roles", :force => true do |t|
@@ -67,8 +84,8 @@ ActiveRecord::Schema.define(:version => 20130727194942) do
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "sectors", :force => true do |t|
-    t.integer  "user_profile_id"
     t.string   "name"
+    t.integer  "user_profile_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -94,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20130727194942) do
     t.string   "google_plus"
     t.string   "rep_name"
     t.string   "rep_email"
+    t.integer  "media_type_id"
     t.datetime "established"
     t.text     "mission_statement"
     t.integer  "membership_number"

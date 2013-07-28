@@ -1,0 +1,151 @@
+<% content_for :map do %>
+  <%= gmaps(
+          map_options: {
+              center_latitude: 41.637255074888465,
+              center_longitude: 21.741941953124297,
+              detect_location: false,
+              center_on_user: false,
+              auto_adjust: false,
+              auto_zoom: true,
+              zoom: 8,
+              type: 'ROADMAP',
+              raw: '{zoomControl: false, panControl: false, streetViewControl: false, mapTypeControl: false,
+            styles: styles}'
+          },
+          markers: {
+              data: @json
+          }
+      ) %>
+<% end %>
+
+<%= minimal_nested_form_for [resource_name, resource.with_user_profile],
+             url: registration_path(resource_name),
+             html: { class: 'form-vertical' } do |f| %>
+  <div class="span4">
+    <h4>1. Fill in your login details</h4>
+    <hr>
+    <%= f.error_notification %>
+    <%= display_base_errors resource %>
+    <%= f.input :name,
+                autofocus: true %>
+    <%= f.input :email,
+                required: true %>
+    <%= f.input :password,
+                required: true %>
+    <%= f.input :password_confirmation,
+                required: true %>
+  </div>
+  <div class="span4">
+    <h4>2. Choose your profile type</h4>
+    <hr>
+    <ul class="nav nav-pills nav-stacked" id="profile-type-select">
+      <li data-type="ngo">
+        <a href="#">NGO</a>
+      </li>
+      <li data-type="expert">
+        <a href="#">Expert</a>
+      </li>
+      <li data-type="institution">
+        <a href="#">Institution</a>
+      </li>
+      <li data-type="media">
+        <a href="#">Media</a>
+      </li>
+    </ul>
+  </div>
+  <div class="span4">
+    <h4>3. Give us some specifics</h4>
+    <hr>
+    <div class="form-inputs dynamic-form-inputs">
+      <%= f.simple_fields_for :user_profile do |builder| %>
+        <%= render 'user_profile_fields',
+                   f: builder %>
+      <% end %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit,
+                   'Sign up',
+                   class: 'btn-primary' %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  var styles = [
+    {
+      featureType: 'water',
+      elementType: 'all',
+      stylers: [
+        { hue: '#A9C3CE' },
+        { saturation: -39 },
+        { lightness: -3 },
+        { visibility: 'on' }
+      ]
+    },
+    {
+      featureType: 'landscape',
+      elementType: 'all',
+      stylers: [
+        { hue: '#C6D3C4' },
+        { saturation: -46 },
+        { lightness: -10 },
+        { visibility: 'on' }
+      ]
+    },
+    {
+      featureType: 'road',
+      elementType: 'all',
+      stylers: [
+        { hue: '#B39EC3' },
+        { saturation: -76 },
+        { lightness: 14 },
+        { visibility: 'on' }
+      ]
+    },
+    {
+      featureType: 'poi',
+      elementType: 'all',
+      stylers: [
+        { hue: '#C5C780' },
+        { saturation: -10 },
+        { lightness: -18 },
+        { visibility: 'on' }
+      ]
+    },
+    {
+      featureType: 'administrative.province',
+      elementType: 'all',
+      stylers: [
+        { hue: '#68A661' },
+        { saturation: 28 },
+        { lightness: 1 },
+        { visibility: 'on' }
+      ]
+    },
+    {
+      featureType: 'administrative.country',
+      elementType: 'all',
+      stylers: [
+        { hue: '#68A661' },
+        { saturation: 28 },
+        { lightness: 1 },
+        { visibility: 'on' }
+      ]
+    }
+  ]
+
+  var type;
+
+  $(document).ready(function() {
+    $('body').on("click", "#profile-type-select > li > a", function(e) {
+      e.preventDefault();
+      $('#profile-type-select').find('li').removeClass('active');
+      $(this).closest('li').addClass('active');
+      type = $(this).closest('li').attr('data-type');
+      $('.dynamic-form-inputs').find('.control-group').fadeOut('fast');
+      $('.dynamic-form-inputs').find('.' + type).closest('.control-group').fadeIn('fast');
+    });
+  });
+
+</script>

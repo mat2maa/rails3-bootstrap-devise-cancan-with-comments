@@ -15,8 +15,17 @@ gem 'cancan'
 gem 'devise'
 gem 'figaro'
 gem 'rolify'
-gem 'simple_form'
 gem 'yaml_db'
+
+# Forms
+gem 'simple_form'
+gem 'country-select'
+
+# Nested Forms
+gem 'nested_form'
+
+# Attachments
+gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 
 # Geo-coordinates and Google Maps
 gem 'geocoder'

@@ -1,6 +1,6 @@
 class Sector < ActiveRecord::Base
 
-  belongs_to :user_profile
+  has_many :user_profiles
 
-  attr_accessible :name, :user_profile_id
+  attr_accessible :name
 end
