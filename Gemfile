@@ -9,6 +9,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# Basics, authentication, user sessions, roles etc
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'cancan'
@@ -23,6 +24,12 @@ gem 'country-select'
 
 # Nested Forms
 gem 'nested_form'
+
+# Better select boxes
+gem 'select2-rails'
+
+# Bootstrap date picker
+gem 'bootstrap-datepicker-rails'
 
 # Attachments
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'

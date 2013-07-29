@@ -1,0 +1,82 @@
+var styles = [
+  {
+    featureType: 'water',
+    elementType: 'all',
+    stylers: [
+      { hue: '#A9C3CE' },
+      { saturation: -39 },
+      { lightness: -3 },
+      { visibility: 'on' }
+    ]
+  },
+  {
+    featureType: 'landscape',
+    elementType: 'all',
+    stylers: [
+      { hue: '#C6D3C4' },
+      { saturation: -46 },
+      { lightness: -10 },
+      { visibility: 'on' }
+    ]
+  },
+  {
+    featureType: 'road',
+    elementType: 'all',
+    stylers: [
+      { hue: '#B39EC3' },
+      { saturation: -76 },
+      { lightness: 14 },
+      { visibility: 'on' }
+    ]
+  },
+  {
+    featureType: 'poi',
+    elementType: 'all',
+    stylers: [
+      { hue: '#C5C780' },
+      { saturation: -10 },
+      { lightness: -18 },
+      { visibility: 'on' }
+    ]
+  },
+  {
+    featureType: 'administrative.province',
+    elementType: 'all',
+    stylers: [
+      { hue: '#68A661' },
+      { saturation: 28 },
+      { lightness: 1 },
+      { visibility: 'on' }
+    ]
+  },
+  {
+    featureType: 'administrative.country',
+    elementType: 'all',
+    stylers: [
+      { hue: '#68A661' },
+      { saturation: 28 },
+      { lightness: 1 },
+      { visibility: 'on' }
+    ]
+  }
+]
+
+var type;
+
+$(document).ready(function() {
+
+  $('body').on("click", "#profile-type-select > li > a", function(e) {
+    e.preventDefault();
+    $('#profile-type-select').find('li').removeClass('active');
+    $(this).closest('li').addClass('active');
+    type = $(this).closest('li').attr('data-type');
+    $('.dynamic-form').fadeIn('fast');
+    $('.dynamic-form-inputs')
+        .find('.controls-row').fadeOut('fast')
+        .find('.' + type).closest('.controls-row').fadeIn('fast');
+  });
+
+  //enable chosen js
+  $('.select2').select2();
+
+});

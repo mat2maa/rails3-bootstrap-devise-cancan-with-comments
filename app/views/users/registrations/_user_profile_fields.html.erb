@@ -1,72 +1,209 @@
-<%= f.input :name, input_html: { class: 'ngo institution media' } %>
-<%= f.input :address, input_html: { class: 'ngo institution media' } %>
-<%= f.input :municipality, input_html: { class: 'ngo institution media' } %>
-<%= f.input :city, input_html: { class: 'ngo institution media' } %>
-<%= f.input :post_code, input_html: { class: 'ngo institution media' } %>
-<%= f.input :country, input_html: { class: 'ngo institution media' } %>
-<%= f.input :website, input_html: { class: 'ngo institution media' } %>
-<%= f.input :email, input_html: { class: 'ngo institution media' } %>
-<%= f.input :phone, input_html: { class: 'ngo institution media' } %>
-<%= f.input :mobile, input_html: { class: 'ngo institution media' } %>
-<%= f.input :fax, input_html: { class: 'ngo institution media' } %>
-<%= f.input :facebook, input_html: { class: 'ngo institution media' } %>
-<%= f.input :twitter, input_html: { class: 'ngo institution media' } %>
-<%= f.input :linked_in, input_html: { class: 'ngo institution media' } %>
-<%= f.input :skype, input_html: { class: 'ngo institution media' } %>
-<%= f.input :google_plus, input_html: { class: 'ngo institution media' } %>
-<%= f.input :rep_name, input_html: { class: 'ngo expert institution media' } %>
-<%= f.input :rep_email, input_html: { class: 'ngo expert institution media' } %>
-<%= f.input :activities,
-            as: :select,
-            multiple: true,
-            collection: Activity.order('name'),
-            input_html: { class: 'ngo' } %>
-<%= f.input :expertises,
-            as: :select,
-            multiple: true,
-            collection: Expertise.order('name'),
-            input_html: { class: 'expert' } %>
-<%= f.simple_fields_for :interests do |builder| %>
-  <%= builder.input :name,
-                    input_html: { class: 'organization' } %>
-  <%= builder.link_to_remove "Remove this interest" %>
-<% end %>
-<p><%= f.link_to_add "Add an interest", :interests %></p>
+<div class="controls controls-row">
+  <%= f.input_field :name,
+                    placeholder: 'Name',
+                    class: 'ngo institution media span4' %>
+</div>
+<div class="controls controls-row">
+  <h5 class="controls-row-header">Address</h5>
+  <%= f.input_field :address,
+                    placeholder: 'Address first line',
+                    class: 'ngo institution media span4' %>
+  <%= f.input_field :municipality,
+                    placeholder: 'Municipality',
+                    class: 'ngo institution media span4' %>
+  <%= f.input_field :city,
+                    placeholder: 'City',
+                    class: 'ngo institution media span4' %>
+</div>
+<div class="controls controls-row">
+  <%= f.input_field :post_code,
+                    placeholder: 'Post code',
+                    class: 'ngo institution media span4' %>
+  <%= f.input_field :country,
+                    placeholder: 'Country',
+                    class: 'ngo institution media select2 span4' %>
+</div>
+<div class="controls controls-row">
+  <h5 class="controls-row-header">Web</h5>
+  <%= f.input_field :website,
+                    placeholder: 'Website',
+                    class: 'ngo institution media span4' %>
+  <%= f.input_field :email,
+                    placeholder: 'Email',
+                    class: 'ngo institution media span4' %>
+</div>
+<div class="controls controls-row">
+  <h5 class="controls-row-header">Contact</h5>
+  <%= f.input_field :phone,
+                    placeholder: 'Phone number',
+                    class: 'ngo institution media span4' %>
+  <%= f.input_field :mobile,
+                    placeholder: 'Mobile number',
+                    class: 'ngo institution media span4' %>
+  <%= f.input_field :fax,
+                    placeholder: 'Fax',
+                    class: 'ngo institution media span4' %>
+</div>
+<div class="controls controls-row">
+  <h5 class="controls-row-header">Social</h5>
+  <%= f.input_field :facebook,
+                    placeholder: 'Facebook profile',
+                    class: 'ngo institution media span4' %>
+  <%= f.input_field :twitter,
+                    placeholder: 'Twitter profile',
+                    class: 'ngo institution media span4' %>
+  <%= f.input_field :linked_in,
+                    placeholder: 'LinkedIn profile',
+                    class: 'ngo institution media span4' %>
+</div>
+<div class="controls controls-row">
+  <%= f.input_field :skype,
+                    placeholder: 'Skype ID',
+                    class: 'ngo institution media span4' %>
+  <%= f.input_field :google_plus,
+                    placeholder: 'Google+ profile',
+                    class: 'ngo institution media span4' %>
+</div>
+<div class="controls controls-row">
+  <h5 class="controls-row-header">Your representative</h5>
+  <%= f.input_field :rep_name,
+                    placeholder: 'Name of your representative',
+                    class: 'ngo expert institution media span4' %>
+  <%= f.input_field :rep_email,
+                    placeholder: 'Email of your representative',
+                    class: 'ngo expert institution media span4' %>
+</div>
+<div class="controls controls-row">
+  <h5 class="controls-row-header">Your areas of activity</h5>
+  <div class="select2-container-outer span4">
+    <%= f.input_field :activities,
+                      as: :select,
+                      multiple: true,
+                      collection: Activity.order('name'),
+                      placeholder: 'Activities',
+                      class: 'ngo select2 span4' %>
+  </div>
+</div>
+<div class="controls controls-row">
+  <h5 class="controls-row-header">Your areas of expertise</h5>
+  <div class="select2-container-outer span4">
+    <%= f.input_field :expertises,
+                      as: :select,
+                      multiple: true,
+                      collection: Expertise.order('name'),
+                      placeholder: 'Expertise',
+                      class: 'expert select2 span4' %>
+  </div>
+</div>
+<div class="controls controls-row">
+  <h5 class="controls-row-header institution">Your areas of interest</h5>
+  <%= f.simple_fields_for :interests do |builder| %>
+    <%= builder.input_field :name,
+                            class: 'span4 nested-builder' %>
+    <%= builder.link_to_remove "Remove this interest" %>
+  <% end %>
+  <p><%= f.link_to_add "Add an interest", :interests %></p>
 
-<%= f.simple_fields_for :sectors do |builder| %>
-  <%= builder.input :name,
-                    input_html: { class: 'organization' } %>
-  <%= builder.link_to_remove "Remove this sector" %>
-<% end %>
-<p><%= f.link_to_add "Add a sector", :sectors %></p>
+</div>
+<div class="controls controls-row">
+  <h5 class="controls-row-header institution">Media sectors</h5>
+  <%= f.simple_fields_for :sectors do |builder| %>
+    <%= builder.input_field :name,
+                            class: 'span4 nested-builder' %>
+    <%= builder.link_to_remove "Remove this sector" %>
+  <% end %>
+  <p><%= f.link_to_add "Add a sector", :sectors %></p>
 
-<%= f.simple_fields_for :media_interests do |builder| %>
-  <%= builder.input :name,
-                    input_html: { class: 'media' } %>
-  <%= builder.link_to_remove "Remove this media interest" %>
-<% end %>
-<p><%= f.link_to_add "Add a media interest", :media_interests %></p>
+</div>
+<div class="controls controls-row">
+  <h5 class="controls-row-header media">Your areas of interest</h5>
+  <%= f.simple_fields_for :media_interests do |builder| %>
+    <%= builder.input_field :name,
+                      class: 'span4 nested-builder' %>
+    <%= builder.link_to_remove "Remove this media interest" %>
+  <% end %>
+  <p><%= f.link_to_add "Add a media interest", :media_interests %></p>
 
-<%= f.input :media_scopes,
-            as: :select,
-            multiple: true,
-            collection: MediaScope.order('name'),
-            input_html: { class: 'media' } %>
-<%= f.input :media_type_id,
-            as: :select,
-            collection: MediaType.order('name'),
-            input_html: { class: 'media' } %>
-<%= f.input :established, input_html: { class: 'ngo' } %>
-<%= f.input :mission_statement, input_html: { class: 'ngo' } %>
-<%= f.input :membership_number, input_html: { class: 'ngo' } %>
-<%= f.input :personnel_number, input_html: { class: 'ngo' } %>
-<%= f.input :head_local_projects, input_html: { class: 'ngo' } %>
-<%= f.input :head_national_projects, input_html: { class: 'ngo' } %>
-<%= f.input :head_regional_projects, input_html: { class: 'ngo' } %>
-<%= f.input :head_international_projects, input_html: { class: 'ngo' } %>
-<%= f.input :partner_local_projects, input_html: { class: 'ngo' } %>
-<%= f.input :partner_national_projects, input_html: { class: 'ngo' } %>
-<%= f.input :partner_regional_projects, input_html: { class: 'ngo' } %>
-<%= f.input :partner_international_projects, input_html: { class: 'ngo' } %>
-<%= f.input :previous_year_budget, input_html: { class: 'ngo' } %>
-<%= f.input :gef_recipient, input_html: { class: 'ngo' } %>
+</div>
+<div class="controls controls-row">
+  <h5 class="controls-row-header">Media information</h5>
+  <div class="select2-container-outer span4">
+    <%= f.input_field :media_scopes,
+                      as: :select,
+                      multiple: true,
+                      collection: MediaScope.order('name'),
+                      placeholder: 'Media scope',
+                      class: 'media select2 span4' %>
+  </div>
+  <%= f.input_field :media_type_id,
+                    as: :select,
+                    collection: MediaType.order('name'),
+                    placeholder: 'Medium',
+                    class: 'media select2 span4' %>
+</div>
+<div class="controls controls-row">
+
+  <div class="input-append date span2 datepicker" id="established-datepicker" data-date-format="dd-mm-yyyy">
+    <%= f.text_field :established,
+                     placeholder: 'Date of establishment',
+                     class: 'ngo span2' %>
+    <span class="add-on">
+      <i class="icon-th"></i>
+    </span>
+  </div>
+</div>
+<div class="controls controls-row">
+  <%= f.input_field :mission_statement,
+                    placeholder: '',
+                    class: 'ngo span12',
+                    rows: 6 %>
+</div>
+<div class="controls controls-row">
+  <%= f.input_field :membership_number,
+                    placeholder: 'Membership number',
+                    class: 'ngo span4' %>
+  <%= f.input_field :personnel_number,
+                    placeholder: 'Personnel number',
+                    class: 'ngo span4' %>
+  <%= f.input_field :previous_year_budget,
+                    placeholder: 'Budget for the previous year',
+                    class: 'ngo span4' %>
+</div>
+<div class="controls controls-row">
+  <%= f.input_field :head_local_projects,
+                    placeholder: 'Local projects as head organization',
+                    class: 'ngo span3' %>
+  <%= f.input_field :head_national_projects,
+                    placeholder: 'National projects as head organization',
+                    class: 'ngo span3' %>
+  <%= f.input_field :head_regional_projects,
+                    placeholder: 'Regional projects as head organization',
+                    class: 'ngo span3' %>
+  <%= f.input_field :head_international_projects,
+                    placeholder: 'International projects as head organization',
+                    class: 'ngo span3' %>
+</div>
+<div class="controls controls-row">
+  <%= f.input_field :partner_local_projects,
+                    placeholder: 'Local projects as partner organization',
+                    class: 'ngo span3' %>
+  <%= f.input_field :partner_national_projects,
+                    placeholder: 'National projects as partner organization',
+                    class: 'ngo span3' %>
+  <%= f.input_field :partner_regional_projects,
+                    placeholder: 'Regional projects as partner organization',
+                    class: 'ngo span3' %>
+  <%= f.input_field :partner_international_projects,
+                    placeholder: 'International projects as partner organization',
+                    class: 'ngo span3' %>
+</div>
+<div class="controls controls-row">
+  <%= f.input :gef_recipient,
+              label: 'Are you a recipient of a GEF grant?',
+              class: 'ngo' %>
+</div>
+
+
+<script type="text/javascript">
+  $('#established-datepicker').datepicker();
+</script>

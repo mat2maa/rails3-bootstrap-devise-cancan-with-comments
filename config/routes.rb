@@ -23,10 +23,17 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   resources :user_profiles
 
 
-  authenticated :user do
-    root :to => 'home#index'
-  end
-  root :to => "home#index"
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
+
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'home#index'
+    end
+    unauthenticated :user do
+      root :to => 'users/registrations#new'
+    end
+    root :to => 'users/registrations#new'
+  end
+
   resources :users
 end

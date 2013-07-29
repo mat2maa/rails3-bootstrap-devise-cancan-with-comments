@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(:version => 20130728185436) do
     t.integer  "user_id"
     t.string   "type"
     t.string   "name"
-    t.text     "address"
+    t.string   "address"
     t.string   "municipality"
     t.string   "city"
     t.string   "post_code"

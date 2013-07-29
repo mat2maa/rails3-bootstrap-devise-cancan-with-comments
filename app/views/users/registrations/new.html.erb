@@ -19,23 +19,31 @@
 <% end %>
 
 <%= minimal_nested_form_for [resource_name, resource.with_user_profile],
-             url: registration_path(resource_name),
-             html: { class: 'form-vertical' } do |f| %>
-  <div class="span4">
+                            url: registration_path(resource_name),
+                            html: {class: 'form-vertical'} do |f| %>
+  <div class="span6">
     <h4>1. Fill in your login details</h4>
     <hr>
     <%= f.error_notification %>
     <%= display_base_errors resource %>
-    <%= f.input :name,
-                autofocus: true %>
-    <%= f.input :email,
-                required: true %>
-    <%= f.input :password,
-                required: true %>
-    <%= f.input :password_confirmation,
-                required: true %>
+    <%= f.input_field :name,
+                      class: 'span4',
+                      placeholder: 'Name',
+                      autofocus: true %>
+    <%= f.input_field :email,
+                      class: 'span4',
+                      placeholder: 'Email',
+                      required: true %>
+    <%= f.input_field :password,
+                      class: 'span4',
+                      placeholder: 'Password',
+                      required: true %>
+    <%= f.input_field :password_confirmation,
+                      class: 'span4',
+                      placeholder: 'Password confirmation',
+                      required: true %>
   </div>
-  <div class="span4">
+  <div class="span6">
     <h4>2. Choose your profile type</h4>
     <hr>
     <ul class="nav nav-pills nav-stacked" id="profile-type-select">
@@ -53,7 +61,7 @@
       </li>
     </ul>
   </div>
-  <div class="span4">
+  <div class="span12 dynamic-form" style="display:none;">
     <h4>3. Give us some specifics</h4>
     <hr>
     <div class="form-inputs dynamic-form-inputs">
@@ -68,84 +76,5 @@
                    'Sign up',
                    class: 'btn-primary' %>
     </div>
-  <% end %>
+<% end %>
 </div>
-
-<script>
-  var styles = [
-    {
-      featureType: 'water',
-      elementType: 'all',
-      stylers: [
-        { hue: '#A9C3CE' },
-        { saturation: -39 },
-        { lightness: -3 },
-        { visibility: 'on' }
-      ]
-    },
-    {
-      featureType: 'landscape',
-      elementType: 'all',
-      stylers: [
-        { hue: '#C6D3C4' },
-        { saturation: -46 },
-        { lightness: -10 },
-        { visibility: 'on' }
-      ]
-    },
-    {
-      featureType: 'road',
-      elementType: 'all',
-      stylers: [
-        { hue: '#B39EC3' },
-        { saturation: -76 },
-        { lightness: 14 },
-        { visibility: 'on' }
-      ]
-    },
-    {
-      featureType: 'poi',
-      elementType: 'all',
-      stylers: [
-        { hue: '#C5C780' },
-        { saturation: -10 },
-        { lightness: -18 },
-        { visibility: 'on' }
-      ]
-    },
-    {
-      featureType: 'administrative.province',
-      elementType: 'all',
-      stylers: [
-        { hue: '#68A661' },
-        { saturation: 28 },
-        { lightness: 1 },
-        { visibility: 'on' }
-      ]
-    },
-    {
-      featureType: 'administrative.country',
-      elementType: 'all',
-      stylers: [
-        { hue: '#68A661' },
-        { saturation: 28 },
-        { lightness: 1 },
-        { visibility: 'on' }
-      ]
-    }
-  ]
-
-  var type;
-
-  $(document).ready(function() {
-    $('body').on("click", "#profile-type-select > li > a", function(e) {
-      e.preventDefault();
-      $('#profile-type-select').find('li').removeClass('active');
-      $(this).closest('li').addClass('active');
-      type = $(this).closest('li').attr('data-type');
-      $('.dynamic-form-inputs').find('.control-group').fadeOut('fast');
-      $('.dynamic-form-inputs').find('.' + type).closest('.control-group').fadeIn('fast');
-    });
-  });
-
-</script>

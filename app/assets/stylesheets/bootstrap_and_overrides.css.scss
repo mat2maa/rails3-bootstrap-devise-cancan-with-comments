@@ -1,6 +1,39 @@
 @import "bootstrap";
-body { padding-top: 40px; }
 
+// Body needs padding top to go below fixed top nav
+body {
+  padding-top: 104px;
+}
+
+#main {
+  background-color:#efefef;
+}
+
+// Thick green line under top nav
+.navbar-inverse .navbar-inner {
+  border-color: #00FF00;
+}
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+  border-width: 0 0 2px;
+}
+
+// Navbar text
+.brand-text-outer {
+  display:table;
+  height: 104px;
+  padding: 0 10px;
+}
+.brand-text-outer .brand-text {
+  font-size: 18px;
+  line-height: 18px;
+  display:table-cell;
+  vertical-align: middle;
+}
+.navbar-inverse .brand-text-outer .brand-text {
+  color: white;
+}
+
+// Main content colours/styles
 .content {
   background-color: transparent;
   -webkit-box-shadow: none;
@@ -8,11 +41,59 @@ body { padding-top: 40px; }
   box-shadow: none;
 }
 
+// 100% map width
+.map_container {
+  border-color: #00FF00;
+  border-width: 0 0 2px;
+  border-style: solid;
+}
 #map img {
   max-width: none;
 }
 #map label {
   width: auto; display:inline;
 }
+
+// Stop first input element being out of line with others in a controls-row group
+.controls-row .media:first-child {
+  margin-top: 15px;
+}
+.controls-row-header {
+  margin:20px 0 0 0;
+}
+
+// Select2 overrides
+.select2-container .select2-choice {
+  margin-top:15px;
+  height: 28px;
+}
+.select2-container-outer {
+  margin:15px 0px 10px 0px !important;
+}
+.select2-container-multi .select2-choices {
+  border:1px solid #cccccc !important;
+  border-radius: 4px 4px 4px 4px;
+}
+.select2-container-multi.select2-container-active .select2-choices {
+  border:1px solid #5897fb !important;
+  border-radius: 4px 4px 0 0;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+// Nested builders
+.nested-builder {
+  float:none !important;
+  margin-top:15px !important;
+  margin-right:15px;
+}
+
+// Datepickers
+.datepicker {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
 
 @import "bootstrap-responsive";
