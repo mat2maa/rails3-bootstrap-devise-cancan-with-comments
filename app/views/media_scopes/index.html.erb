@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>User profile</th>
+    <th>User profiles</th>
     <th>Name</th>
     <th></th>
     <th></th>
@@ -11,7 +11,7 @@
 
 <% @media_scopes.each do |media_scope| %>
   <tr>
-    <td><%= media_scope.user_profile_id %></td>
+    <td><%= media_scope.user_profiles %></td>
     <td><%= media_scope.name %></td>
     <td><%= link_to 'Show', media_scope %></td>
     <td><%= link_to 'Edit', edit_media_scope_path(media_scope) %></td>

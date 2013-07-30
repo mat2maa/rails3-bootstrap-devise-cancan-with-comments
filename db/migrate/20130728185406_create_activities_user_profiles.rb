@@ -3,8 +3,6 @@ class CreateActivitiesUserProfiles < ActiveRecord::Migration
     create_table :activities_user_profiles, :id => false, :force => true do |t|
       t.integer :activity_id
       t.integer :user_profile_id
-
-      t.timestamps
     end
   end
 

@@ -20,10 +20,8 @@ ActiveRecord::Schema.define(:version => 20130730080750) do
   end
 
   create_table "activities_user_profiles", :id => false, :force => true do |t|
-    t.integer  "activity_id"
-    t.integer  "user_profile_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer "activity_id"
+    t.integer "user_profile_id"
   end
 
   create_table "administrators", :force => true do |t|
@@ -38,10 +36,8 @@ ActiveRecord::Schema.define(:version => 20130730080750) do
   end
 
   create_table "expertises_user_profiles", :id => false, :force => true do |t|
-    t.integer  "expertise_id"
-    t.integer  "user_profile_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer "expertise_id"
+    t.integer "user_profile_id"
   end
 
   create_table "interests", :force => true do |t|
@@ -65,10 +61,8 @@ ActiveRecord::Schema.define(:version => 20130730080750) do
   end
 
   create_table "media_scopes_user_profiles", :id => false, :force => true do |t|
-    t.integer  "media_scope_id"
-    t.integer  "user_profile_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer "media_scope_id"
+    t.integer "user_profile_id"
   end
 
   create_table "media_types", :force => true do |t|

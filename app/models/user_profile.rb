@@ -17,6 +17,7 @@ class UserProfile < ActiveRecord::Base
                   :media_interests_attributes, :activity_ids, :expertise_ids, :media_scope_ids
 
   validates_presence_of :address, :city, :country, :name, :rep_email, :rep_name, :type
+  validates_uniqueness_of :name, :rep_email
 
   accepts_nested_attributes_for :interests,
                                 allow_destroy: true

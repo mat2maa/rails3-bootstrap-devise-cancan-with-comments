@@ -20,7 +20,8 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   resources :activities
 
 
-  resources :user_profiles
+  resources :user_profiles,
+            except: [:new]
 
 
   resources :home

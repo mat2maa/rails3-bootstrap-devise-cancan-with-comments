@@ -1,9 +1,10 @@
 class MediaScopesController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
+
   # GET /media_scopes
   # GET /media_scopes.json
   def index
-    @media_scopes = MediaScope.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @media_scopes }
@@ -13,8 +14,6 @@ class MediaScopesController < ApplicationController
   # GET /media_scopes/1
   # GET /media_scopes/1.json
   def show
-    @media_scope = MediaScope.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @media_scope }
@@ -24,8 +23,6 @@ class MediaScopesController < ApplicationController
   # GET /media_scopes/new
   # GET /media_scopes/new.json
   def new
-    @media_scope = MediaScope.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @media_scope }
@@ -34,14 +31,11 @@ class MediaScopesController < ApplicationController
 
   # GET /media_scopes/1/edit
   def edit
-    @media_scope = MediaScope.find(params[:id])
   end
 
   # POST /media_scopes
   # POST /media_scopes.json
   def create
-    @media_scope = MediaScope.new(params[:media_scope])
-
     respond_to do |format|
       if @media_scope.save
         format.html { redirect_to @media_scope, notice: 'Media scope was successfully created.' }
@@ -56,8 +50,6 @@ class MediaScopesController < ApplicationController
   # PUT /media_scopes/1
   # PUT /media_scopes/1.json
   def update
-    @media_scope = MediaScope.find(params[:id])
-
     respond_to do |format|
       if @media_scope.update_attributes(params[:media_scope])
         format.html { redirect_to @media_scope, notice: 'Media scope was successfully updated.' }
@@ -72,7 +64,6 @@ class MediaScopesController < ApplicationController
   # DELETE /media_scopes/1
   # DELETE /media_scopes/1.json
   def destroy
-    @media_scope = MediaScope.find(params[:id])
     @media_scope.destroy
 
     respond_to do |format|

@@ -1,9 +1,10 @@
 class SectorsController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
+
   # GET /sectors
   # GET /sectors.json
   def index
-    @sectors = Sector.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sectors }
@@ -13,8 +14,6 @@ class SectorsController < ApplicationController
   # GET /sectors/1
   # GET /sectors/1.json
   def show
-    @sector = Sector.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @sector }
@@ -24,8 +23,6 @@ class SectorsController < ApplicationController
   # GET /sectors/new
   # GET /sectors/new.json
   def new
-    @sector = Sector.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @sector }
@@ -34,14 +31,11 @@ class SectorsController < ApplicationController
 
   # GET /sectors/1/edit
   def edit
-    @sector = Sector.find(params[:id])
   end
 
   # POST /sectors
   # POST /sectors.json
   def create
-    @sector = Sector.new(params[:sector])
-
     respond_to do |format|
       if @sector.save
         format.html { redirect_to @sector, notice: 'Sector was successfully created.' }
@@ -56,8 +50,6 @@ class SectorsController < ApplicationController
   # PUT /sectors/1
   # PUT /sectors/1.json
   def update
-    @sector = Sector.find(params[:id])
-
     respond_to do |format|
       if @sector.update_attributes(params[:sector])
         format.html { redirect_to @sector, notice: 'Sector was successfully updated.' }
@@ -72,7 +64,6 @@ class SectorsController < ApplicationController
   # DELETE /sectors/1
   # DELETE /sectors/1.json
   def destroy
-    @sector = Sector.find(params[:id])
     @sector.destroy
 
     respond_to do |format|

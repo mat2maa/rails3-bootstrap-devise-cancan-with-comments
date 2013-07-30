@@ -2,7 +2,6 @@
 
 <table>
   <tr>
-    <th>User profile</th>
     <th>Name</th>
     <th></th>
     <th></th>
@@ -11,7 +10,6 @@
 
 <% @media_types.each do |media_type| %>
   <tr>
-    <td><%= media_type.user_profile_id %></td>
     <td><%= media_type.name %></td>
     <td><%= link_to 'Show', media_type %></td>
     <td><%= link_to 'Edit', edit_media_type_path(media_type) %></td>

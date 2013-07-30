@@ -9,6 +9,11 @@ body {
   background-color:#efefef;
 }
 
+hr {
+  border-color:#0088cc;
+  border-bottom:none;
+}
+
 #main {
   background-color:#efefef;
 }
@@ -19,6 +24,16 @@ body {
 }
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
   border-width: 0 0 2px;
+}
+
+.nav-pills.nav-stacked > li > a:hover {
+  color:#666666;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  color: white;
 }
 
 // Navbar text
@@ -63,9 +78,6 @@ body {
 
 // 100% map width
 .map_container {
-  border-color: #00FF00;
-  border-width: 0 0 2px;
-  border-style: solid;
 }
 #map img {
   max-width: none;

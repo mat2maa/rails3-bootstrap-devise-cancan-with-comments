@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <% @user_profile_id = UserProfile.where('user_id = ?', current_user.id).first.id %>
+  <% @user_profile = UserProfile.where(user_id: current_user.id).first %>
 <% end %>
 <ul class="nav">
   <% if user_signed_in? %>
@@ -10,7 +10,7 @@
       <%= link_to 'Edit account', edit_user_registration_path %>
     </li>
     <li>
-      <%= link_to 'Edit user profile', edit_user_profile_path(@user_profile_id) %>
+      <%= link_to 'Edit user profile', edit_user_profile_path(@user_profile.id) %>
     </li>
     <% if current_user.has_role? :admin %>
       <li>

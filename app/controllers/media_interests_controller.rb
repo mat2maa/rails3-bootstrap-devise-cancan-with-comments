@@ -1,9 +1,10 @@
 class MediaInterestsController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
+
   # GET /media_interests
   # GET /media_interests.json
   def index
-    @media_interests = MediaInterest.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @media_interests }
@@ -13,8 +14,6 @@ class MediaInterestsController < ApplicationController
   # GET /media_interests/1
   # GET /media_interests/1.json
   def show
-    @media_interest = MediaInterest.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @media_interest }
@@ -24,8 +23,6 @@ class MediaInterestsController < ApplicationController
   # GET /media_interests/new
   # GET /media_interests/new.json
   def new
-    @media_interest = MediaInterest.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @media_interest }
@@ -34,14 +31,11 @@ class MediaInterestsController < ApplicationController
 
   # GET /media_interests/1/edit
   def edit
-    @media_interest = MediaInterest.find(params[:id])
   end
 
   # POST /media_interests
   # POST /media_interests.json
   def create
-    @media_interest = MediaInterest.new(params[:media_interest])
-
     respond_to do |format|
       if @media_interest.save
         format.html { redirect_to @media_interest, notice: 'Media interest was successfully created.' }
@@ -56,8 +50,6 @@ class MediaInterestsController < ApplicationController
   # PUT /media_interests/1
   # PUT /media_interests/1.json
   def update
-    @media_interest = MediaInterest.find(params[:id])
-
     respond_to do |format|
       if @media_interest.update_attributes(params[:media_interest])
         format.html { redirect_to @media_interest, notice: 'Media interest was successfully updated.' }
@@ -72,7 +64,6 @@ class MediaInterestsController < ApplicationController
   # DELETE /media_interests/1
   # DELETE /media_interests/1.json
   def destroy
-    @media_interest = MediaInterest.find(params[:id])
     @media_interest.destroy
 
     respond_to do |format|

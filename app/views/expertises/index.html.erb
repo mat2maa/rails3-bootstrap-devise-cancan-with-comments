@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>User profile</th>
+    <th>User profiles</th>
     <th>Name</th>
     <th></th>
     <th></th>
@@ -11,7 +11,7 @@
 
 <% @expertises.each do |expertise| %>
   <tr>
-    <td><%= expertise.user_profile_id %></td>
+    <td><%= expertise.user_profiles %></td>
     <td><%= expertise.name %></td>
     <td><%= link_to 'Show', expertise %></td>
     <td><%= link_to 'Edit', edit_expertise_path(expertise) %></td>

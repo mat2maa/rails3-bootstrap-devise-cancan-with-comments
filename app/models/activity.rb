@@ -1,6 +1,6 @@
 class Activity < ActiveRecord::Base
 
-  has_many :user_profiles
+  has_and_belongs_to_many :user_profiles
 
   attr_accessible :name
 end
