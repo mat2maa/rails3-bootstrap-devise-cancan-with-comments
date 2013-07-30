@@ -37,6 +37,6 @@ production:
   reconnect: false
   database: ekosfera_production
   pool: 5
-  username: ekosfera
-  password: ekosfera
+  username: ekosfera_prod
+  password: Z6TDl37d4cuX
   socket: /tmp/mysql.sock

@@ -38,6 +38,9 @@ gem 'paperclip', '~> 2.7'
 gem 'geocoder'
 gem 'gmaps4rails'
 
+gem 'execjs'
+gem 'therubyracer'
+
 group :development do
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
   gem 'quiet_assets'
