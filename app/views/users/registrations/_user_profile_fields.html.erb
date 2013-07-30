@@ -1,27 +1,36 @@
+<%= f.hidden_field :type,
+                   class: 'ngo expert institution media',
+                   required: true %>
 <div class="controls controls-row">
   <%= f.input_field :name,
                     placeholder: 'Name',
-                    class: 'ngo institution media span4' %>
+                    class: 'ngo expert institution media span4',
+                    required: true %>
 </div>
 <div class="controls controls-row">
   <h5 class="controls-row-header">Address</h5>
   <%= f.input_field :address,
                     placeholder: 'Address first line',
-                    class: 'ngo institution media span4' %>
+                    class: 'ngo expert institution media span4',
+                    required: true %>
   <%= f.input_field :municipality,
                     placeholder: 'Municipality',
-                    class: 'ngo institution media span4' %>
+                    class: 'ngo expert institution media span4' %>
   <%= f.input_field :city,
                     placeholder: 'City',
-                    class: 'ngo institution media span4' %>
+                    class: 'ngo expert institution media span4',
+                    required: true %>
 </div>
 <div class="controls controls-row">
   <%= f.input_field :post_code,
                     placeholder: 'Post code',
-                    class: 'ngo institution media span4' %>
+                    class: 'ngo expert institution media span4' %>
   <%= f.input_field :country,
+                    collection: COUNTRIES,
                     placeholder: 'Country',
-                    class: 'ngo institution media select2 span4' %>
+                    class: 'ngo expert institution media select2 span4',
+                    required: true,
+                    selected: COUNTRIES[129] %>
 </div>
 <div class="controls controls-row">
   <h5 class="controls-row-header">Web</h5>
@@ -68,18 +77,20 @@
   <h5 class="controls-row-header">Your representative</h5>
   <%= f.input_field :rep_name,
                     placeholder: 'Name of your representative',
-                    class: 'ngo expert institution media span4' %>
+                    class: 'ngo expert institution media span4',
+                    required: true %>
   <%= f.input_field :rep_email,
                     placeholder: 'Email of your representative',
-                    class: 'ngo expert institution media span4' %>
+                    class: 'ngo expert institution media span4',
+                    required: true %>
 </div>
 <div class="controls controls-row">
   <h5 class="controls-row-header">Your areas of activity</h5>
   <div class="select2-container-outer span4">
-    <%= f.input_field :activities,
+    <%= f.input_field :activity_ids,
                       as: :select,
                       multiple: true,
-                      collection: Activity.order('name'),
+                      collection: Activity.all.collect {|c| [ c.name, c.id ] },
                       placeholder: 'Activities',
                       class: 'ngo select2 span4' %>
   </div>
@@ -87,10 +98,10 @@
 <div class="controls controls-row">
   <h5 class="controls-row-header">Your areas of expertise</h5>
   <div class="select2-container-outer span4">
-    <%= f.input_field :expertises,
+    <%= f.input_field :expertise_ids,
                       as: :select,
                       multiple: true,
-                      collection: Expertise.order('name'),
+                      collection: Expertise.all.collect {|c| [ c.name, c.id ] },
                       placeholder: 'Expertise',
                       class: 'expert select2 span4' %>
   </div>
@@ -128,10 +139,10 @@
 <div class="controls controls-row">
   <h5 class="controls-row-header">Media information</h5>
   <div class="select2-container-outer span4">
-    <%= f.input_field :media_scopes,
+    <%= f.input_field :media_scope_ids,
                       as: :select,
                       multiple: true,
-                      collection: MediaScope.order('name'),
+                      collection: MediaScope.all.collect {|c| [ c.name, c.id ] },
                       placeholder: 'Media scope',
                       class: 'media select2 span4' %>
   </div>

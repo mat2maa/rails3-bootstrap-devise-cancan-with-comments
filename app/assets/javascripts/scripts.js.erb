@@ -74,6 +74,16 @@ $(document).ready(function() {
     $('.dynamic-form-inputs')
         .find('.controls-row').fadeOut('fast')
         .find('.' + type).closest('.controls-row').fadeIn('fast');
+    if(type == 'ngo') {
+      $('#user_user_profile_attributes_type').val("NGO");
+    } else if(type == 'expert') {
+      $('#user_user_profile_attributes_type').val("Expert");
+    } else if(type == 'institution') {
+      $('#user_user_profile_attributes_type').val("Institution");
+    } else if(type == 'media') {
+      $('#user_user_profile_attributes_type').val("Medium");
+    }
+    $(document.body).animate({scrollTop: $('#new_user').offset().top - 250}, 'slow');
   });
 
   //enable chosen js

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_one :user_profile
+  has_one :user_profile, dependent: :destroy
 
   rolify
   # Include default devise modules. Others available are:
@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :user_profile_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :user_profile_attributes
 
   accepts_nested_attributes_for :user_profile
 

@@ -17,10 +17,17 @@
           }
       ) %>
 <% end %>
-
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
+<%= content_for :scripts do %>
+  <script type="text/javascript" charset="utf-8">
+    Gmaps.map.callback = function() {
+      google.maps.event.addDomListener(window, "resize", function() {
+        var map = Gmaps.map.serviceObject;
+        var center = map.getCenter();
+        google.maps.event.trigger(map, 'resize');
+        map.setCenter(center);
+      });
+    }
+  </script>
 <% end %>
 
 <script>

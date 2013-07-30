@@ -23,6 +23,8 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   resources :user_profiles
 
 
+  resources :home
+
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
   devise_scope :user do

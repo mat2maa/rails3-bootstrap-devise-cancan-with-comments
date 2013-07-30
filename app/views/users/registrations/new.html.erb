@@ -17,6 +17,18 @@
           }
       ) %>
 <% end %>
+<%= content_for :scripts do %>
+  <script type="text/javascript" charset="utf-8">
+    Gmaps.map.callback = function() {
+      google.maps.event.addDomListener(window, "resize", function() {
+        var map = Gmaps.map.serviceObject;
+        var center = map.getCenter();
+        google.maps.event.trigger(map, 'resize');
+        map.setCenter(center);
+      });
+    }
+  </script>
+<% end %>
 
 <%= minimal_nested_form_for [resource_name, resource.with_user_profile],
                             url: registration_path(resource_name),
@@ -24,24 +36,19 @@
   <div class="span6">
     <h4>1. Fill in your login details</h4>
     <hr>
+    <%= devise_error_messages! %>
     <%= f.error_notification %>
     <%= display_base_errors resource %>
-    <%= f.input_field :name,
-                      class: 'span4',
-                      placeholder: 'Name',
-                      autofocus: true %>
-    <%= f.input_field :email,
-                      class: 'span4',
-                      placeholder: 'Email',
-                      required: true %>
-    <%= f.input_field :password,
-                      class: 'span4',
-                      placeholder: 'Password',
-                      required: true %>
-    <%= f.input_field :password_confirmation,
-                      class: 'span4',
-                      placeholder: 'Password confirmation',
-                      required: true %>
+    <%= f.input :email,
+                placeholder: 'Email',
+                required: true %>
+    <p>Password must be a minimum of 6 characters</p>
+    <%= f.input :password,
+                placeholder: 'Password',
+                required: true %>
+    <%= f.input :password_confirmation,
+                placeholder: 'Password confirmation',
+                required: true %>
   </div>
   <div class="span6">
     <h4>2. Choose your profile type</h4>

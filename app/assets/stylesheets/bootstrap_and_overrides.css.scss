@@ -1,8 +1,12 @@
 @import "bootstrap";
 
 // Body needs padding top to go below fixed top nav
+html {
+  background-color:#efefef;
+}
 body {
   padding-top: 104px;
+  background-color:#efefef;
 }
 
 #main {
@@ -33,12 +37,28 @@ body {
   color: white;
 }
 
+// Footer text
+#footer .brand-text-outer {
+  display:table;
+  height: 41px;
+}
+#footer .brand-text-outer .brand-text {
+  font-size: 13px;
+  line-height: 13px;
+  display:table-cell;
+  vertical-align: middle;
+}
+#footer .navbar-inverse .brand-text-outer .brand-text {
+  color: white;
+}
+
 // Main content colours/styles
 .content {
   background-color: transparent;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  margin-bottom: 80px;
 }
 
 // 100% map width
@@ -80,6 +100,9 @@ body {
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
+}
+.select2-drop.select2-drop-above.select2-drop-active {
+  margin-top: 15px;
 }
 
 // Nested builders

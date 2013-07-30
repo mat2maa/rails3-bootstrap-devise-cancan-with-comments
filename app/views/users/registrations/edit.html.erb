@@ -1,14 +1,30 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
-  <%= f.error_notification %>
-  <%= display_base_errors resource %>
-  <%= f.input :name, :autofocus => true %>
-  <%= f.input :email, :required => true %>
-  <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
-  <%= f.input :password_confirmation, :required => false %>
-  <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
-  <%= f.button :submit, 'Update', :class => 'btn-primary' %>
+<%= minimal_nested_form_for [resource_name, resource.with_user_profile],
+                            url: registration_path(resource_name),
+                            html: {class: 'form-vertical'} do |f| %>
+  <div class="span6">
+    <h4>Update your account</h4>
+    <%= link_to "Back",
+                :back %>
+    <hr>
+    <%= devise_error_messages! %>
+    <%= f.error_notification %>
+    <%= display_base_errors resource %>
+    <%= f.input :email,
+                placeholder: 'Email',
+                required: true %>
+    <p>Password must be a minimum of 6 characters</p>
+    <%= f.input :password,
+                placeholder: 'Password',
+                autocomplete: 'off',
+                hint: "leave it blank if you don't want to change it",
+                required: false %>
+    <%= f.input :password_confirmation,
+                placeholder: 'Password confirmation',
+                required: false %>
+    <%= f.input :current_password,
+                hint: "we need your current password to confirm your changes",
+                required: true %>
+  </div>
+  <div class="span6">&nbsp;</div>
 <% end %>
-<h3>Cancel my account</h3>
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
-<%= link_to "Back", :back %>
+</div>

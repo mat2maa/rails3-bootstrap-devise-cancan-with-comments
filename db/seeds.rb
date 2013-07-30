@@ -13,12 +13,13 @@ YAML.load(ENV['ROLES']).each do |role|
   puts 'role: ' << role
 end
 puts 'DEFAULT USERS'
-user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
-puts 'user: ' << user.name
+user = User.find_or_create_by_email :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
 user.add_role :admin
 
-UserProfile.create(
+user_profile = UserProfile.create(
     user_id: user.id,
+    rep_name: ENV['ADMIN_NAME'].dup,
+    name: ENV['ADMIN_COMPANY'].dup,
     address: ENV['ADMIN_ADDRESS'].dup,
     municipality: ENV['ADMIN_MUNICIPALITY'].dup,
     city: ENV['ADMIN_CITY'].dup,
@@ -28,7 +29,8 @@ UserProfile.create(
     phone: ENV['ADMIN_PHONE'].dup,
     mobile: ENV['ADMIN_MOBILE'].dup
 )
-puts 'Added profile for user: ' << user.name
+puts 'Added profile for: ' << user_profile.rep_name
+puts 'at: ' << user_profile.name
 
 Activity.create(
     [

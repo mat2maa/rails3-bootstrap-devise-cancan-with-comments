@@ -35,6 +35,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    @json = UserProfile.all.to_gmaps4rails do |user_profile, marker|
+      marker.json(
+          {
+              user_id: user_profile.user_id,
+              name: user_profile.name
+          }
+      )
+      marker.infowindow render_to_string partial: '/user_profiles/marker', locals: { object: user_profile }
+    end
+
     build_resource
 
     if resource.save
