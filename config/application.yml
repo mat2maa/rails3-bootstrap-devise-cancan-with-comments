@@ -17,7 +17,8 @@ ADMIN_ADDRESS: 9 Varshavska,
 ADMIN_MUNICIPALITY: Taftalidze
 ADMIN_CITY: Skopje
 ADMIN_POST_CODE: 1000
-ADMIN_COUNTRY: Macedonia
+ADMIN_COUNTRY: Macedonia, The Former Yugoslav Republic Of
 ADMIN_PHONE: 0038977921796
 ADMIN_MOBILE: 0038977921796
+ADMIN_TYPE: Administrator
 ROLES: [admin, rep, user, guest]

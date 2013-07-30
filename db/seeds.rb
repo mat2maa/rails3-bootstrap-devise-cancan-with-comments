@@ -19,15 +19,12 @@ user.add_role :admin
 user_profile = UserProfile.create(
     user_id: user.id,
     rep_name: ENV['ADMIN_NAME'].dup,
+    rep_email: ENV['ADMIN_EMAIL'].dup,
     name: ENV['ADMIN_COMPANY'].dup,
     address: ENV['ADMIN_ADDRESS'].dup,
-    municipality: ENV['ADMIN_MUNICIPALITY'].dup,
     city: ENV['ADMIN_CITY'].dup,
     country: ENV['ADMIN_COUNTRY'].dup,
-    post_code: ENV['ADMIN_POST_CODE'].dup,
-    email: ENV['ADMIN_EMAIL'].dup,
-    phone: ENV['ADMIN_PHONE'].dup,
-    mobile: ENV['ADMIN_MOBILE'].dup
+    type: ENV['ADMIN_TYPE'].dup
 )
 puts 'Added profile for: ' << user_profile.rep_name
 puts 'at: ' << user_profile.name

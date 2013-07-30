@@ -17,6 +17,10 @@
         <%= link_to 'Admin', users_path %>
       </li>
     <% end %>
+  <% else %>
+    <li>
+      <%= link_to 'Login', new_user_session_path %>
+    </li>
   <% end %>
 </ul>
 <div class="brand-text-outer pull-right">
