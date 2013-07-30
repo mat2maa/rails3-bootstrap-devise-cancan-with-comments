@@ -34,42 +34,42 @@
                             url: registration_path(resource_name),
                             html: {class: 'form-vertical'} do |f| %>
   <div class="span6">
-    <h4>1. Fill in your login details</h4>
+    <h4>1. Податоци за најавување</h4>
     <hr>
     <%= devise_error_messages! %>
     <%= f.error_notification %>
     <%= display_base_errors resource %>
     <%= f.input :email,
-                placeholder: 'Email',
+                placeholder: 'имејл',
                 required: true %>
     <p>Password must be a minimum of 6 characters</p>
     <%= f.input :password,
-                placeholder: 'Password',
+                placeholder: 'лозинка',
                 required: true %>
     <%= f.input :password_confirmation,
-                placeholder: 'Password confirmation',
+                placeholder: 'потврда на лозинката',
                 required: true %>
   </div>
   <div class="span6">
-    <h4>2. Choose your profile type</h4>
+    <h4>2. Вид на профил</h4>
     <hr>
     <ul class="nav nav-pills nav-stacked" id="profile-type-select">
       <li data-type="ngo">
-        <a href="#">NGO</a>
+        <a href="#">НВО</a>
       </li>
       <li data-type="expert">
-        <a href="#">Expert</a>
+        <a href="#">експерт</a>
       </li>
       <li data-type="institution">
-        <a href="#">Institution</a>
+        <a href="#">институција</a>
       </li>
       <li data-type="media">
-        <a href="#">Media</a>
+        <a href="#">медиум</a>
       </li>
     </ul>
   </div>
   <div class="span12 dynamic-form" style="display:none;">
-    <h4>3. Give us some specifics</h4>
+    <h4>3. Други податоци</h4>
     <hr>
     <div class="form-inputs dynamic-form-inputs">
       <%= f.simple_fields_for :user_profile do |builder| %>
@@ -80,7 +80,7 @@
 
     <div class="form-actions">
       <%= f.button :submit,
-                   'Sign up',
+                   'регистрирај се',
                    class: 'btn-primary' %>
     </div>
 <% end %>

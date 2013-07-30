@@ -1,8 +1,10 @@
-<h2>Sign in</h2>
+<h2>Најавете се</h2>
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
-  <%= f.input :email, :autofocus => true %>
-  <%= f.input :password %>
-  <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-  <%= f.button :submit, "Sign in", :class => 'btn-primary' %>
+  <%= f.input :email, :autofocus => true, label: 'имејл' %>
+  <%= f.input :password, label: 'лозинка' %>
+  <br>
+  <%= f.input_field :remember_me, inline_label: 'зачувај', :as => :boolean if devise_mapping.rememberable? %>
+  <br>
+  <%= f.button :submit, "најави ме", :class => 'btn-primary' %>
 <% end %>
-<%= render "devise/shared/links" %>
+<%= render "users/shared/links" %>

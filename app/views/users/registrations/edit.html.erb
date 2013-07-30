@@ -1,26 +1,27 @@
 <%= minimal_nested_form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' } do |f| %>
   <div class="span6">
-    <h4>Update your account</h4>
-    <%= link_to "Back",
+    <h4>Ажурирајте ги податоците за најавување</h4>
+    <%= link_to "назад",
                 :back %>
     <hr>
     <%= devise_error_messages! %>
     <%= f.error_notification %>
     <%= display_base_errors resource %>
     <%= f.input :email,
-                placeholder: 'Email',
+                placeholder: 'имејл',
                 required: true %>
-    <p>Password must be a minimum of 6 characters</p>
+    <p>Лозинката мора да има најмалку 6 карактери</p>
     <%= f.input :password,
-                placeholder: 'Password',
+                placeholder: 'лозинка',
                 autocomplete: 'off',
-                hint: "leave it blank if you don't want to change it",
+                hint: "Оставете го полето празно доколку не сакате да направите промени",
                 required: false %>
     <%= f.input :password_confirmation,
-                placeholder: 'Password confirmation',
+                placeholder: 'потврда на лозинката',
                 required: false %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                placeholder: 'сегашна лозинка',
+                hint: "Потребна е Вашата сегашна лозинка за потврда на промените",
                 required: true %>
   </div>
   <div class="span6">&nbsp;</div>

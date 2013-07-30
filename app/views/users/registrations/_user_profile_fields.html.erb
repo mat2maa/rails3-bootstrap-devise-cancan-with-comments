@@ -3,100 +3,100 @@
                    required: true %>
 <div class="controls controls-row">
   <%= f.input_field :name,
-                    placeholder: 'Name',
+                    placeholder: 'име на организацијата',
                     class: 'ngo expert institution media span4',
                     required: true %>
 </div>
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Address</h5>
+  <h5 class="controls-row-header">Адреса на канцеларијата на организацијата</h5>
   <%= f.input_field :address,
-                    placeholder: 'Address first line',
+                    placeholder: 'адреса',
                     class: 'ngo expert institution media span4',
                     required: true %>
   <%= f.input_field :municipality,
-                    placeholder: 'Municipality',
+                    placeholder: 'општина',
                     class: 'ngo expert institution media span4' %>
   <%= f.input_field :city,
-                    placeholder: 'City',
+                    placeholder: 'град',
                     class: 'ngo expert institution media span4',
                     required: true %>
 </div>
 <div class="controls controls-row">
   <%= f.input_field :post_code,
-                    placeholder: 'Post code',
+                    placeholder: 'поштенски код',
                     class: 'ngo expert institution media span4' %>
   <%= f.input_field :country,
                     collection: COUNTRIES,
-                    placeholder: 'Country',
+                    placeholder: 'држава',
                     class: 'ngo expert institution media select2 span4',
                     required: true,
                     selected: COUNTRIES[129] %>
 </div>
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Web</h5>
+  <h5 class="controls-row-header">Официјални веб податоци</h5>
   <%= f.input_field :website,
-                    placeholder: 'Website',
+                    placeholder: 'вебсајт',
                     class: 'ngo institution media span4' %>
   <%= f.input_field :email,
-                    placeholder: 'Alternative email',
+                    placeholder: 'друг имејл',
                     class: 'ngo institution media span4' %>
 </div>
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Contact</h5>
+  <h5 class="controls-row-header">Контакт на организацијата</h5>
   <%= f.input_field :phone,
-                    placeholder: 'Phone number',
+                    placeholder: 'тел. број',
                     class: 'ngo institution media span4' %>
   <%= f.input_field :mobile,
-                    placeholder: 'Mobile number',
+                    placeholder: 'моб. број',
                     class: 'ngo institution media span4' %>
   <%= f.input_field :fax,
-                    placeholder: 'Fax',
+                    placeholder: 'факс',
                     class: 'ngo institution media span4' %>
 </div>
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Social</h5>
+  <h5 class="controls-row-header">Социјални мрежи на организацијата</h5>
   <%= f.input_field :facebook,
-                    placeholder: 'Facebook profile',
+                    placeholder: 'профил на Facebook',
                     class: 'ngo institution media span4' %>
   <%= f.input_field :twitter,
-                    placeholder: 'Twitter profile',
+                    placeholder: 'профил на Twitter',
                     class: 'ngo institution media span4' %>
   <%= f.input_field :linked_in,
-                    placeholder: 'LinkedIn profile',
+                    placeholder: 'профил на LinkedIn',
                     class: 'ngo institution media span4' %>
 </div>
 <div class="controls controls-row">
   <%= f.input_field :skype,
-                    placeholder: 'Skype ID',
+                    placeholder: 'профил на Skype',
                     class: 'ngo institution media span4' %>
   <%= f.input_field :google_plus,
-                    placeholder: 'Google+ profile',
+                    placeholder: 'профил на Google+',
                     class: 'ngo institution media span4' %>
 </div>
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Your representative</h5>
+  <h5 class="controls-row-header">Застапник на организацијата</h5>
   <%= f.input_field :rep_name,
-                    placeholder: 'Name of your representative',
+                    placeholder: 'име на претставникот на организацијата',
                     class: 'ngo expert institution media span4',
                     required: true %>
   <%= f.input_field :rep_email,
-                    placeholder: 'Email of your representative',
+                    placeholder: 'имејл на претставникот',
                     class: 'ngo expert institution media span4',
                     required: true %>
 </div>
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Your areas of activity</h5>
+  <h5 class="controls-row-header">Област на делување</h5>
   <div class="select2-container-outer span4">
     <%= f.input_field :activity_ids,
                       as: :select,
                       multiple: true,
                       collection: Activity.all.collect {|c| [ c.name, c.id ] },
-                      placeholder: 'Activities',
+                      placeholder: 'активности',
                       class: 'ngo select2 span4' %>
   </div>
 </div>
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Your areas of expertise</h5>
+  <h5 class="controls-row-header">Област на експертиза</h5>
   <div class="select2-container-outer span4">
     <%= f.input_field :expertise_ids,
                       as: :select,
@@ -106,57 +106,59 @@
                       class: 'expert select2 span4' %>
   </div>
 </div>
-<div class="controls controls-row">
-  <h5 class="controls-row-header institution">Your areas of interest</h5>
-  <%= f.simple_fields_for :interests do |builder| %>
-    <%= builder.input_field :name,
-                            class: 'span4 nested-builder' %>
-    <%= builder.link_to_remove "Remove this interest" %>
-  <% end %>
-  <p><%= f.link_to_add "Add an interest", :interests %></p>
 
-</div>
+<!--<div class="controls controls-row">-->
+  <!--<h5 class="controls-row-header institution">Интереси</h5>-->
+  <%#= f.simple_fields_for :interests do |builder| %>
+    <%#= builder.input_field :name,
+                            class: 'span4 nested-builder' %>
+    <%#= builder.link_to_remove "Remove this interest" %>
+  <%# end %>
+  <!--<p><%#= f.link_to_add "Add an interest", :interests %></p>-->
+
+<!--</div>-->
+
 <div class="controls controls-row">
-  <h5 class="controls-row-header institution">Media sectors</h5>
+  <h5 class="controls-row-header institution">Сектор во кој работи</h5>
   <%= f.simple_fields_for :sectors do |builder| %>
     <%= builder.input_field :name,
                             class: 'span4 nested-builder' %>
-    <%= builder.link_to_remove "Remove this sector" %>
+    <%= builder.link_to_remove "отстрани го секторот" %>
   <% end %>
-  <p><%= f.link_to_add "Add a sector", :sectors %></p>
+  <p><%= f.link_to_add "додај сектор", :sectors %></p>
 
 </div>
 <div class="controls controls-row">
-  <h5 class="controls-row-header media">Your areas of interest</h5>
+  <h5 class="controls-row-header media">Интереси</h5>
   <%= f.simple_fields_for :media_interests do |builder| %>
     <%= builder.input_field :name,
                       class: 'span4 nested-builder' %>
-    <%= builder.link_to_remove "Remove this media interest" %>
+    <%= builder.link_to_remove "отстрани го интересот" %>
   <% end %>
-  <p><%= f.link_to_add "Add a media interest", :media_interests %></p>
+  <p><%= f.link_to_add "додај интерес", :media_interests %></p>
 
 </div>
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Media information</h5>
+  <h5 class="controls-row-header">Информации за медиумот</h5>
   <div class="select2-container-outer span4">
     <%= f.input_field :media_scope_ids,
                       as: :select,
                       multiple: true,
                       collection: MediaScope.all.collect {|c| [ c.name, c.id ] },
-                      placeholder: 'Media scope',
+                      placeholder: 'тип на медиум',
                       class: 'media select2 span4' %>
   </div>
   <%= f.input_field :media_type_id,
                     as: :select,
                     collection: MediaType.order('name'),
-                    placeholder: 'Medium',
+                    placeholder: 'медиум',
                     class: 'media select2 span4' %>
 </div>
 <div class="controls controls-row">
 
   <div class="input-append date span2 datepicker" id="established-datepicker" data-date-format="dd-mm-yyyy">
     <%= f.text_field :established,
-                     placeholder: 'Date of establishment',
+                     placeholder: 'датум на основање',
                      class: 'ngo span2' %>
     <span class="add-on">
       <i class="icon-th"></i>
@@ -165,53 +167,70 @@
 </div>
 <div class="controls controls-row">
   <%= f.input_field :mission_statement,
-                    placeholder: '',
+                    placeholder: 'мисија на организацијата',
                     class: 'ngo span12',
                     rows: 6 %>
 </div>
 <div class="controls controls-row">
   <%= f.input_field :membership_number,
-                    placeholder: 'Membership number',
-                    class: 'ngo span4' %>
+                    type: :number,
+                    placeholder: 'број на членови',
+                    class: 'ngo span2' %>
   <%= f.input_field :personnel_number,
-                    placeholder: 'Personnel number',
-                    class: 'ngo span4' %>
+                    type: :number,
+                    placeholder: 'број на вработени',
+                    class: 'ngo span2' %>
+</div>
+<div class="controls controls-row">
   <%= f.input_field :previous_year_budget,
-                    placeholder: 'Budget for the previous year',
-                    class: 'ngo span4' %>
+                    type: :number,
+                    placeholder: 'лански буџет во евра',
+                    class: 'ngo span2' %>
 </div>
 <div class="controls controls-row">
+  <h5>Број на спроведени проекти каде вашето здружение е носител</h5>
   <%= f.input_field :head_local_projects,
-                    placeholder: 'Local projects as head organization',
-                    class: 'ngo span3' %>
-  <%= f.input_field :head_national_projects,
-                    placeholder: 'National projects as head organization',
-                    class: 'ngo span3' %>
+                    type: :number,
+                    placeholder: 'локални',
+                    class: 'ngo span2' %>
   <%= f.input_field :head_regional_projects,
-                    placeholder: 'Regional projects as head organization',
-                    class: 'ngo span3' %>
+                    type: :number,
+                    placeholder: 'регионални',
+                    class: 'ngo span2' %>
+  <%= f.input_field :head_national_projects,
+                    type: :number,
+                    placeholder: 'национални',
+                    class: 'ngo span2' %>
   <%= f.input_field :head_international_projects,
-                    placeholder: 'International projects as head organization',
-                    class: 'ngo span3' %>
+                    type: :number,
+                    placeholder: 'интернационални',
+                    class: 'ngo span2' %>
 </div>
 <div class="controls controls-row">
+  <h5>Број на спроведени проекти каде вашето здружение е партнер</h5>
   <%= f.input_field :partner_local_projects,
-                    placeholder: 'Local projects as partner organization',
-                    class: 'ngo span3' %>
+                    type: :number,
+                    placeholder: 'локални',
+                    class: 'ngo span2' %>
   <%= f.input_field :partner_national_projects,
-                    placeholder: 'National projects as partner organization',
-                    class: 'ngo span3' %>
+                    type: :number,
+                    placeholder: 'национални',
+                    class: 'ngo span2' %>
   <%= f.input_field :partner_regional_projects,
-                    placeholder: 'Regional projects as partner organization',
-                    class: 'ngo span3' %>
+                    type: :number,
+                    placeholder: 'регионални',
+                    class: 'ngo span2' %>
   <%= f.input_field :partner_international_projects,
-                    placeholder: 'International projects as partner organization',
-                    class: 'ngo span3' %>
+                    type: :number,
+                    placeholder: 'интернационални',
+                    class: 'ngo span2' %>
 </div>
+<br>
 <div class="controls controls-row">
-  <%= f.input :gef_recipient,
-              label: 'Are you a recipient of a GEF grant?',
-              class: 'ngo' %>
+  <%= f.input_field :gef_recipient,
+                    as: :boolean,
+                    inline_label: 'Дали сте биле корисници на грант од ГЕФ Програмата за мали грантови?',
+                    class: 'ngo' %>
 </div>
 
 
