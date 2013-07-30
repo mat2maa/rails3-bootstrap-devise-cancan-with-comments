@@ -1,19 +1,19 @@
 <% content_for :map do %>
   <%= gmaps(
-          map_options: {
-              center_latitude: 41.637255074888465,
-              center_longitude: 21.741941953124297,
-              detect_location: false,
-              center_on_user: false,
-              auto_adjust: false,
-              auto_zoom: true,
-              zoom: 8,
-              type: 'ROADMAP',
-              raw: "{zoomControl: false, panControl: false, streetViewControl: false, mapTypeControl: false,
+          :map_options => {
+              :center_latitude => 41.637255074888465,
+              :center_longitude => 21.741941953124297,
+              :detect_location => false,
+              :center_on_user => false,
+              :auto_adjust => false,
+              :auto_zoom => true,
+              :zoom => 8,
+              :type => 'ROADMAP',
+              :raw => "{zoomControl: false, panControl: false, streetViewControl: false, mapTypeControl: false,
             styles: styles}"
           },
-          markers: {
-              data: @json
+          :markers => {
+              :data => @json
           }
       ) %>
 <% end %>

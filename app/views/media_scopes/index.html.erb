@@ -15,7 +15,7 @@
     <td><%= media_scope.name %></td>
     <td><%= link_to 'Show', media_scope %></td>
     <td><%= link_to 'Edit', edit_media_scope_path(media_scope) %></td>
-    <td><%= link_to 'Destroy', media_scope, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', media_scope, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

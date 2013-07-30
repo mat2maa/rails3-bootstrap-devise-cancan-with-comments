@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '1.8.7'
 gem 'rails', '3.2.13'
 gem 'mysql2'
 
@@ -15,7 +15,7 @@ gem 'bootstrap-sass'
 gem 'cancan'
 gem 'devise'
 gem 'figaro'
-gem 'rolify'
+gem 'rolify', :git => 'git://github.com/softcraft-development/rolify.git', :ref => 'e2eaa7af68'
 gem 'yaml_db'
 
 # Forms
@@ -32,27 +32,26 @@ gem 'select2-rails'
 gem 'bootstrap-datepicker-rails'
 
 # Attachments
-gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
+gem 'paperclip', '~> 2.7'
 
 # Geo-coordinates and Google Maps
 gem 'geocoder'
 gem 'gmaps4rails'
 
 group :development do
-  gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
   gem 'quiet_assets'
 end
 
 group :development, :test do
-  gem 'factory_girl_rails'
+  #gem 'factory_girl_rails', '~> 2.0.0'
   gem 'rspec-rails'
 end
 
 group :test do
-  gem 'capybara'
-  gem 'cucumber-rails', :require=>false
-  gem 'database_cleaner'
-  gem 'email_spec'
-  gem 'launchy'
+  #gem 'capybara'
+  #gem 'cucumber-rails', :require=>false
+  #gem 'database_cleaner'
+  #gem 'email_spec'
+  #gem 'launchy'
 end

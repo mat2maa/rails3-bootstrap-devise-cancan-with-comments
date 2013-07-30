@@ -7,7 +7,7 @@ class MediaInterestsController < ApplicationController
   def index
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @media_interests }
+      format.json { render :json => @media_interests }
     end
   end
 
@@ -16,7 +16,7 @@ class MediaInterestsController < ApplicationController
   def show
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @media_interest }
+      format.json { render :json => @media_interest }
     end
   end
 
@@ -25,7 +25,7 @@ class MediaInterestsController < ApplicationController
   def new
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @media_interest }
+      format.json { render :json => @media_interest }
     end
   end
 
@@ -38,11 +38,11 @@ class MediaInterestsController < ApplicationController
   def create
     respond_to do |format|
       if @media_interest.save
-        format.html { redirect_to @media_interest, notice: 'Media interest was successfully created.' }
-        format.json { render json: @media_interest, status: :created, location: @media_interest }
+        format.html { redirect_to @media_interest, :notice => 'Media interest was successfully created.' }
+        format.json { render :json => @media_interest, :status => :created, :location => @media_interest }
       else
-        format.html { render action: "new" }
-        format.json { render json: @media_interest.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @media_interest.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -52,11 +52,11 @@ class MediaInterestsController < ApplicationController
   def update
     respond_to do |format|
       if @media_interest.update_attributes(params[:media_interest])
-        format.html { redirect_to @media_interest, notice: 'Media interest was successfully updated.' }
+        format.html { redirect_to @media_interest, :notice => 'Media interest was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @media_interest.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @media_interest.errors, :status => :unprocessable_entity }
       end
     end
   end

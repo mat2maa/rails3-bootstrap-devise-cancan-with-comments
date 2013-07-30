@@ -15,7 +15,7 @@
     <td><%= media_interest.name %></td>
     <td><%= link_to 'Show', media_interest %></td>
     <td><%= link_to 'Edit', edit_media_interest_path(media_interest) %></td>
-    <td><%= link_to 'Destroy', media_interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', media_interest, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

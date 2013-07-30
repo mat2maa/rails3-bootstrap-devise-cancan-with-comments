@@ -7,7 +7,7 @@ class InterestsController < ApplicationController
   def index
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @interests }
+      format.json { render :json => @interests }
     end
   end
 
@@ -16,7 +16,7 @@ class InterestsController < ApplicationController
   def show
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @interest }
+      format.json { render :json => @interest }
     end
   end
 
@@ -25,7 +25,7 @@ class InterestsController < ApplicationController
   def new
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @interest }
+      format.json { render :json => @interest }
     end
   end
 
@@ -38,11 +38,11 @@ class InterestsController < ApplicationController
   def create
     respond_to do |format|
       if @interest.save
-        format.html { redirect_to @interest, notice: 'Interest was successfully created.' }
-        format.json { render json: @interest, status: :created, location: @interest }
+        format.html { redirect_to @interest, :notice => 'Interest was successfully created.' }
+        format.json { render :json => @interest, :status => :created, :location => @interest }
       else
-        format.html { render action: "new" }
-        format.json { render json: @interest.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @interest.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -52,11 +52,11 @@ class InterestsController < ApplicationController
   def update
     respond_to do |format|
       if @interest.update_attributes(params[:interest])
-        format.html { redirect_to @interest, notice: 'Interest was successfully updated.' }
+        format.html { redirect_to @interest, :notice => 'Interest was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @interest.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @interest.errors, :status => :unprocessable_entity }
       end
     end
   end

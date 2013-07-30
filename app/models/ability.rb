@@ -6,7 +6,7 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     else
-      can :update, UserProfile, user_id: user.id
+      can :update, UserProfile, :user_id => user.id
     end
 
     if user.has_role? :rep

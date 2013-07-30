@@ -7,7 +7,7 @@ class UserProfilesController < ApplicationController
   def index
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @user_profiles }
+      format.json { render :json => @user_profiles }
     end
   end
 
@@ -16,7 +16,7 @@ class UserProfilesController < ApplicationController
   def show
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @user_profile }
+      format.json { render :json => @user_profile }
     end
   end
 
@@ -29,11 +29,11 @@ class UserProfilesController < ApplicationController
   def create
     respond_to do |format|
       if @user_profile.save
-        format.html { redirect_to @user_profile, notice: 'User profile was successfully created.' }
-        format.json { render json: @user_profile, status: :created, location: @user_profile }
+        format.html { redirect_to @user_profile, :notice => 'User profile was successfully created.' }
+        format.json { render :json => @user_profile, :status => :created, :location => @user_profile }
       else
-        format.html { render action: "new" }
-        format.json { render json: @user_profile.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @user_profile.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -43,11 +43,11 @@ class UserProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @user_profile.update_attributes(params[:user_profile])
-        format.html { redirect_to home_index_url, notice: 'User profile was successfully updated.' }
+        format.html { redirect_to home_index_url, :notice => 'User profile was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @user_profile.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @user_profile.errors, :status => :unprocessable_entity }
       end
     end
   end

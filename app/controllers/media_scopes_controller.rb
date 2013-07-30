@@ -7,7 +7,7 @@ class MediaScopesController < ApplicationController
   def index
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @media_scopes }
+      format.json { render :json => @media_scopes }
     end
   end
 
@@ -16,7 +16,7 @@ class MediaScopesController < ApplicationController
   def show
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @media_scope }
+      format.json { render :json => @media_scope }
     end
   end
 
@@ -25,7 +25,7 @@ class MediaScopesController < ApplicationController
   def new
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @media_scope }
+      format.json { render :json => @media_scope }
     end
   end
 
@@ -38,11 +38,11 @@ class MediaScopesController < ApplicationController
   def create
     respond_to do |format|
       if @media_scope.save
-        format.html { redirect_to @media_scope, notice: 'Media scope was successfully created.' }
-        format.json { render json: @media_scope, status: :created, location: @media_scope }
+        format.html { redirect_to @media_scope, :notice => 'Media scope was successfully created.' }
+        format.json { render :json => @media_scope, :status => :created, :location => @media_scope }
       else
-        format.html { render action: "new" }
-        format.json { render json: @media_scope.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @media_scope.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -52,11 +52,11 @@ class MediaScopesController < ApplicationController
   def update
     respond_to do |format|
       if @media_scope.update_attributes(params[:media_scope])
-        format.html { redirect_to @media_scope, notice: 'Media scope was successfully updated.' }
+        format.html { redirect_to @media_scope, :notice => 'Media scope was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @media_scope.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @media_scope.errors, :status => :unprocessable_entity }
       end
     end
   end

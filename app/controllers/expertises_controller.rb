@@ -7,7 +7,7 @@ class ExpertisesController < ApplicationController
   def index
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @expertises }
+      format.json { render :json => @expertises }
     end
   end
 
@@ -16,7 +16,7 @@ class ExpertisesController < ApplicationController
   def show
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @expertise }
+      format.json { render :json => @expertise }
     end
   end
 
@@ -25,7 +25,7 @@ class ExpertisesController < ApplicationController
   def new
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @expertise }
+      format.json { render :json => @expertise }
     end
   end
 
@@ -38,11 +38,11 @@ class ExpertisesController < ApplicationController
   def create
     respond_to do |format|
       if @expertise.save
-        format.html { redirect_to @expertise, notice: 'Expertise was successfully created.' }
-        format.json { render json: @expertise, status: :created, location: @expertise }
+        format.html { redirect_to @expertise, :notice => 'Expertise was successfully created.' }
+        format.json { render :json => @expertise, :status => :created, :location => @expertise }
       else
-        format.html { render action: "new" }
-        format.json { render json: @expertise.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @expertise.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -52,11 +52,11 @@ class ExpertisesController < ApplicationController
   def update
     respond_to do |format|
       if @expertise.update_attributes(params[:expertise])
-        format.html { redirect_to @expertise, notice: 'Expertise was successfully updated.' }
+        format.html { redirect_to @expertise, :notice => 'Expertise was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @expertise.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @expertise.errors, :status => :unprocessable_entity }
       end
     end
   end

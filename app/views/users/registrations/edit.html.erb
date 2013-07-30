@@ -1,28 +1,37 @@
 <%= minimal_nested_form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' } do |f| %>
   <div class="span6">
     <h4>Ажурирајте ги податоците за најавување</h4>
-    <%= link_to "назад",
-                :back %>
+    <% if user_signed_in? %>
+      <% if current_user.has_role? :admin %>
+        <%= link_to "назад",
+                    :back %>
+        |
+      <% end %>
+      <%= link_to "откажи",
+                  home_index_path %>
+    <% end %>
     <hr>
     <%= devise_error_messages! %>
     <%= f.error_notification %>
     <%= display_base_errors resource %>
     <%= f.input :email,
-                placeholder: 'имејл',
-                required: true %>
+                :placeholder => 'имејл',
+                :required => true %>
     <p>Лозинката мора да има најмалку 6 карактери</p>
     <%= f.input :password,
-                placeholder: 'лозинка',
-                autocomplete: 'off',
-                hint: "Оставете го полето празно доколку не сакате да направите промени",
-                required: false %>
+                :placeholder => 'лозинка',
+                :autocomplete => 'off',
+                :hint => "Оставете го полето празно доколку не сакате да направите промени",
+                :required => false %>
     <%= f.input :password_confirmation,
-                placeholder: 'потврда на лозинката',
-                required: false %>
+                :placeholder => 'потврда на лозинката',
+                :required => false %>
     <%= f.input :current_password,
-                placeholder: 'сегашна лозинка',
-                hint: "Потребна е Вашата сегашна лозинка за потврда на промените",
-                required: true %>
+                :placeholder => 'сегашна лозинка',
+                :hint => "Потребна е Вашата сегашна лозинка за потврда на промените",
+                :required => true %>
+    <br>
+    <%= f.button :submit, 'ажурирај', :class => 'btn-primary' %>
   </div>
   <div class="span6">&nbsp;</div>
 <% end %>

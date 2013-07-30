@@ -7,7 +7,7 @@ class ActivitiesController < ApplicationController
   def index
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @activities }
+      format.json { render :json => @activities }
     end
   end
 
@@ -16,7 +16,7 @@ class ActivitiesController < ApplicationController
   def show
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @activity }
+      format.json { render :json => @activity }
     end
   end
 
@@ -25,7 +25,7 @@ class ActivitiesController < ApplicationController
   def new
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @activity }
+      format.json { render :json => @activity }
     end
   end
 
@@ -38,11 +38,11 @@ class ActivitiesController < ApplicationController
   def create
     respond_to do |format|
       if @activity.save
-        format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
-        format.json { render json: @activity, status: :created, location: @activity }
+        format.html { redirect_to @activity, :notice => 'Activity was successfully created.' }
+        format.json { render :json => @activity, :status => :created, :location => @activity }
       else
-        format.html { render action: "new" }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @activity.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -52,11 +52,11 @@ class ActivitiesController < ApplicationController
   def update
     respond_to do |format|
       if @activity.update_attributes(params[:activity])
-        format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
+        format.html { redirect_to @activity, :notice => 'Activity was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @activity.errors, :status => :unprocessable_entity }
       end
     end
   end

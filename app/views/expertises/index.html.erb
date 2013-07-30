@@ -15,7 +15,7 @@
     <td><%= expertise.name %></td>
     <td><%= link_to 'Show', expertise %></td>
     <td><%= link_to 'Edit', edit_expertise_path(expertise) %></td>
-    <td><%= link_to 'Destroy', expertise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', expertise, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

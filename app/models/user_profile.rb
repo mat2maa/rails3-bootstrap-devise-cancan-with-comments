@@ -5,9 +5,9 @@ class UserProfile < ActiveRecord::Base
   belongs_to :user
   belongs_to :media_types
 
-  has_many :interests, dependent: :destroy
-  has_many :sectors, dependent: :destroy
-  has_many :media_interests, dependent: :destroy
+  has_many :interests, :dependent => :destroy
+  has_many :sectors, :dependent => :destroy
+  has_many :media_interests, :dependent => :destroy
 
   has_and_belongs_to_many :activities
   has_and_belongs_to_many :expertises
@@ -20,11 +20,11 @@ class UserProfile < ActiveRecord::Base
   validates_uniqueness_of :name, :rep_email
 
   accepts_nested_attributes_for :interests,
-                                allow_destroy: true
+                                :allow_destroy => true
   accepts_nested_attributes_for :sectors,
-                                allow_destroy: true
+                                :allow_destroy => true
   accepts_nested_attributes_for :media_interests,
-                                allow_destroy: true
+                                :allow_destroy => true
 
   private
 

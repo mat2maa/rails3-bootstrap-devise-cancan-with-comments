@@ -21,12 +21,12 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
 
 
   resources :user_profiles,
-            except: [:new]
+            :except => [:new]
 
 
   resources :home
 
-  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
+  devise_for :users, :controllers => { :sessions => 'users/sessions', :registrations => 'users/registrations' }
 
   devise_scope :user do
     authenticated :user do

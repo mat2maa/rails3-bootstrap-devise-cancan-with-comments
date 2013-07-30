@@ -8,11 +8,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @json = UserProfile.all.to_gmaps4rails do |user_profile, marker|
       marker.json(
           {
-              user_id: user_profile.user_id,
-              name: user_profile.name
+              :user_id => user_profile.user_id,
+              :name => user_profile.name
           }
       )
-      marker.infowindow render_to_string partial: '/user_profiles/marker', locals: { object: user_profile }
+      marker.infowindow render_to_string :partial => '/user_profiles/marker', :locals => { :object => user_profile }
     end
     #@user = User.new
     #@user.build_user_profile do |profile|
@@ -27,7 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #
     #respond_to do |format|
     #  format.html # new.html.erb
-    #  format.json { render json: @user }
+    #  format.json { render :json => @user }
     #end
     resource = build_resource({})
     respond_with resource
@@ -38,11 +38,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @json = UserProfile.all.to_gmaps4rails do |user_profile, marker|
       marker.json(
           {
-              user_id: user_profile.user_id,
-              name: user_profile.name
+              :user_id => user_profile.user_id,
+              :name => user_profile.name
           }
       )
-      marker.infowindow render_to_string partial: '/user_profiles/marker', locals: { object: user_profile }
+      marker.infowindow render_to_string :partial => '/user_profiles/marker', :locals => { :object => user_profile }
     end
 
     build_resource

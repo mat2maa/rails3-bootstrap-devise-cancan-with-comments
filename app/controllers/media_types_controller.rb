@@ -7,7 +7,7 @@ class MediaTypesController < ApplicationController
   def index
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @media_types }
+      format.json { render :json => @media_types }
     end
   end
 
@@ -16,7 +16,7 @@ class MediaTypesController < ApplicationController
   def show
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @media_type }
+      format.json { render :json => @media_type }
     end
   end
 
@@ -25,7 +25,7 @@ class MediaTypesController < ApplicationController
   def new
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @media_type }
+      format.json { render :json => @media_type }
     end
   end
 
@@ -38,11 +38,11 @@ class MediaTypesController < ApplicationController
   def create
     respond_to do |format|
       if @media_type.save
-        format.html { redirect_to @media_type, notice: 'Media type was successfully created.' }
-        format.json { render json: @media_type, status: :created, location: @media_type }
+        format.html { redirect_to @media_type, :notice => 'Media type was successfully created.' }
+        format.json { render :json => @media_type, :status => :created, :location => @media_type }
       else
-        format.html { render action: "new" }
-        format.json { render json: @media_type.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @media_type.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -52,11 +52,11 @@ class MediaTypesController < ApplicationController
   def update
     respond_to do |format|
       if @media_type.update_attributes(params[:media_type])
-        format.html { redirect_to @media_type, notice: 'Media type was successfully updated.' }
+        format.html { redirect_to @media_type, :notice => 'Media type was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @media_type.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @media_type.errors, :status => :unprocessable_entity }
       end
     end
   end
