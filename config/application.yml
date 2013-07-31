@@ -7,14 +7,14 @@
 # makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
 # Add application configuration variables here, as shown below.
 #
-GMAIL_USERNAME: matthew.a.ager@googlemail.com
-GMAIL_PASSWORD: ayrtonsenna1ishe
+GMAIL_USERNAME: info@kukya.com
+GMAIL_PASSWORD: kadezhiveekreativnosta
 ADMIN_NAME: Matthew Ager
 ADMIN_EMAIL: matthew.a.ager@googlemail.com
 ADMIN_PASSWORD: ayrtonsenna1
-ADMIN_COMPANY: Animation In Motion LLC
+ADMIN_COMPANY: Kukya
 ADMIN_ADDRESS: 9 Varshavska,
-ADMIN_MUNICIPALITY: Taftalidze
+ADMIN_MUNICIPALITY: Gazi Baba
 ADMIN_CITY: Skopje
 ADMIN_POST_CODE: 1000
 ADMIN_COUNTRY: Macedonia, The Former Yugoslav Republic Of
