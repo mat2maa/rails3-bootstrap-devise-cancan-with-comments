@@ -18,19 +18,27 @@
     </div>
     <div class="controls controls-row">
       <h5 class="controls-row-header">Адреса на канцеларијата на организацијата</h5>
-      <%= f.input_field :address,
-                        :placeholder => 'адреса',
+      <%= f.input_field :flat_number,
+                        :placeholder => 'број на стан',
+                        :class => 'ngo expert institution media span2',
+                        :required => true %>
+      <%= f.input_field :building_number,
+                        :placeholder => 'број на зграда',
+                        :class => 'ngo expert institution media span2',
+                        :required => true %>
+      <%= f.input_field :street,
+                        :placeholder => 'улица',
                         :class => 'ngo expert institution media span4',
                         :required => true %>
       <%= f.input_field :municipality,
                         :placeholder => 'општина',
                         :class => 'ngo expert institution media span4' %>
+    </div>
+    <div class="controls controls-row">
       <%= f.input_field :city,
                         :placeholder => 'град',
                         :class => 'ngo expert institution media span4',
                         :required => true %>
-    </div>
-    <div class="controls controls-row">
       <%= f.input_field :post_code,
                         :placeholder => 'поштенски код',
                         :class => 'ngo expert institution media span4' %>

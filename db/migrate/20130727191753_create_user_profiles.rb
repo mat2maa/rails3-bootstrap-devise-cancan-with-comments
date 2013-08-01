@@ -4,7 +4,9 @@ class CreateUserProfiles < ActiveRecord::Migration
       t.integer :user_id
       t.string :type
       t.string :name
-      t.string :address
+      t.string :flat_number
+      t.string :building_number
+      t.string :street
       t.string :municipality
       t.string :city
       t.string :post_code

@@ -1,15 +1,16 @@
 
 <ul class="nav">
   <% if user_signed_in? %>
+    <% @user_profile = UserProfile.where('user_id = ?', current_user.id).first %>
     <li>
       <%= link_to 'одјава', destroy_user_session_path, :method=>'delete' %>
     </li>
     <li>
       <%= link_to 'измени во податоците за најава', edit_user_registration_path %>
     </li>
-    <!--<li>-->
-      <!--<%#= link_to 'измени во корисничкиот профил', edit_user_profile_path(@user_profile.id) %>-->
-    <!--</li>-->
+    <li>
+      <%= link_to 'измени во корисничкиот профил', edit_user_profile_path(@user_profile.id) %>
+    </li>
     <% if current_user.has_role? :admin %>
       <li>
         <%= link_to 'админ', users_path %>
@@ -22,8 +23,10 @@
   <% end %>
 </ul>
 <div class="brand-text-outer pull-right">
-  <%= image_tag 'kukyalogo.png',
-                :id => 'kukyalogo' %>
+  <%= link_to (image_tag 'kukyalogo.png', :id => 'kukyalogo'),
+              'http://kukya.com/',
+              :target => '_blank' %>
+  <%=  %>
 </div>
 <div class="brand-text-outer pull-right">
   <p class="brand-text">© Copyright 2013 Ekosfera. All rights reserved.</p>

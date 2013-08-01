@@ -2,8 +2,10 @@
             root_path,
             :class => 'brand' %>
 <div class="brand-text-outer pull-left">
-  <p class="brand-text">Екосфера доаѓа наскоро... <br>
-    Очекувајте многу интересни содржини и корисни алатки.</p>
+  <div class="brand-text">
+    <h4>Екосфера доаѓа наскоро...</h4>
+    <p>Очекувајте многу интересни содржини и корисни алатки.</p>
+  </div>
 </div>
 <div class="brand-text-outer pull-right">
   <span class="brand-text" id="countdown"></span>
@@ -17,9 +19,8 @@
   $('#countdown').countdown(
       {
         until: launchDate,
-        compact: true,
-        format: 'DHM',
-        description: ''
+        description: '',
+        layout: '{dn} дена, {hn} часови, {mn} минути и {sn} секунди'
       }
   );
 </script>

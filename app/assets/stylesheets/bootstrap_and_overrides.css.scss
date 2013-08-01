@@ -48,6 +48,9 @@ hr {
   display:table-cell;
   vertical-align: middle;
 }
+.brand-text-outer .brand-text h4 {
+  margin-bottom:2px;
+}
 .navbar-inverse .brand-text-outer .brand-text {
   color: white;
 }
@@ -131,8 +134,8 @@ hr {
 }
 
 #kukyalogo {
-  margin-top:7px;
+  height:16px;
+  margin-top:12px;
 }
-
 
 @import "bootstrap-responsive";
