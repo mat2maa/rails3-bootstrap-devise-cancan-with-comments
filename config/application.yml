@@ -20,4 +20,7 @@ ADMIN_COUNTRY: Macedonia
 ADMIN_PHONE: 0038977921796
 ADMIN_MOBILE: 0038977921796
 ADMIN_TYPE: Administrator
-ROLES: [admin, rep, user, guest]
+ROLE_ADMIN: admin
+ROLE_REP: rep
+ROLE_USER: user
+ROLE_GUEST: guest
