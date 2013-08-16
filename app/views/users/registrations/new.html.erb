@@ -1,35 +1,4 @@
-<% content_for :map do %>
-  <%= gmaps(
-          :map_options => {
-              :center_latitude => 41.637255074888465,
-              :center_longitude => 21.741941953124297,
-              :detect_location => false,
-              :center_on_user => false,
-              :auto_adjust => false,
-              :auto_zoom => true,
-              :zoom => 8,
-              :type => 'ROADMAP',
-              :raw => '{zoomControl: false, panControl: false, streetViewControl: false, mapTypeControl: false,
-            styles: styles}'
-          },
-          :markers => {
-              :data => @json
-          }
-      ) %>
-<% end %>
-<%= content_for :scripts do %>
-  <script type="text/javascript" charset="utf-8">
-    Gmaps.map.callback = function() {
-      google.maps.event.addDomListener(window, "resize", function() {
-        var map = Gmaps.map.serviceObject;
-        var center = map.getCenter();
-        google.maps.event.trigger(map, 'resize');
-        map.setCenter(center);
-      });
-    }
-  </script>
-<% end %>
-
+<br><br>
 <%= minimal_nested_form_for [resource_name, resource.with_user_profile],
                             :url => registration_path(resource_name),
                             :html => { :class => 'form-vertical' } do |f| %>

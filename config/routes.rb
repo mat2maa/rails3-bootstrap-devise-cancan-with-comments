@@ -33,9 +33,9 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
       root :to => 'home#index'
     end
     unauthenticated :user do
-      root :to => 'users/registrations#new'
+      root :to => 'home#index'
     end
-    root :to => 'users/registrations#new'
+    root :to => 'home#index'
   end
 
   resources :users

@@ -17,7 +17,26 @@
           }
       ) %>
 <% end %>
-<%= content_for :scripts do %>
+<% if user_signed_in? %>
+<% else %>
+  <div class="span6">
+    <h4>Постоечки корисник?</h4>
+    <%= minimal_nested_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+      <%= f.input :email, :autofocus => true, :placeholder => 'имејл' %>
+      <%= f.input :password, :placeholder => 'лозинка' %>
+      <%= f.input_field :remember_me, :inline_label => 'зачувај', :as => :boolean if devise_mapping.rememberable? %>
+      <br>
+      <%= f.button :submit, "најави ме", :class => 'btn-primary' %>
+    <% end %>
+    <%= render "users/shared/links" %>
+  </div>
+  <div class="span6">
+    <h4>
+      Нов корисник?<br>
+      За регистрација кликнете <%= link_to('тука', new_user_registration_path)  %>
+    </h4>
+  </div>
+<% end %><%= content_for :scripts do %>
   <script type="text/javascript" charset="utf-8">
     Gmaps.map.callback = function() {
       google.maps.event.addDomListener(window, "resize", function() {

@@ -29,7 +29,7 @@ gem 'nested_form'
 gem 'select2-rails'
 
 # Bootstrap date picker
-gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-datepicker-rails', '~> 1.1.1.6'
 
 # Attachments
 gem 'paperclip', '~> 2.7'
