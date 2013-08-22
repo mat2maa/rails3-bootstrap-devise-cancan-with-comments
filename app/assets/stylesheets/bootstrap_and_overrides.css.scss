@@ -89,6 +89,14 @@ hr {
   width: auto; display:inline;
 }
 
+.controls-row .file-input {
+  margin: 15px 0px 10px 0px;
+}
+
+.hidden-input {
+  display: none;
+}
+
 // Stop first input element being out of line with others in a controls-row group
 .controls-row .media:first-child {
   margin-top: 15px;

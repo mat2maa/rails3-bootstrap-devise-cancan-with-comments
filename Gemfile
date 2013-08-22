@@ -32,7 +32,10 @@ gem 'select2-rails'
 gem 'bootstrap-datepicker-rails', '~> 1.1.1.6'
 
 # Attachments
-gem 'paperclip', '~> 2.7'
+gem 'carrierwave'
+
+# Image processing with ImageMagick
+gem 'rmagick'
 
 # Geo-coordinates and Google Maps
 gem 'geocoder'
@@ -40,6 +43,9 @@ gem 'gmaps4rails'
 
 gem 'execjs'
 gem 'therubyracer'
+
+# Better file uploads
+gem 'jquery-fileupload-rails'
 
 group :development do
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]

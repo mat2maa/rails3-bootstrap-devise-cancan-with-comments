@@ -16,4 +16,5 @@
 //= require jquery_nested_form
 //= require bootstrap-datepicker
 //= require select2
+//= require jquery-fileupload
 //= require_tree .

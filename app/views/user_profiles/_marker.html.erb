@@ -1,1 +1,9 @@
-<%= object.id %>
+<%= image_tag object.logo_url(:thumb).to_s %>
+<br><br>
+<%= object.name %><br>
+<%= "#{"#{object.flat_number}, " if object.flat_number.present?}#{"#{object.building_number}, " if object.building_number.present?}" %><br>
+<% if object.street.present? then %><%= "#{object.street}" %><br><% end %>
+<% if object.municipality.present? then %><%= "#{object.municipality}" %><br><% end %>
+<% if object.city.present? then %><%= "#{object.city}" %><br><% end %>
+<% if object.post_code.present? then %><%= "#{object.post_code}" %><br><% end %>
+<% if object.country.present? then %><%= "#{object.country}" %><% end %>

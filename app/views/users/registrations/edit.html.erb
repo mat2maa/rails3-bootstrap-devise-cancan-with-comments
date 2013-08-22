@@ -1,4 +1,4 @@
-<%= minimal_nested_form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' } do |f| %>
+<%= minimal_nested_form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical', :multipart => true } do |f| %>
   <div class="span6">
     <h4>Ажурирајте ги податоците за најавување</h4>
     <% if user_signed_in? %>

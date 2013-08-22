@@ -8,6 +8,22 @@
                     :required => true %>
 </div>
 <div class="controls controls-row">
+  <h5 class="controls-row-header">Лого на организацијата (избери фајл или линк)</h5>
+
+  <%= f.input_field :remote_logo_url,
+                    :placeholder => 'линк од лого',
+                    :class => 'ngo expert institution media span4' %>
+
+  <div class="input-append span4 file-input">
+    <input id="logo-upload" class="input-large" type="text">
+    <a class="btn" onclick="$('input[id=user_profile_logo]').click();">Browse</a>
+  </div>
+
+  <%= f.input_field :logo,
+                    :class => 'hidden-input ngo expert institution media span4',
+                    :as => :file %>
+</div>
+<div class="controls controls-row">
   <h5 class="controls-row-header">Адреса на канцеларијата на организацијата</h5>
   <%= f.input_field :flat_number,
                     :placeholder => 'број на стан',
@@ -244,4 +260,11 @@
 
 <script type="text/javascript">
   $('#established-datepicker').datepicker();
+</script>
+
+<script type="text/javascript">
+  $('input[id=user_profile_logo]').change(function() {
+    var path = $(this).val().split('\\');
+    $('#logo-upload').val(path[path.length-1]);
+  });
 </script>
