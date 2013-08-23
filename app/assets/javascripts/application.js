@@ -17,4 +17,6 @@
 //= require bootstrap-datepicker
 //= require select2
 //= require jquery-fileupload
+//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5/locales
 //= require_tree .

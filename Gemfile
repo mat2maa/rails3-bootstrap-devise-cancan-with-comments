@@ -47,6 +47,12 @@ gem 'therubyracer'
 # Better file uploads
 gem 'jquery-fileupload-rails'
 
+# Comments
+gem 'acts_as_commentable_with_threading'
+
+# WYSIWYG Editor for posts
+gem 'bootstrap-wysihtml5-rails'
+
 group :development do
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
   gem 'quiet_assets'

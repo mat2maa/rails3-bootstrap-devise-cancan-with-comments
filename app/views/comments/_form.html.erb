@@ -1,0 +1,28 @@
+<div class="comment-form">
+  <%= minimal_form_for comment,
+                      :remote => true,
+                      :html => {:class => 'form-vertical'} do |f| %>
+
+    <div class="comments-errors">
+      <p></p>
+    </div>
+
+    <div class="controls controls-row">
+      <%= f.input_field :body,
+                        :rows => '4',
+                        :placeholder => 'Message',
+                        :class => 'span5' %>
+    </div>
+    <%= f.input_field :commentable_id,
+                      :as => :hidden,
+                      :value => comment.commentable_id %>
+    <%= f.input_field :commentable_type,
+                      :as => :hidden,
+                      :value => comment.commentable_type %>
+
+    <%= f.button :submit,
+                 :class => 'btn btn-green',
+                 :disable_with => 'Submitting…' %>
+
+  <% end %>
+</div>

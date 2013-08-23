@@ -1,4 +1,11 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
+
+  resources :comments, :only => [:create, :destroy]
+
+
+  resources :news_posts
+
+
   resources :media_types
 
 

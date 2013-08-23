@@ -1,0 +1,40 @@
+<%= minimal_form_for(@news_post) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="controls controls-row">
+      <%= f.input_field :title,
+                        :placeholder => 'Title',
+                        :class => 'span4' %>
+
+      <%= f.input_field :link,
+                        :placeholder => 'Link',
+                        :class => 'span4' %>
+    </div>
+
+    <div class="controls controls-row">
+      <%= f.input_field :short_description,
+                        :placeholder => 'Short Description',
+                        :class => 'span8',
+                        :rows => 3 %>
+    </div>
+    <br>
+    <div class="controls controls-row">
+      <%= f.input_field :article,
+                        :placeholder => 'Article',
+                        :class => 'span8 wysihtml5',
+                        :rows => 16 %>
+    </div>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $('.wysihtml5').each(function(i, elem) {
+    $(elem).wysihtml5();
+  });
+</script>

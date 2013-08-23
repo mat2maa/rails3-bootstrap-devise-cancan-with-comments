@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   has_one :user_profile, :dependent => :destroy
 
+  has_many :news_posts
+
   rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

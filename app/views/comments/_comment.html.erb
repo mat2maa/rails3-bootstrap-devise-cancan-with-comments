@@ -1,0 +1,26 @@
+<ul class="media-list">
+  <li class="media">
+    <div class="comment">
+      <a class="pull-left" href="#">
+        <%= image_tag 'normal/missing_screenshot.png',
+                      :class => 'media-object',
+                      :size => '64x64' %>
+      </a>
+      <div class="media-body">
+        <%= link_to '×',
+                    order_comment_path(comment.commentable_id, comment.id),
+                    :method => :delete,
+                    :remote => true,
+                    :confirm => 'Are you sure you want to remove this comment?',
+                    :disable_with => '×' %>
+        <h4 class="media-heading">
+          <%= comment.user.name %>
+          <small>
+            <%= comment.updated_at %>
+          </small>
+        </h4>
+        <p><%= comment.body %></p>
+      </div>
+    </div>
+  </li>
+</ul>
