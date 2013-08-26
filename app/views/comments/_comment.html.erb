@@ -2,19 +2,20 @@
   <li class="media">
     <div class="comment">
       <a class="pull-left" href="#">
-        <%= image_tag 'normal/missing_screenshot.png',
+        <%= image_tag comment.user.user_profile.logo_url(:thumb).to_s,
                       :class => 'media-object',
-                      :size => '64x64' %>
+                      :size => '20x20' %>
       </a>
       <div class="media-body">
-        <%= link_to '×',
-                    order_comment_path(comment.commentable_id, comment.id),
+        <%= link_to "×",
+                    comment_path(comment),
                     :method => :delete,
                     :remote => true,
-                    :confirm => 'Are you sure you want to remove this comment?',
-                    :disable_with => '×' %>
+                    :confirm => "Are you sure you want to remove this comment?",
+                    :disable_with => "×",
+                    :class => 'close' %>
         <h4 class="media-heading">
-          <%= comment.user.name %>
+          <%= comment.user.user_profile.name %>
           <small>
             <%= comment.updated_at %>
           </small>

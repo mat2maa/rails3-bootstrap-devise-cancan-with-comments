@@ -24,7 +24,6 @@ a {
   }
 }
 
-
 #main {
   background-color:#efefef;
 }
@@ -150,6 +149,11 @@ a {
 .datepicker {
   margin-left: 0 !important;
   padding-left: 0 !important;
+}
+
+// Comments
+.comment > .pull-left > img {
+  margin: 2px 10px 0 0;
 }
 
 // Required fields

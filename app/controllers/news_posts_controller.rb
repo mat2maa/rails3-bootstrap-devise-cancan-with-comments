@@ -16,7 +16,7 @@ class NewsPostsController < ApplicationController
     @news_post = NewsPost.find(params[:id])
 
     @comments = @news_post.comment_threads.order('created_at desc')
-    @new_comment = Comment.build_from(@news_post, current_user, "")
+    @new_comment = Comment.build_from(@news_post, current_user.id, "")
 
     respond_to do |format|
       format.html # show.html.erb
