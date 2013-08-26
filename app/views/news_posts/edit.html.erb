@@ -1,6 +1,10 @@
-<h1>Editing news_post</h1>
+<div class="span12">
+  <h1>Editing news_post</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Show', @news_post %> |
-<%= link_to 'Back', news_posts_path %>
+  <% if can? :read, NewsPost %>
+    <%= link_to 'Show', @news_post %> |
+    <%= link_to 'Back', news_posts_path %>
+  <% end %>
+</div>

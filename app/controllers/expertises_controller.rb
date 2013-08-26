@@ -38,7 +38,7 @@ class ExpertisesController < ApplicationController
   def create
     respond_to do |format|
       if @expertise.save
-        format.html { redirect_to @expertise, :notice => 'Expertise was successfully created.' }
+        format.html { redirect_to @expertise, :notice => 'Експертизата е успешно додадена.' }
         format.json { render :json => @expertise, :status => :created, :location => @expertise }
       else
         format.html { render :action => "new" }
@@ -52,7 +52,7 @@ class ExpertisesController < ApplicationController
   def update
     respond_to do |format|
       if @expertise.update_attributes(params[:expertise])
-        format.html { redirect_to @expertise, :notice => 'Expertise was successfully updated.' }
+        format.html { redirect_to @expertise, :notice => 'Експертизата е успешно ажурирана.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

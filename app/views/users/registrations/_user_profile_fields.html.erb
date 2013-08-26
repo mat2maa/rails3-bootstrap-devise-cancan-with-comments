@@ -7,22 +7,25 @@
                     :class => 'ngo expert institution media span4',
                     :required => true %>
 </div>
-<div class="controls controls-row">
-  <h5 class="controls-row-header">Лого на организацијата (избери фајл или линк)</h5>
+<!--Removed as Carrierwave does not distinguish the STI model type and uses user_profile rather than expert, -->
+<!--NGO etc in file path-->
+<!--<div class="controls controls-row">-->
+  <!--<h5 class="controls-row-header">Лого на организацијата (избери фајл или линк)</h5>-->
 
-  <%= f.input_field :remote_logo_url,
-                    :placeholder => 'линк од лого',
+  <%#= f.input_field :remote_logo_url,
+#                    :placeholder => 'линк од лого',
                     :class => 'ngo expert institution media span4' %>
 
-  <div class="input-append span4 file-input">
-    <input id="logo-upload" class="input-large" type="text">
-    <a class="btn" onclick="$('input[id=user_profile_logo]').click();">Browse</a>
-  </div>
+  <!--<div class="input-append span4 file-input">-->
+    <!--<input id="logo-upload" class="input-large" type="text">-->
+    <!--<a class="btn" onclick="$('input[id=user_profile_logo]').click();">Browse</a>-->
+  <!--</div>-->
 
-  <%= f.input_field :logo,
-                    :class => 'hidden-input ngo expert institution media span4',
+  <%#= f.input_field :logo,
+#                    :class => 'hidden-input ngo expert institution media span4',
                     :as => :file %>
-</div>
+<!--</div>-->
+
 <div class="controls controls-row">
   <h5 class="controls-row-header">Адреса на канцеларијата на организацијата</h5>
   <%= f.input_field :flat_number,

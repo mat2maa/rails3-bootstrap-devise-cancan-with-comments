@@ -38,7 +38,7 @@ class InterestsController < ApplicationController
   def create
     respond_to do |format|
       if @interest.save
-        format.html { redirect_to @interest, :notice => 'Interest was successfully created.' }
+        format.html { redirect_to @interest, :notice => 'Интересот е успешно додаден.' }
         format.json { render :json => @interest, :status => :created, :location => @interest }
       else
         format.html { render :action => "new" }
@@ -52,7 +52,7 @@ class InterestsController < ApplicationController
   def update
     respond_to do |format|
       if @interest.update_attributes(params[:interest])
-        format.html { redirect_to @interest, :notice => 'Interest was successfully updated.' }
+        format.html { redirect_to @interest, :notice => 'Интересот е успешно ажуриран.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

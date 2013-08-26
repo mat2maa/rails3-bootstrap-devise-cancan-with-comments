@@ -38,7 +38,7 @@ class SectorsController < ApplicationController
   def create
     respond_to do |format|
       if @sector.save
-        format.html { redirect_to @sector, :notice => 'Sector was successfully created.' }
+        format.html { redirect_to @sector, :notice => 'Секторот е успешно додаден.' }
         format.json { render :json => @sector, :status => :created, :location => @sector }
       else
         format.html { render :action => "new" }
@@ -52,7 +52,7 @@ class SectorsController < ApplicationController
   def update
     respond_to do |format|
       if @sector.update_attributes(params[:sector])
-        format.html { redirect_to @sector, :notice => 'Sector was successfully updated.' }
+        format.html { redirect_to @sector, :notice => 'Секторот е успешно ажуриран.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

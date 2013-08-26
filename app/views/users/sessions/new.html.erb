@@ -1,10 +1,12 @@
-<h2>Најавете се</h2>
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
-  <%= f.input :email, :autofocus => true, :label => 'имејл' %>
-  <%= f.input :password, :label => 'лозинка' %>
-  <br>
-  <%= f.input_field :remember_me, :inline_label => 'зачувај', :as => :boolean if devise_mapping.rememberable? %>
-  <br>
-  <%= f.button :submit, "најави ме", :class => 'btn-primary' %>
-<% end %>
-<%= render "users/shared/links" %>
+<div class="span12">
+  <h2>Најавете се</h2>
+  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+    <%= f.input :email, :autofocus => true, :label => 'имејл' %>
+    <%= f.input :password, :label => 'лозинка' %>
+    <br>
+    <%= f.input_field :remember_me, :inline_label => 'зачувај', :as => :boolean if devise_mapping.rememberable? %>
+    <br>
+    <%= f.button :submit, "најави ме", :class => 'btn-primary' %>
+  <% end %>
+  <%= render "users/shared/links" %>
+</div>

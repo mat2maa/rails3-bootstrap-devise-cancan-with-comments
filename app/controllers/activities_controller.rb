@@ -38,7 +38,7 @@ class ActivitiesController < ApplicationController
   def create
     respond_to do |format|
       if @activity.save
-        format.html { redirect_to @activity, :notice => 'Activity was successfully created.' }
+        format.html { redirect_to @activity, :notice => 'Активноста е успешно додадена.' }
         format.json { render :json => @activity, :status => :created, :location => @activity }
       else
         format.html { render :action => "new" }
@@ -52,7 +52,7 @@ class ActivitiesController < ApplicationController
   def update
     respond_to do |format|
       if @activity.update_attributes(params[:activity])
-        format.html { redirect_to @activity, :notice => 'Activity was successfully updated.' }
+        format.html { redirect_to @activity, :notice => 'Активноста е успешно ажурирана.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

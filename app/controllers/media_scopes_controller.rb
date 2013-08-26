@@ -38,7 +38,7 @@ class MediaScopesController < ApplicationController
   def create
     respond_to do |format|
       if @media_scope.save
-        format.html { redirect_to @media_scope, :notice => 'Media scope was successfully created.' }
+        format.html { redirect_to @media_scope, :notice => 'Областа на делување на медиумот е успешно додадена.' }
         format.json { render :json => @media_scope, :status => :created, :location => @media_scope }
       else
         format.html { render :action => "new" }
@@ -52,7 +52,7 @@ class MediaScopesController < ApplicationController
   def update
     respond_to do |format|
       if @media_scope.update_attributes(params[:media_scope])
-        format.html { redirect_to @media_scope, :notice => 'Media scope was successfully updated.' }
+        format.html { redirect_to @media_scope, :notice => 'Областа на делување на медиумот е успешно ажурирана.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

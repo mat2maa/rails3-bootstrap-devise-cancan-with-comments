@@ -29,7 +29,7 @@ class UserProfilesController < ApplicationController
   def create
     respond_to do |format|
       if @user_profile.save
-        format.html { redirect_to @user_profile, :notice => 'User profile was successfully created.' }
+        format.html { redirect_to @user_profile, :notice => 'Корисничкиот профил е успешно создаден.' }
         format.json { render :json => @user_profile, :status => :created, :location => @user_profile }
       else
         format.html { render :action => "new" }
@@ -43,7 +43,7 @@ class UserProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @user_profile.update_attributes(params[:user_profile])
-        format.html { redirect_to home_index_url, :notice => 'User profile was successfully updated.' }
+        format.html { redirect_to home_index_url, :notice => 'Корисничкиот профил е успешно ажуриран.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

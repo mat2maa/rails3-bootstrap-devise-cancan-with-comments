@@ -38,7 +38,7 @@ class MediaTypesController < ApplicationController
   def create
     respond_to do |format|
       if @media_type.save
-        format.html { redirect_to @media_type, :notice => 'Media type was successfully created.' }
+        format.html { redirect_to @media_type, :notice => 'Видот на медиум е успешно додаден.' }
         format.json { render :json => @media_type, :status => :created, :location => @media_type }
       else
         format.html { render :action => "new" }
@@ -52,7 +52,7 @@ class MediaTypesController < ApplicationController
   def update
     respond_to do |format|
       if @media_type.update_attributes(params[:media_type])
-        format.html { redirect_to @media_type, :notice => 'Media type was successfully updated.' }
+        format.html { redirect_to @media_type, :notice => 'Видот на медиум е успешно ажуриран.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

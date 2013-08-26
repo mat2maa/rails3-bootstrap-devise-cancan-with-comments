@@ -2,6 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 mk:
+#  action:
+#    new:
+#    show:
+#    edit:
+#    destroy:
+#    back:
   date:
     abbr_day_names:
     - Нед
@@ -204,5 +210,121 @@ mk:
     errors:
       <<: *errors
   activerecord:
+    # Models
+    models:
+      activity: Активност
+      administrator: Администратор
+      comment: Коментар
+      expert: Експерт
+      expertise: Експертиза
+      institution: Институција
+      interest: Интерес
+      media_interest: Интерес на медиумот
+      media_scope: Област на делување на медиумот
+      media_type: Вид на медиум
+      medium: Медиум
+      news_post: Објава на вест
+      ngo: НВО
+      sector: Сектор
+      user: Корисник
+      user_profile: Профил на корисникот
+    # Attributes
+    attributes:
+      activity:
+        name: Назив
+#      administrator:
+#        interests_attributes:
+#        sectors_attributes:
+#        media_interests_attributes:
+      comment:
+#        commentable:
+        body: Текст
+        user_id: Кориснички број
+      expert:
+#        interests_attributes:
+#        sectors_attributes:
+#        media_interests_attributes:
+      expertise:
+        name: Назив
+      institution:
+#        interests_attributes:
+#        sectors_attributes:
+#        media_interests_attributes:
+      interest:
+        name: Назив
+      media_interest:
+        name: Назив
+      media_scope:
+        name: Назив
+      media_type:
+        name: Назив
+      medium:
+#        interests_attributes:
+#        sectors_attributes:
+#        media_interests_attributes:
+      news_post:
+        article: Статија
+        link: Линк
+        short_description: Кус опис
+        title: Наслов
+        user_id: Кориснички број
+      ngo:
+#        interests_attributes:
+#        sectors_attributes:
+#        media_interests_attributes:
+      sector:
+        name: Назив
+      user:
+        email: Имејл
+        password: Лозинка
+        password_confirmation: Потврда на лозинката
+        remember_me: Зачувај
+#        user_profile_attributes:
+      user_profile:
+        flat_number: Број на стан
+        building_number: Број на зграда
+        street: Улица
+        city: Град
+        country: Земја
+        email: Имејл
+        established: Датум на основање
+        facebook: Профил на Facebook
+        fax: Факс
+        gef_recipient: ГЕФ програма
+        google_plus: Профил на Google+
+        head_international_projects: Носител на интернационален проект
+        head_local_projects: Носител на локален проект
+        head_national_projects: Носител на национален проект
+        head_regional_projects: Носител на регионален проект
+        linked_in: Профил на LinkedIn
+        membership_number: Број на членови
+        mission_statement: Мисија на организацијата
+        mobile: Мобилен број
+        municipality: Општина
+        name: Име
+        partner_international_projects: Партнер во интернационален проект
+        partner_local_projects: Партнер во локален проект
+        partner_national_projects: Партнер во национален проект
+        partner_regional_projects: Партнер во регионален проект
+        personnel_number: Број на вработени
+        phone: Телефонски број
+        post_code: Поштенски код
+        previous_year_budget: Лански буџет
+        rep_email: Имејл на претставникот
+        rep_name: Име на претставникот
+        skype: Профил на Skype
+        twitter: Профил на Twitter
+        type: Вид
+        user_id: Кориснички број
+        website: Вебсајт
+        media_type_id: Број на видот медиум
+#        interests_attributes:
+#        sectors_attributes:
+#        media_interests_attributes:
+#        activity_ids:
+#        expertise_ids:
+#        media_scope_ids:
+        logo: Лого
+        remote_logo_url: Линк од лого
     errors:
       <<: *errors

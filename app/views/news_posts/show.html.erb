@@ -1,35 +1,51 @@
-<h1>
-  <%= @news_post.title %>
-</h1>
+<div class="span12">
+  <h1>
+    <%= @news_post.title %>
+  </h1>
 
-<h4>
-  (<%= @news_post.user.user_profile.name %>)
-</h4>
+  <div class="news-post-author">
+    <a class="pull-left" href="#">
+      <%= image_tag @news_post.user.user_profile.logo_url(:thumb).to_s,
+                    :class => 'media-object',
+                    :size => '20x20' %>
+    </a>
+    <h4 class="media-heading">
+      <%= @news_post.user.user_profile.name %>
+    </h4>
+  </div>
 
-<br>
+  <br>
 
-<h4>
-  <%= @news_post.short_description %>
-</h4>
+  <h4>
+    <%= @news_post.short_description %>
+  </h4>
 
-<br>
+  <br>
 
-<p>
-  <%= raw @news_post.article %>
-</p>
+  <p>
+    <%= raw @news_post.article %>
+  </p>
 
-<br>
+  <br>
 
-<p>
-  <b>Link:</b>
-  <%= @news_post.link %>
-</p>
+  <p>
+    <b>Link:</b>
+    <%= link_to @news_post.link,
+                @news_post.link,
+                :target => "_blank" %>
+  </p>
 
-<br>
+  <br>
 
-<%= link_to 'Edit', edit_news_post_path(@news_post) %> |
-<%= link_to 'Back', news_posts_path %>
+  <% if can? :update, @news_post %>
+    <%= link_to 'Edit', edit_news_post_path(@news_post) %> |
+  <% end %>
+  <% if can? :read, NewsPost %>
+    <%= link_to 'Back', news_posts_path %>
+  <% end %>
 
-<hr>
 
-<%= render :partial => 'comments_stream' %>
+  <hr>
+
+  <%= render :partial => 'comments_stream' %>
+</div>
