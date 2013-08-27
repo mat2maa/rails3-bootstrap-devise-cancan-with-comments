@@ -82,6 +82,12 @@ GEM
     gmaps4rails (1.5.6)
     hike (1.2.3)
     i18n (0.6.1)
+    i18n-inflector (2.6.7)
+      i18n (>= 0.4.1)
+    i18n-inflector-rails (1.0.6)
+      actionpack (~> 3.0)
+      i18n-inflector (~> 2.6)
+      railties (~> 3.0)
     journey (1.0.4)
     jquery-fileupload-rails (0.4.1)
       actionpack (>= 3.1)
@@ -117,6 +123,9 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
+    rails-i18n (3.0.0.pre2)
+      i18n (~> 0.5)
+      rails (>= 3.0.0, < 4.0.0)
     railties (3.2.13)
       actionpack (= 3.2.13)
       activesupport (= 3.2.13)
@@ -190,12 +199,14 @@ DEPENDENCIES
   figaro
   geocoder
   gmaps4rails
+  i18n-inflector-rails (~> 1.0.6)
   jquery-fileupload-rails
   jquery-rails
   mysql2
   nested_form
   quiet_assets
   rails (= 3.2.13)
+  rails-i18n (~> 3.0.0.pre)
   rmagick
   rolify!
   rspec-rails

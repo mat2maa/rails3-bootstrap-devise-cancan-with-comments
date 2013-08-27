@@ -1,15 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="span12">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User profile:</b>
-  <%= @sector.user_profile_id %>
-</p>
+  <p>
+    <b><%= UserProfile.model_name.human(:count => 1) %>:</b>
+    <%= @sector.user_profile_id %>
+  </p>
 
-<p>
-  <b>Name:</b>
-  <%= @sector.name %>
-</p>
+  <p>
+    <b><%= Sector.human_attribute_name(:name) %>:</b>
+    <%= @sector.name %>
+  </p>
 
 
-<%= link_to 'Edit', edit_sector_path(@sector) %> |
-<%= link_to 'Back', sectors_path %>
+  <%= link_to "#{t('action.edit')}", edit_sector_path(@sector) %> |
+  <%= link_to "#{t('action.back')}", sectors_path %>
+</div>

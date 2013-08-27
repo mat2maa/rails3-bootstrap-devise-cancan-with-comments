@@ -1,6 +1,9 @@
-<h1>Editing media_scope</h1>
+<div class="span12">
+  <h1><%= "#{t('action.edit')} #{MediaScope.model_name.human}".mb_chars.titlecase.to_s %></h1>
+  <br>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Show', @media_scope %> |
-<%= link_to 'Back', media_scopes_path %>
+  <%= link_to "#{t('action.show')}", @media_scope %> |
+  <%= link_to "#{t('action.back')}", media_scopes_path %>
+</div>

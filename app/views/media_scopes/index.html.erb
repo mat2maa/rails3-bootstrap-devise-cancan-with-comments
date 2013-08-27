@@ -1,25 +1,43 @@
-<h1>Listing media_scopes</h1>
+<div class="span12">
+  <h1><%= MediaScope.model_name.human(:count => 2).mb_chars.titlecase.to_s %></h1>
+  <br>
 
-<table class="table table-striped">
-  <tr>
-    <th>User profiles</th>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <table class="table table-striped">
+    <tr>
+      <th><%= UserProfile.model_name.human(:count => 2) %></th>
+      <th><%= MediaScope.human_attribute_name(:name) %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<% @media_scopes.each do |media_scope| %>
-  <tr>
-    <td><%= media_scope.user_profiles %></td>
-    <td><%= media_scope.name %></td>
-    <td><%= link_to 'Show', media_scope %></td>
-    <td><%= link_to 'Edit', edit_media_scope_path(media_scope) %></td>
-    <td><%= link_to 'Destroy', media_scope, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    <% @media_scopes.each do |media_scope| %>
+      <tr>
+        <td><%= media_scope.user_profiles_string %></td>
+        <td><%= media_scope.name %></td>
+        <td>
+          <% if can? :read, media_scope %>
+            <%= link_to "#{t('action.show')}", media_scope %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :edit, media_scope %>
+            <%= link_to "#{t('action.edit')}", edit_media_scope_path(media_scope) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :destroy, media_scope %>
+            <%= link_to "#{t('action.destroy')}", media_scope, :method => :delete, :data => {:confirm => "#{t('alert.are_you_sure')}"} %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 
-<br />
+  <br />
 
-<%= link_to 'New Media scope', new_media_scope_path %>
+  <% if can? :create, MediaScope %>
+    <br/>
+    <%= link_to "#{t(:new, :gender => :m)} #{MediaScope.model_name.human}", new_media_scope_path %>
+  <% end %>
+</div>

@@ -25,9 +25,9 @@
     <td><%= user_profile.phone %></td>
     <td><%= user_profile.rep_name %></td>
     <td><%= user_profile.rep_email %></td>
-    <td><%= link_to 'Show', user_profile_path(user_profile) %></td>
-    <td><%= link_to 'Edit', edit_user_profile_path(user_profile) %></td>
-    <td><%= link_to 'Destroy', user_profile_path(user_profile), :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td><%= link_to "#{t('action.show')}", user_profile_path(user_profile) %></td>
+    <td><%= link_to "#{t('action.edit')}", edit_user_profile_path(user_profile) %></td>
+    <td><%= link_to "#{t('action.destroy')}", user_profile_path(user_profile), :method => :delete, :data => { :confirm => "#{t('alert.are_you_sure')}" } %></td>
   </tr>
 <% end %>
 </table>

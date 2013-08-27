@@ -1,25 +1,42 @@
-<h1>Listing activities</h1>
+<div class="span12">
+  <h1><%= Activity.model_name.human(:count => 2).mb_chars.titlecase.to_s %></h1>
+  <br>
+  <table class="table table-striped">
+    <tr>
+      <th><%= UserProfile.model_name.human(:count => 2) %></th>
+      <th><%= Activity.human_attribute_name(:name) %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<table class="table table-striped">
-  <tr>
-    <th>User profiles</th>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td><%= activity.user_profiles_string %></td>
+        <td><%= activity.name %></td>
+        <td>
+          <% if can? :read, activity %>
+            <%= link_to "#{t('action.show')}", activity %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :edit, activity %>
+            <%= link_to "#{t('action.edit')}", edit_activity_path(activity) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :destroy, activity %>
+            <%= link_to "#{t('action.destroy')}", activity, :method => :delete, :data => {:confirm => "#{t('alert.are_you_sure')}"} %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 
-<% @activities.each do |activity| %>
-  <tr>
-    <td><%= activity.user_profiles %></td>
-    <td><%= activity.name %></td>
-    <td><%= link_to 'Show', activity %></td>
-    <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-    <td><%= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+  <br/>
 
-<br />
-
-<%= link_to 'New Activity', new_activity_path %>
+  <% if can? :create, Activity %>
+    <br/>
+    <%= link_to "#{t(:new, :gender => :f)} #{Activity.model_name.human}", new_activity_path %>
+  <% end %>
+</div>

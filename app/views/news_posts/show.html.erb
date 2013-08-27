@@ -38,10 +38,10 @@
   <br>
 
   <% if can? :update, @news_post %>
-    <%= link_to 'Edit', edit_news_post_path(@news_post) %> |
+    <%= link_to "#{t('action.edit')}", edit_news_post_path(@news_post) %> |
   <% end %>
   <% if can? :read, NewsPost %>
-    <%= link_to 'Back', news_posts_path %>
+    <%= link_to "#{t('action.back')}", news_posts_path %>
   <% end %>
 
 

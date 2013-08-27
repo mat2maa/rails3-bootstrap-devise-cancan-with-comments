@@ -1,6 +1,9 @@
-<h1>Editing media_interest</h1>
+<div class="span12">
+  <h1><%= "#{t('action.edit')} #{MediaInterest.model_name.human}".mb_chars.titlecase.to_s %></h1>
+  <br>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Show', @media_interest %> |
-<%= link_to 'Back', media_interests_path %>
+  <%= link_to "#{t('action.show')}", @media_interest %> |
+  <%= link_to "#{t('action.back')}", media_interests_path %>
+</div>

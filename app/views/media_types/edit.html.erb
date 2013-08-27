@@ -1,6 +1,9 @@
-<h1>Editing media_type</h1>
+<div class="span12">
+  <h1><%= "#{t('action.edit')} #{MediaType.model_name.human}".mb_chars.titlecase.to_s %></h1>
+  <br>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Show', @media_type %> |
-<%= link_to 'Back', media_types_path %>
+  <%= link_to "#{t('action.show')}", @media_type %> |
+  <%= link_to "#{t('action.back')}", media_types_path %>
+</div>

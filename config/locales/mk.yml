@@ -2,12 +2,40 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 mk:
-#  action:
-#    new:
-#    show:
-#    edit:
-#    destroy:
-#    back:
+  i18n:
+    inflections:
+      gender:
+        m:        "машки"
+        f:        "женски"
+        n:        "среден"
+        default:  n
+  new:  "@{m:нов|f:нова|n:ново}"
+  action:
+    show: прикажи
+    edit: измени
+    destroy: избриши
+    back: назад
+    log_me_in: најави ме
+    register_me: регистрирај ме
+    forgotten_password: ја заборавивте лозинката?
+    resend_confirmation: не добивте инструкции за потврда на лозинката?
+    resend_unlock: не добивте инструкции за отворање на лозинката?
+  header:
+    title: Екосфера доаѓа наскоро...
+    subtitle: Очекувајте многу интересни содржини и корисни алатки.
+  footer:
+    login: најава
+    logout: одјава
+    edit_user: измени во податоците за најава
+    edit_user_profile: измени во корисничкиот профил
+    admin: админ
+  home:
+    sign_up_title: Нов корисник?
+    sign_up_subtitle: За регистрација кликнете
+    here: тука
+  alert:
+    are_you_sure: Сигурни ли сте?
+    submitting: Се испраќа...
   date:
     abbr_day_names:
     - Нед
@@ -212,119 +240,151 @@ mk:
   activerecord:
     # Models
     models:
-      activity: Активност
-      administrator: Администратор
-      comment: Коментар
-      expert: Експерт
-      expertise: Експертиза
-      institution: Институција
-      interest: Интерес
-      media_interest: Интерес на медиумот
-      media_scope: Област на делување на медиумот
-      media_type: Вид на медиум
-      medium: Медиум
-      news_post: Објава на вест
-      ngo: НВО
-      sector: Сектор
-      user: Корисник
-      user_profile: Профил на корисникот
+      activity:
+        one: активност
+        other: активности
+      administrator:
+        one: администратор
+        other: администратори
+      comment:
+        one: коментар
+        other: коментари
+      expert:
+        one: експерт
+        other: експерти
+      expertise:
+        one: експертиза
+        other: експертиза
+      institution:
+        one: институција
+        other: институции
+      interest:
+        one: интерес
+        other: интереси
+      media_interest:
+        one: интерес на медиумот
+        other: интереси на медиумот
+      media_scope:
+        one: област на делување на медиумот
+        other: области на делување на медиумот
+      media_type:
+        one: вид на медиум
+        other: видови на медиум
+      medium:
+        one: медиум
+        other: медиуми
+      news_post:
+        one: објава на вест
+        other: објави на вест
+      ngo:
+        one: НВО
+        other: НВО
+      sector:
+        one: сектор
+        other: сектори
+      user:
+        one: корисник
+        other: корисници
+      user_profile:
+        one: кориснички профил
+        other: кориснички профили
     # Attributes
     attributes:
       activity:
-        name: Назив
+        name: назив
 #      administrator:
 #        interests_attributes:
 #        sectors_attributes:
 #        media_interests_attributes:
       comment:
 #        commentable:
-        body: Текст
-        user_id: Кориснички број
+        body: текст
+        user_id: кориснички број
       expert:
 #        interests_attributes:
 #        sectors_attributes:
 #        media_interests_attributes:
       expertise:
-        name: Назив
+        name: назив
       institution:
 #        interests_attributes:
 #        sectors_attributes:
 #        media_interests_attributes:
       interest:
-        name: Назив
+        name: назив
       media_interest:
-        name: Назив
+        name: назив
       media_scope:
-        name: Назив
+        name: назив
       media_type:
-        name: Назив
+        name: назив
       medium:
 #        interests_attributes:
 #        sectors_attributes:
 #        media_interests_attributes:
       news_post:
-        article: Статија
-        link: Линк
-        short_description: Кус опис
-        title: Наслов
-        user_id: Кориснички број
+        article: статија
+        link: линк
+        short_description: кус опис
+        title: наслов
+        user_id: кориснички број
       ngo:
 #        interests_attributes:
 #        sectors_attributes:
 #        media_interests_attributes:
       sector:
-        name: Назив
+        name: назив
       user:
-        email: Имејл
-        password: Лозинка
-        password_confirmation: Потврда на лозинката
-        remember_me: Зачувај
+        email: имејл
+        password: лозинка
+        password_confirmation: потврда на лозинката
+        remember_me: зачувај
 #        user_profile_attributes:
       user_profile:
-        flat_number: Број на стан
-        building_number: Број на зграда
-        street: Улица
-        city: Град
-        country: Земја
-        email: Имејл
-        established: Датум на основање
-        facebook: Профил на Facebook
-        fax: Факс
+        flat_number: број на стан
+        building_number: број на зграда
+        street: улица
+        city: град
+        country: земја
+        email: имејл
+        established: датум на основање
+        facebook: профил на Facebook
+        fax: факс
         gef_recipient: ГЕФ програма
-        google_plus: Профил на Google+
-        head_international_projects: Носител на интернационален проект
-        head_local_projects: Носител на локален проект
-        head_national_projects: Носител на национален проект
-        head_regional_projects: Носител на регионален проект
-        linked_in: Профил на LinkedIn
-        membership_number: Број на членови
-        mission_statement: Мисија на организацијата
-        mobile: Мобилен број
-        municipality: Општина
-        name: Име
-        partner_international_projects: Партнер во интернационален проект
-        partner_local_projects: Партнер во локален проект
-        partner_national_projects: Партнер во национален проект
-        partner_regional_projects: Партнер во регионален проект
-        personnel_number: Број на вработени
-        phone: Телефонски број
-        post_code: Поштенски код
-        previous_year_budget: Лански буџет
-        rep_email: Имејл на претставникот
-        rep_name: Име на претставникот
-        skype: Профил на Skype
-        twitter: Профил на Twitter
-        type: Вид
-        user_id: Кориснички број
-        website: Вебсајт
-        media_type_id: Број на видот медиум
+        google_plus: профил на Google+
+        head_international_projects: носител на интернационален проект
+        head_local_projects: носител на локален проект
+        head_national_projects: носител на национален проект
+        head_regional_projects: носител на регионален проект
+        linked_in: профил на LinkedIn
+        membership_number: број на членови
+        mission_statement: мисија на организацијата
+        mobile: мобилен број
+        municipality: општина
+        name: име
+        partner_international_projects: партнер во интернационален проект
+        partner_local_projects: партнер во локален проект
+        partner_national_projects: партнер во национален проект
+        partner_regional_projects: партнер во регионален проект
+        personnel_number: број на вработени
+        phone: телефонски број
+        post_code: поштенски код
+        previous_year_budget: лански буџет
+        rep_email: имејл на претставникот
+        rep_name: име на претставникот
+        skype: профил на Skype
+        twitter: профил на Twitter
+        type: вид
+        user_id: кориснички број
+        website: вебсајт
+        media_type_id: број на видот медиум
 #        interests_attributes:
 #        sectors_attributes:
 #        media_interests_attributes:
 #        activity_ids:
 #        expertise_ids:
 #        media_scope_ids:
-        logo: Лого
-        remote_logo_url: Линк од лого
+        logo: лого
+        remote_logo_url: линк од лого
     errors:
       <<: *errors

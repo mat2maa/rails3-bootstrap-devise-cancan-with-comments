@@ -1,6 +1,9 @@
-<h1>Editing sector</h1>
+<div class="span12">
+  <h1><%= "#{t('action.edit')} #{Sector.model_name.human}".mb_chars.titlecase.to_s %></h1>
+  <br>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Show', @sector %> |
-<%= link_to 'Back', sectors_path %>
+  <%= link_to "#{t('action.show')}", @sector %> |
+  <%= link_to "#{t('action.back')}", sectors_path %>
+</div>

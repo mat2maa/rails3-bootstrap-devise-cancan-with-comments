@@ -1,15 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="span12">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User profiles:</b>
-  <%= @media_scope.user_profiles %>
-</p>
+  <p>
+    <b><%= UserProfile.model_name.human(:count => 2) %>:</b>
+    <%= @media_scope.user_profiles %>
+  </p>
 
-<p>
-  <b>Name:</b>
-  <%= @media_scope.name %>
-</p>
+  <p>
+    <b><%= MediaScope.human_attribute_name(:name) %>:</b>
+    <%= @media_scope.name %>
+  </p>
 
 
-<%= link_to 'Edit', edit_media_scope_path(@media_scope) %> |
-<%= link_to 'Back', media_scopes_path %>
+  <%= link_to "#{t('action.edit')}", edit_media_scope_path(@media_scope) %> |
+  <%= link_to "#{t('action.back')}", media_scopes_path %>
+</div>

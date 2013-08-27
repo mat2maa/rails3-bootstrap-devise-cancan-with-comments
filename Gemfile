@@ -18,6 +18,10 @@ gem 'figaro'
 gem 'rolify', :git => 'git://github.com/softcraft-development/rolify.git', :ref => 'e2eaa7af68'
 gem 'yaml_db'
 
+# Internationalization
+gem 'rails-i18n', '~> 3.0.0.pre' # For 3.x
+gem 'i18n-inflector-rails', '~> 1.0.6'
+
 # Forms
 gem 'simple_form'
 gem 'country-select'

@@ -10,7 +10,7 @@
     <div class="controls controls-row">
       <%= f.input_field :body,
                         :rows => '4',
-                        :placeholder => 'Message',
+                        :placeholder => Comment.human_attribute_name(:body),
                         :class => 'span5' %>
     </div>
     <%= f.input_field :commentable_id,
@@ -22,7 +22,7 @@
 
     <%= f.button :submit,
                  :class => 'btn btn-green',
-                 :disable_with => 'Submitting…' %>
+                 :disable_with => "#{t('alert.submitting')}" %>
 
   <% end %>
 </div>

@@ -1,10 +1,12 @@
-<p id="notice"><%= notice %></p>
+<div class="span12">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @media_type.name %>
-</p>
+  <p>
+    <b><%= MediaType.human_attribute_name(:name) %>:</b>
+    <%= @media_type.name %>
+  </p>
 
 
-<%= link_to 'Edit', edit_media_type_path(@media_type) %> |
-<%= link_to 'Back', media_types_path %>
+  <%= link_to "#{t('action.edit')}", edit_media_type_path(@media_type) %> |
+  <%= link_to "#{t('action.back')}", media_types_path %>
+</div>

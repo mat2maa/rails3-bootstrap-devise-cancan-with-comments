@@ -4,6 +4,6 @@
   <%= render 'form' %>
 
   <% if can? :read, NewsPost %>
-    <%= link_to 'Back', news_posts_path %>
+    <%= link_to "#{t('action.back')}", news_posts_path %>
   <% end %>
 </div>

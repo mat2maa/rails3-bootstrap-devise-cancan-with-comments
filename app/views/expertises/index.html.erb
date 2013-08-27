@@ -1,25 +1,43 @@
-<h1>Listing expertises</h1>
+<div class="span12">
+  <h1><%= Expertise.model_name.human(:count => 2).mb_chars.titlecase.to_s %></h1>
+  <br>
 
-<table class="table table-striped">
-  <tr>
-    <th>User profiles</th>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <table class="table table-striped">
+    <tr>
+      <th><%= UserProfile.model_name.human(:count => 2) %></th>
+      <th><%= Expertise.human_attribute_name(:name) %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<% @expertises.each do |expertise| %>
-  <tr>
-    <td><%= expertise.user_profiles %></td>
-    <td><%= expertise.name %></td>
-    <td><%= link_to 'Show', expertise %></td>
-    <td><%= link_to 'Edit', edit_expertise_path(expertise) %></td>
-    <td><%= link_to 'Destroy', expertise, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    <% @expertises.each do |expertise| %>
+      <tr>
+        <td><%= expertise.user_profiles_string %></td>
+        <td><%= expertise.name %></td>
+        <td>
+          <% if can? :read, expertise %>
+            <%= link_to "#{t('action.show')}", expertise %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :edit, expertise %>
+            <%= link_to "#{t('action.edit')}", edit_expertise_path(expertise) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :destroy, expertise %>
+            <%= link_to "#{t('action.destroy')}", expertise, :method => :delete, :data => {:confirm => "#{t('alert.are_you_sure')}"} %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 
-<br />
+  <br />
 
-<%= link_to 'New Expertise', new_expertise_path %>
+  <% if can? :create, Expertise %>
+    <br/>
+    <%= link_to "#{t(:new, :gender => :f)} #{Expertise.model_name.human}", new_expertise_path %>
+  <% end %>
+</div>

@@ -51,4 +51,7 @@ Rails3BootstrapDeviseCancan::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Available locales
+  config.i18n.available_locales = [:en, :mk]
 end

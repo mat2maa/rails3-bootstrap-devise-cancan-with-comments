@@ -1,15 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="span12">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User profile:</b>
-  <%= @interest.user_profile_id %>
-</p>
+  <p>
+    <b><%= UserProfile.model_name.human(:count => 1) %>:</b>
+    <%= @interest.user_profile_id %>
+  </p>
 
-<p>
-  <b>Name:</b>
-  <%= @interest.name %>
-</p>
+  <p>
+    <b><%= Interest.human_attribute_name(:name) %>:</b>
+    <%= @interest.name %>
+  </p>
 
 
-<%= link_to 'Edit', edit_interest_path(@interest) %> |
-<%= link_to 'Back', interests_path %>
+  <%= link_to "#{t('action.edit')}", edit_interest_path(@interest) %> |
+  <%= link_to "#{t('action.back')}", interests_path %>
+</div>

@@ -21,16 +21,16 @@
   <div class="span12">
     <table class="table table-striped">
       <tr>
-        <th><%= UserProfile.human_attribute_name("logo") %></th>
+        <th><%= UserProfile.human_attribute_name('logo') %></th>
         <th><%= User.model_name.human %></th>
-        <th><%= NewsPost.human_attribute_name("title") %></th>
-        <th><%= NewsPost.human_attribute_name("short_description") %></th>
+        <th><%= NewsPost.human_attribute_name('title') %></th>
+        <th><%= NewsPost.human_attribute_name('short_description') %></th>
         <th></th>
         <th></th>
         <th></th>
       </tr>
 
-      <% NewsPost.order("created_at DESC").limit(3).each do |news_post| %>
+      <% NewsPost.order('created_at DESC').limit(3).each do |news_post| %>
         <tr>
           <td><%= image_tag news_post.user.user_profile.logo_url(:thumb).to_s %></td>
           <td><%= news_post.user.user_profile.name %></td>
@@ -38,17 +38,17 @@
           <td><%= news_post.short_description %></td>
           <td>
             <% if can? :read, news_post %>
-              <%= link_to 'Show', news_post %>&nbsp;
+              <%= link_to "#{t('action.show')}", news_post %>&nbsp;
             <% end %>
           </td>
           <td>
             <% if can? :edit, news_post %>
-              <%= link_to 'Edit', edit_news_post_path(news_post) %>&nbsp;
+              <%= link_to "#{t('action.edit')}", edit_news_post_path(news_post) %>&nbsp;
             <% end %>
           </td>
           <td>
             <% if can? :destroy, news_post %>
-              <%= link_to 'Destroy', news_post, :method => :delete, :data => {:confirm => 'Are you sure?'} %>&nbsp;
+              <%= link_to "#{t('action.destroy')}", news_post, :method => :delete, :data => {:confirm => "#{t('alert.are_you_sure')}"} %>&nbsp;
             <% end %>
           </td>
         </tr>
@@ -57,7 +57,7 @@
 
     <% if can? :create, NewsPost %>
       <br/>
-      <%= link_to 'New News post', new_news_post_path %>
+      <%= link_to "#{t(:new, :gender => :f)} #{NewsPost.model_name.human}", new_news_post_path %>
     <% end %>
 
   </div>
@@ -66,18 +66,19 @@
   <div class="span6">
     <h4>Постоечки корисник?</h4>
     <%= minimal_nested_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
-      <%= f.input :email, :autofocus => true, :placeholder => 'имејл' %>
-      <%= f.input :password, :placeholder => 'лозинка' %>
-      <%= f.input_field :remember_me, :inline_label => 'зачувај', :as => :boolean if devise_mapping.rememberable? %>
+      <%= f.input :email, :autofocus => true, :placeholder => User.human_attribute_name('email') %>
+      <%= f.input :password, :placeholder => User.human_attribute_name('password') %>
+      <%= f.input_field :remember_me, :inline_label => User.human_attribute_name('remember_me'),
+                        :as => :boolean if devise_mapping.rememberable? %>
       <br>
-      <%= f.button :submit, "најави ме", :class => 'btn-primary' %>
+      <%= f.button :submit, t('action.log_me_in'), :class => 'btn-primary' %>
     <% end %>
     <%= render "users/shared/links" %>
   </div>
   <div class="span6">
     <h4>
-      Нов корисник?<br>
-      За регистрација кликнете <%= link_to('тука', new_user_registration_path)  %>
+      <%= t('home.sign_up_title') %><br>
+      <%= t('home.sign_up_subtitle') %> <%= link_to(t('home.here'), new_user_registration_path)  %>
     </h4>
   </div>
 <% end %><%= content_for :scripts do %>
