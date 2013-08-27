@@ -1,5 +1,6 @@
 <div class="span12">
-  <h1>Editing news_post</h1>
+  <h1><%= "#{t('action.edit')} #{NewsPost.model_name.human}".mb_chars.titlecase.to_s %></h1>
+  <br>
 
   <%= render 'form' %>
 

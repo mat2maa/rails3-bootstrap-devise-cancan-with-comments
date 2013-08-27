@@ -1,7 +1,9 @@
 <div class="comments">
-  <h3>Comments</h3>
+  <h3><%= "#{t('comments.comment', :count => 2)}".mb_chars.titlecase.to_s %></h3>
+  <br>
   <%= render :partial => 'comments/form',
              :locals => { :comment => @new_comment } %>
+  <br>
   <%= render :partial => 'comments/comment',
              :collection => @comments,
              :as => :comment %>

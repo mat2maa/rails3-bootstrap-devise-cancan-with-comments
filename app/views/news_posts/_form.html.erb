@@ -4,25 +4,25 @@
   <div class="form-inputs">
     <div class="controls controls-row">
       <%= f.input_field :title,
-                        :placeholder => 'Title',
-                        :class => 'span4' %>
+                        :placeholder => NewsPost.human_attribute_name(:title),
+                        :class => 'span5' %>
 
       <%= f.input_field :link,
-                        :placeholder => 'Link',
-                        :class => 'span4' %>
+                        :placeholder => NewsPost.human_attribute_name(:link),
+                        :class => 'span5' %>
     </div>
 
     <div class="controls controls-row">
       <%= f.input_field :short_description,
-                        :placeholder => 'Short Description',
-                        :class => 'span8',
+                        :placeholder => NewsPost.human_attribute_name(:short_description),
+                        :class => 'span10',
                         :rows => 3 %>
     </div>
     <br>
     <div class="controls controls-row">
       <%= f.input_field :article,
-                        :placeholder => 'Article',
-                        :class => 'span8 wysihtml5',
+                        :placeholder => NewsPost.human_attribute_name(:article),
+                        :class => 'span10 wysihtml5',
                         :rows => 16 %>
     </div>
 
@@ -34,7 +34,69 @@
 <% end %>
 
 <script type="text/javascript">
+  /**
+   * Macedonian translation for bootstrap-wysihtml5
+   */
+  (function($){
+    $.fn.wysihtml5.locale["mk"] = {
+      font_styles: {
+        normal: "Нормал",
+        h1: "Наслов 1",
+        h2: "Наслов 2",
+        h3: "Наслов 3",
+        h4: "Наслов 4",
+        h5: "Наслов 5",
+        h6: "Наслов 6"
+      },
+      emphasis: {
+        bold: "Задебелено",
+        italic: "Ракописно",
+        underline: "Подвлечено"
+      },
+      lists: {
+        unordered: "Список без броеви",
+        ordered: "Список со броеви",
+        outdent: "Помалку вовлечено",
+        indent: "Пововлечено"
+      },
+      link: {
+        insert: "Вметни линк",
+        cancel: "Откажи",
+        target: "Отвори го линкот во нов прозорец"
+      },
+      image: {
+        insert: "Вметни слика",
+        cancel: "Откажи"
+      },
+      html: {
+        edit: "Измени во HTML"
+      },
+      colours: {
+        black: "Црно",
+        silver: "Сребрено",
+        gray: "Сиво",
+        maroon: "Темно црвено",
+        red: "Црвено",
+        purple: "Виолетово",
+        green: "Зелено",
+        olive: "Темно зелено",
+        navy: "Темно сино",
+        blue: "Сино",
+        orange: "Портокалово"
+      }
+    };
+  }(jQuery));
+
   $('.wysihtml5').each(function(i, elem) {
-    $(elem).wysihtml5();
+    $(elem).wysihtml5({
+      locale: "<%= I18n.locale.to_s %>",
+      "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+      "emphasis": true, //Italics, bold, etc. Default true
+      "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+      "html": true, //Button which allows you to edit the generated HTML. Default false
+      "link": true, //Button to insert a link. Default true
+      "image": true, //Button to insert an image. Default true,
+      "color": true //Button to change color of font
+    });
   });
 </script>

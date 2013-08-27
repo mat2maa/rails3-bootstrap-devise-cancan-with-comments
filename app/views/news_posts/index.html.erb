@@ -1,12 +1,12 @@
 <div class="span12">
-  <h1><%= NewsPost.model_name.human %></h1>
+  <h1><%= NewsPost.model_name.human.mb_chars.titlecase.to_s %></h1>
   <br>
   <table class="table table-striped">
     <tr>
-      <th>Logo</th>
-      <th>User</th>
-      <th>Title</th>
-      <th>Short description</th>
+      <th><%= UserProfile.human_attribute_name(:logo) %></th>
+      <th><%= User.model_name.human %></th>
+      <th><%= NewsPost.human_attribute_name(:title) %></th>
+      <th><%= NewsPost.human_attribute_name(:short_description) %></th>
       <th></th>
       <th></th>
       <th></th>
@@ -37,7 +37,8 @@
     <% end %>
   </table>
 
-  <br/>
-
-  <%= link_to 'New News post', new_news_post_path %>
+  <% if can? :create, NewsPost %>
+    <br/>
+    <%= link_to "#{t(:new, :gender => :f)} #{NewsPost.model_name.human}", new_news_post_path %>
+  <% end %>
 </div>

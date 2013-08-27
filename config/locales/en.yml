@@ -6,10 +6,13 @@ en:
   action:
     show: show
     edit: edit
+    update: update
     destroy: destroy
     back: back
+    cancel: cancel
     log_me_in: log in
     register_me: register
+    register: register
     forgotten_password: forgotten your password?
     resend_confirmation: not received confirmation email?
     resend_unlock: not received unlock email?
@@ -23,9 +26,39 @@ en:
     edit_user_profile: edit user profile
     admin: admin
   home:
+    login_title: Existing user?
     sign_up_title: New user?
     sign_up_subtitle: To register click
     here: here
+  user_form:
+    step_1_title: 1. Login details
+    step_2_title: 2. Profile type
+    step_3_title: 3. Other information
+  user_profile_form:
+    logo_title: Logo of the organization (choose a file or a link)
+    address_title: Address of the organization
+    web_title: Web details
+    contact_title: Contact details
+    social_title: Social networking
+    rep_title: Information about your representative
+    activity_title: Your activities
+    expertise_title: Your expertise
+    sector_title: Your sector
+    interest_title: Your interests
+    media_title: Media information
+    head_project_title: Numbers of projects that you have headed
+    partner_project_title: Numbers of projects that you have been a partner in
+  update_user:
+    update_user_title: Update your login details
+    minimum_character_hint: Your password must be a minimum of 6 charaters
+    new_password_hint: Enter a new password if you would like to change it
+    old_password_hint: We need your current password so save changes
+  login_user:
+    login_user_title: Log in
+  comments:
+    comment:
+      one: comment
+      other: comments
   alert:
     are_you_sure: Are you sure?
     submitting: Submitting...
@@ -299,6 +332,7 @@ en:
         email: email
         password: password
         password_confirmation: password confirmation
+        current_password: current password
         remember_me: remember me
 #        user_profile_attributes:
       user_profile:

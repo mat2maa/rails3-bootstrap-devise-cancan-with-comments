@@ -3,42 +3,42 @@
                             :url => registration_path(resource_name),
                             :html => { :class => 'form-vertical', :multipart => true } do |f| %>
   <div class="span6">
-    <h4>1. Податоци за најавување</h4>
+    <h4><%= t('user_form.step_1_title') %></h4>
     <hr>
     <%= devise_error_messages! %>
     <%= f.error_notification %>
     <%= display_base_errors resource %>
     <%= f.input :email,
-                :placeholder => 'имејл',
+                :placeholder => User.human_attribute_name(:email),
                 :required => true %>
     <p>Лозинката мора да има најмалку 6 карактери</p>
     <%= f.input :password,
-                :placeholder => 'лозинка',
+                :placeholder => User.human_attribute_name(:password),
                 :required => true %>
     <%= f.input :password_confirmation,
-                :placeholder => 'потврда на лозинката',
+                :placeholder => User.human_attribute_name(:password_confirmation),
                 :required => true %>
   </div>
   <div class="span6">
-    <h4>2. Вид на профил</h4>
+    <h4><%= t('user_form.step_2_title') %></h4>
     <hr>
     <ul class="nav nav-pills nav-stacked" id="profile-type-select">
       <li data-type="ngo">
-        <a href="#">НВО</a>
+        <a href="#"><%= NGO.model_name.human %></a>
       </li>
       <li data-type="expert">
-        <a href="#">експерт</a>
+        <a href="#"><%= Expert.model_name.human %></a>
       </li>
       <li data-type="institution">
-        <a href="#">институција</a>
+        <a href="#"><%= Institution.model_name.human %></a>
       </li>
       <li data-type="media">
-        <a href="#">медиум</a>
+        <a href="#"><%= Medium.model_name.human %></a>
       </li>
     </ul>
   </div>
   <div class="span12 dynamic-form" style="display:none;">
-    <h4>3. Други податоци</h4>
+    <h4><%= t('user_form.step_3_title') %></h4>
     <hr>
     <div class="form-inputs dynamic-form-inputs">
       <%= f.simple_fields_for :user_profile do |builder| %>
@@ -49,7 +49,7 @@
 
     <div class="form-actions">
       <%= f.button :submit,
-                   'регистрирај се',
+                   t('action.register'),
                    :class => 'btn-primary' %>
     </div>
 <% end %>

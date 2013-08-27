@@ -29,7 +29,7 @@
   <br>
 
   <p>
-    <b>Link:</b>
+    <b><%= NewsPost.human_attribute_name(:link) %>:</b>
     <%= link_to @news_post.link,
                 @news_post.link,
                 :target => "_blank" %>
@@ -44,8 +44,9 @@
     <%= link_to "#{t('action.back')}", news_posts_path %>
   <% end %>
 
-
+  <br>
   <hr>
+  <br>
 
   <%= render :partial => 'comments_stream' %>
 </div>

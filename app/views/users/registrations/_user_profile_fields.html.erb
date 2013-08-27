@@ -3,10 +3,11 @@
                    :required => true %>
 <div class="controls controls-row">
   <%= f.input_field :name,
-                    :placeholder => 'име на организацијата',
+                    :placeholder => UserProfile.human_attribute_name(:name),
                     :class => 'ngo expert institution media span4',
                     :required => true %>
 </div>
+
 <!--Removed as Carrierwave does not distinguish the STI model type and uses user_profile rather than expert, -->
 <!--NGO etc in file path-->
 <!--<div class="controls controls-row">-->
@@ -27,111 +28,123 @@
 <!--</div>-->
 
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Адреса на канцеларијата на организацијата</h5>
+  <h5 class="controls-row-header"><%= t('user_profile_form.address_title') %></h5>
   <%= f.input_field :flat_number,
-                    :placeholder => 'број на стан',
+                    :placeholder => UserProfile.human_attribute_name(:flat_number),
                     :class => 'ngo expert institution media span2',
                     :required => true %>
   <%= f.input_field :building_number,
-                    :placeholder => 'број на зграда',
+                    :placeholder => UserProfile.human_attribute_name(:building_number),
                     :class => 'ngo expert institution media span2',
                     :required => true %>
   <%= f.input_field :street,
-                    :placeholder => 'улица',
+                    :placeholder => UserProfile.human_attribute_name(:street),
                     :class => 'ngo expert institution media span4',
                     :required => true %>
   <%= f.input_field :municipality,
-                    :placeholder => 'општина',
+                    :placeholder => UserProfile.human_attribute_name(:municipality),
                     :class => 'ngo expert institution media span4' %>
 </div>
+
 <div class="controls controls-row">
   <%= f.input_field :city,
-                    :placeholder => 'град',
+                    :placeholder => UserProfile.human_attribute_name(:city),
                     :class => 'ngo expert institution media span4',
                     :required => true %>
   <%= f.input_field :post_code,
-                    :placeholder => 'поштенски код',
+                    :placeholder => UserProfile.human_attribute_name(:post_code),
                     :class => 'ngo expert institution media span4' %>
   <%= f.input_field :country,
                     :collection => COUNTRIES,
-                    :placeholder => 'држава',
+                    :placeholder => UserProfile.human_attribute_name(:country),
                     :class => 'ngo expert institution media select2 span4',
                     :required => true,
                     :selected => COUNTRIES[129] %>
 </div>
+
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Официјални веб податоци</h5>
+  <h5 class="controls-row-header"><%= t('user_profile_form.web_title') %></h5>
   <%= f.input_field :website,
-                    :placeholder => 'вебсајт',
+                    :placeholder => UserProfile.human_attribute_name(:website),
                     :class => 'ngo institution media span4' %>
   <%= f.input_field :email,
-                    :placeholder => 'друг имејл',
+                    :placeholder => UserProfile.human_attribute_name(:email),
                     :class => 'ngo institution media span4' %>
 </div>
+
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Контакт на организацијата</h5>
+  <h5 class="controls-row-header"><%= t('user_profile_form.contact_title') %></h5>
   <%= f.input_field :phone,
-                    :placeholder => 'тел. број',
+                    :placeholder => UserProfile.human_attribute_name(:phone),
                     :class => 'ngo institution media span4' %>
   <%= f.input_field :mobile,
-                    :placeholder => 'моб. број',
+                    :placeholder => UserProfile.human_attribute_name(:mobile),
                     :class => 'ngo institution media span4' %>
   <%= f.input_field :fax,
-                    :placeholder => 'факс',
+                    :placeholder => UserProfile.human_attribute_name(:fax),
                     :class => 'ngo institution media span4' %>
 </div>
+
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Социјални мрежи на организацијата</h5>
+  <h5 class="controls-row-header"><%= t('user_profile_form.social_title') %></h5>
   <%= f.input_field :facebook,
-                    :placeholder => 'профил на Facebook',
+                    :placeholder => UserProfile.human_attribute_name(:facebook),
                     :class => 'ngo institution media span4' %>
   <%= f.input_field :twitter,
-                    :placeholder => 'профил на Twitter',
+                    :placeholder => UserProfile.human_attribute_name(:twitter),
                     :class => 'ngo institution media span4' %>
   <%= f.input_field :linked_in,
-                    :placeholder => 'профил на LinkedIn',
+                    :placeholder => UserProfile.human_attribute_name(:linked_in),
                     :class => 'ngo institution media span4' %>
 </div>
+
 <div class="controls controls-row">
   <%= f.input_field :skype,
-                    :placeholder => 'профил на Skype',
+                    :placeholder => UserProfile.human_attribute_name(:skype),
                     :class => 'ngo institution media span4' %>
   <%= f.input_field :google_plus,
-                    :placeholder => 'профил на Google+',
+                    :placeholder => UserProfile.human_attribute_name(:google_plus),
                     :class => 'ngo institution media span4' %>
 </div>
+
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Застапник на организацијата</h5>
+  <h5 class="controls-row-header"><%= t('user_profile_form.rep_title') %></h5>
   <%= f.input_field :rep_name,
-                    :placeholder => 'име на претставникот на организацијата',
+                    :placeholder => UserProfile.human_attribute_name(:rep_name),
                     :class => 'ngo expert institution media span4',
                     :required => true %>
   <%= f.input_field :rep_email,
-                    :placeholder => 'имејл на претставникот',
+                    :placeholder => UserProfile.human_attribute_name(:rep_email),
                     :class => 'ngo expert institution media span4',
                     :required => true %>
 </div>
+
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Област на делување</h5>
+  <h5 class="controls-row-header"><%= t('user_profile_form.activity_title') %></h5>
+
   <div class="select2-container-outer span4">
     <%= f.input_field :activity_ids,
                       :as => :select,
                       :multiple => true,
-                      :collection => Activity.all.collect {|c| [ c.name, c.id ] },
-                      :placeholder => 'активности',
+                      :collection => Activity.all.collect { |c| [c.name, c.id] },
+                      :placeholder => UserProfile.human_attribute_name(:activity_ids),
                       :class => 'ngo select2 span4' %>
   </div>
+
 </div>
+
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Област на експертиза</h5>
+  <h5 class="controls-row-header"><%= t('user_profile_form.expertise_title') %></h5>
+
   <div class="select2-container-outer span4">
     <%= f.input_field :expertise_ids,
                       :as => :select,
                       :multiple => true,
-                      :collection => Expertise.all.collect {|c| [ c.name, c.id ] },
-                      :placeholder => 'Expertise',
+                      :collection => Expertise.all.collect { |c| [c.name, c.id] },
+                      :placeholder => UserProfile.human_attribute_name(:expertise_ids),
                       :class => 'expert select2 span4' %>
   </div>
+
 </div>
 
 <!--<div class="controls controls-row">-->
@@ -146,7 +159,7 @@
 <!--</div>-->
 
 <div class="controls controls-row">
-  <h5 class="controls-row-header institution">Сектор во кој работи</h5>
+  <h5 class="controls-row-header institution"><%= t('user_profile_form.sector_title') %></h5>
   <%= f.simple_fields_for :sectors do |builder| %>
     <%= builder.input_field :name,
                             :class => 'span4 nested-builder' %>
@@ -155,115 +168,128 @@
   <p><%= f.link_to_add "додај сектор", :sectors %></p>
 
 </div>
+
 <div class="controls controls-row">
-  <h5 class="controls-row-header media">Интереси</h5>
+  <h5 class="controls-row-header media"><%= t('user_profile_form.interest_title') %></h5>
   <%= f.simple_fields_for :media_interests do |builder| %>
     <%= builder.input_field :name,
-                      :class => 'span4 nested-builder' %>
+                            :class => 'span4 nested-builder' %>
     <%= builder.link_to_remove "отстрани го интересот" %>
   <% end %>
   <p><%= f.link_to_add "додај интерес", :media_interests %></p>
 
 </div>
+
 <div class="controls controls-row">
-  <h5 class="controls-row-header">Информации за медиумот</h5>
+  <h5 class="controls-row-header"><%= t('user_profile_form.media_title') %></h5>
+
   <div class="select2-container-outer span4">
     <%= f.input_field :media_scope_ids,
                       :as => :select,
                       :multiple => true,
-                      :collection => MediaScope.all.collect {|c| [ c.name, c.id ] },
-                      :placeholder => 'тип на медиум',
+                      :collection => MediaScope.all.collect { |c| [c.name, c.id] },
+                      :placeholder => UserProfile.human_attribute_name(:media_scope_ids),
                       :class => 'media select2 span4' %>
   </div>
+
   <%= f.input_field :media_type_id,
                     :as => :select,
                     :collection => MediaType.order('name'),
-                    :placeholder => 'медиум',
+                    :placeholder => UserProfile.human_attribute_name(:media_type_id),
                     :class => 'media select2 span4' %>
+
 </div>
+
 <div class="controls controls-row">
 
   <div class="input-append date span2 datepicker" id="established-datepicker" data-date-format="dd-mm-yyyy">
     <%= f.text_field :established,
-                     :placeholder => 'датум на основање',
+                     :placeholder => UserProfile.human_attribute_name(:established),
                      :class => 'ngo span2' %>
     <span class="add-on">
-      <i class="icon-th"></i>
-    </span>
+          <i class="icon-th"></i>
+        </span>
   </div>
 </div>
+
 <div class="controls controls-row">
   <%= f.input_field :mission_statement,
-                    :placeholder => 'мисија на организацијата',
+                    :placeholder => UserProfile.human_attribute_name(:mission_statement),
                     :class => 'ngo span12',
                     :rows => 6 %>
 </div>
+
 <div class="controls controls-row">
   <%= f.input_field :membership_number,
                     :type => :number,
-                    :placeholder => 'број на членови',
+                    :placeholder => UserProfile.human_attribute_name(:membership_number),
                     :class => 'ngo span2' %>
   <%= f.input_field :personnel_number,
                     :type => :number,
-                    :placeholder => 'број на вработени',
+                    :placeholder => UserProfile.human_attribute_name(:personnel_number),
                     :class => 'ngo span2' %>
 </div>
+
 <div class="controls controls-row">
   <%= f.input_field :previous_year_budget,
                     :type => :number,
-                    :placeholder => 'лански буџет во евра',
+                    :placeholder => UserProfile.human_attribute_name(:previous_year_budget),
                     :class => 'ngo span2' %>
 </div>
+
 <div class="controls controls-row">
-  <h5>Број на спроведени проекти каде вашето здружение е носител</h5>
+  <h5><%= t('user_profile_form.head_project_title') %></h5>
   <%= f.input_field :head_local_projects,
                     :type => :number,
-                    :placeholder => 'локални',
+                    :placeholder => UserProfile.human_attribute_name(:head_local_projects),
                     :class => 'ngo span2' %>
   <%= f.input_field :head_regional_projects,
                     :type => :number,
-                    :placeholder => 'регионални',
+                    :placeholder => UserProfile.human_attribute_name(:head_regional_projects),
                     :class => 'ngo span2' %>
   <%= f.input_field :head_national_projects,
                     :type => :number,
-                    :placeholder => 'национални',
+                    :placeholder => UserProfile.human_attribute_name(:head_national_projects),
                     :class => 'ngo span2' %>
   <%= f.input_field :head_international_projects,
                     :type => :number,
-                    :placeholder => 'интернационални',
+                    :placeholder => UserProfile.human_attribute_name(:head_international_projects),
                     :class => 'ngo span2' %>
 </div>
+
 <div class="controls controls-row">
-  <h5>Број на спроведени проекти каде вашето здружение е партнер</h5>
+  <h5><%= t('user_profile_form.partner_project_title') %></h5>
   <%= f.input_field :partner_local_projects,
                     :type => :number,
-                    :placeholder => 'локални',
+                    :placeholder => UserProfile.human_attribute_name(:partner_local_projects),
                     :class => 'ngo span2' %>
   <%= f.input_field :partner_national_projects,
                     :type => :number,
-                    :placeholder => 'национални',
+                    :placeholder => UserProfile.human_attribute_name(:partner_national_projects),
                     :class => 'ngo span2' %>
   <%= f.input_field :partner_regional_projects,
                     :type => :number,
-                    :placeholder => 'регионални',
+                    :placeholder => UserProfile.human_attribute_name(:partner_regional_projects),
                     :class => 'ngo span2' %>
   <%= f.input_field :partner_international_projects,
                     :type => :number,
-                    :placeholder => 'интернационални',
+                    :placeholder => UserProfile.human_attribute_name(:partner_international_projects),
                     :class => 'ngo span2' %>
 </div>
+
 <br>
+
 <div class="controls controls-row">
   <%= f.input_field :gef_recipient,
                     :as => :boolean,
-                    :inline_label => 'Дали сте биле корисници на грант од ГЕФ Програмата за мали грантови?',
+                    :inline_label => UserProfile.human_attribute_name(:gef_recipient),
                     :class => 'ngo' %>
 </div>
 
 
 <script type="text/javascript">
   $('#established-datepicker').datepicker({
-    language: 'mk'
+    language: '<%= I18n.locale.to_s %>'
   });
 </script>
 

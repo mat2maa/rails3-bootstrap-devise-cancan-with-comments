@@ -13,10 +13,13 @@ mk:
   action:
     show: прикажи
     edit: измени
+    update: ажурирај
     destroy: избриши
     back: назад
+    cancel: откажи
     log_me_in: најави ме
     register_me: регистрирај ме
+    register: регистрирај се
     forgotten_password: ја заборавивте лозинката?
     resend_confirmation: не добивте инструкции за потврда на лозинката?
     resend_unlock: не добивте инструкции за отворање на лозинката?
@@ -30,9 +33,39 @@ mk:
     edit_user_profile: измени во корисничкиот профил
     admin: админ
   home:
+    login_title: Постоечки корисник?
     sign_up_title: Нов корисник?
     sign_up_subtitle: За регистрација кликнете
     here: тука
+  user_form:
+    step_1_title: 1. Податоци за најавување
+    step_2_title: 2. Вид на профил
+    step_3_title: 3. Други податоци
+  user_profile_form:
+    logo_title: Лого на организацијата (избери фајл или линк)
+    address_title: Адреса на канцеларијата на организацијата
+    web_title: Официјални веб податоци
+    contact_title: Контакт на организацијата
+    social_title: Социјални мрежи на организацијата
+    rep_title: Застапник на организацијата
+    activity_title: Област на делување
+    expertise_title: Област на експертиза
+    sector_title: Сектор во кој работи
+    interest_title: Интереси
+    media_title: Информации за медиумот
+    head_project_title: Број на спроведени проекти каде вашето здружение е носител
+    partner_project_title: Број на спроведени проекти каде вашето здружение е партнер
+  update_user:
+    update_user_title: Ажурирајте ги податоците за најавување
+    minimum_character_hint: Лозинката мора да има најмалку 6 карактери
+    new_password_hint: Оставете го полето празно доколку не сакате да направите промени
+    old_password_hint: Потребна е Вашата сегашна лозинка за потврда на промените
+  login_user:
+    login_user_title: Најавете се
+  comments:
+    comment:
+      one: коментар
+      other: коментари
   alert:
     are_you_sure: Сигурни ли сте?
     submitting: Се испраќа...
@@ -338,6 +371,7 @@ mk:
         email: имејл
         password: лозинка
         password_confirmation: потврда на лозинката
+        current_password: сегашна лозинка
         remember_me: зачувај
 #        user_profile_attributes:
       user_profile:
@@ -350,22 +384,22 @@ mk:
         established: датум на основање
         facebook: профил на Facebook
         fax: факс
-        gef_recipient: ГЕФ програма
+        gef_recipient: Дали сте биле корисници на грант од ГЕФ Програмата за мали грантови?
         google_plus: профил на Google+
-        head_international_projects: носител на интернационален проект
-        head_local_projects: носител на локален проект
-        head_national_projects: носител на национален проект
-        head_regional_projects: носител на регионален проект
+        head_international_projects: интернационални
+        head_local_projects: локални
+        head_national_projects: национални
+        head_regional_projects: регионални
         linked_in: профил на LinkedIn
         membership_number: број на членови
         mission_statement: мисија на организацијата
         mobile: мобилен број
         municipality: општина
-        name: име
-        partner_international_projects: партнер во интернационален проект
-        partner_local_projects: партнер во локален проект
-        partner_national_projects: партнер во национален проект
-        partner_regional_projects: партнер во регионален проект
+        name: име на организацијата
+        partner_international_projects: интернационални
+        partner_local_projects: локални
+        partner_national_projects: национални
+        partner_regional_projects: регионални
         personnel_number: број на вработени
         phone: телефонски број
         post_code: поштенски код
@@ -381,9 +415,9 @@ mk:
 #        interests_attributes:
 #        sectors_attributes:
 #        media_interests_attributes:
-#        activity_ids:
-#        expertise_ids:
-#        media_scope_ids:
+        activity_ids: активности
+        expertise_ids: експертиза
+        media_scope_ids: тип на медиум
         logo: лого
         remote_logo_url: линк од лого
     errors:

@@ -1,185 +1,187 @@
-<p id="notice"><%= notice %></p>
+<div class="span12">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User:</b>
-  <%= @user_profile.user_id %>
-</p>
+  <p>
+    <b><%= User.model_name.human(:count => 1) %>:</b>
+    <%= @user_profile.user_id %>
+  </p>
 
-<p>
-  <b>Type:</b>
-  <%= @user_profile.type %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:type) %>:</b>
+    <%= @user_profile.type %>
+  </p>
 
-<p>
-  <b>Name:</b>
-  <%= @user_profile.name %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:name) %>:</b>
+    <%= @user_profile.name %>
+  </p>
 
-<p>
-  <b>Flat Number:</b>
-  <%= @user_profile.flat_number %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:flat_number) %>:</b>
+    <%= @user_profile.flat_number %>
+  </p>
 
-<p>
-  <b>Building Number:</b>
-  <%= @user_profile.building_number %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:building_number) %>:</b>
+    <%= @user_profile.building_number %>
+  </p>
 
-<p>
-  <b>Street:</b>
-  <%= @user_profile.street %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:street) %>:</b>
+    <%= @user_profile.street %>
+  </p>
 
-<p>
-  <b>Municipality:</b>
-  <%= @user_profile.municipality %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:municipality) %>:</b>
+    <%= @user_profile.municipality %>
+  </p>
 
-<p>
-  <b>City:</b>
-  <%= @user_profile.city %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:city) %>:</b>
+    <%= @user_profile.city %>
+  </p>
 
-<p>
-  <b>Post code:</b>
-  <%= @user_profile.post_code %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:post_code) %>:</b>
+    <%= @user_profile.post_code %>
+  </p>
 
-<p>
-  <b>Country:</b>
-  <%= @user_profile.country %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:country) %>:</b>
+    <%= @user_profile.country %>
+  </p>
 
-<p>
-  <b>Website:</b>
-  <%= @user_profile.website %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:website) %>:</b>
+    <%= @user_profile.website %>
+  </p>
 
-<p>
-  <b>Email:</b>
-  <%= @user_profile.email %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:email) %>:</b>
+    <%= @user_profile.email %>
+  </p>
 
-<p>
-  <b>Phone:</b>
-  <%= @user_profile.phone %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:phone) %>:</b>
+    <%= @user_profile.phone %>
+  </p>
 
-<p>
-  <b>Mobile:</b>
-  <%= @user_profile.mobile %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:mobile) %>:</b>
+    <%= @user_profile.mobile %>
+  </p>
 
-<p>
-  <b>Fax:</b>
-  <%= @user_profile.fax %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:fax) %>:</b>
+    <%= @user_profile.fax %>
+  </p>
 
-<p>
-  <b>Facebook:</b>
-  <%= @user_profile.facebook %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:facebook) %>:</b>
+    <%= @user_profile.facebook %>
+  </p>
 
-<p>
-  <b>Twitter:</b>
-  <%= @user_profile.twitter %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:twitter) %>:</b>
+    <%= @user_profile.twitter %>
+  </p>
 
-<p>
-  <b>Linked in:</b>
-  <%= @user_profile.linked_in %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:linked_in) %>:</b>
+    <%= @user_profile.linked_in %>
+  </p>
 
-<p>
-  <b>Skype:</b>
-  <%= @user_profile.skype %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:skype) %>:</b>
+    <%= @user_profile.skype %>
+  </p>
 
-<p>
-  <b>Google plus:</b>
-  <%= @user_profile.google_plus %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:google_plus) %>:</b>
+    <%= @user_profile.google_plus %>
+  </p>
 
-<p>
-  <b>Rep name:</b>
-  <%= @user_profile.rep_name %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:rep_name) %>:</b>
+    <%= @user_profile.rep_name %>
+  </p>
 
-<p>
-  <b>Rep email:</b>
-  <%= @user_profile.rep_email %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:rep_email) %>:</b>
+    <%= @user_profile.rep_email %>
+  </p>
 
-<p>
-  <b>Established:</b>
-  <%= @user_profile.established %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:established) %>:</b>
+    <%= @user_profile.established %>
+  </p>
 
-<p>
-  <b>Mission statement:</b>
-  <%= @user_profile.mission_statement %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:mission_statement) %>:</b>
+    <%= @user_profile.mission_statement %>
+  </p>
 
-<p>
-  <b>Membership number:</b>
-  <%= @user_profile.membership_number %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:membership_number) %>:</b>
+    <%= @user_profile.membership_number %>
+  </p>
 
-<p>
-  <b>Personnel number:</b>
-  <%= @user_profile.personnel_number %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:personnel_number) %>:</b>
+    <%= @user_profile.personnel_number %>
+  </p>
 
-<p>
-  <b>Head local projects:</b>
-  <%= @user_profile.head_local_projects %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:head_local_projects) %>:</b>
+    <%= @user_profile.head_local_projects %>
+  </p>
 
-<p>
-  <b>Head national projects:</b>
-  <%= @user_profile.head_national_projects %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:head_national_projects) %>:</b>
+    <%= @user_profile.head_national_projects %>
+  </p>
 
-<p>
-  <b>Head regional projects:</b>
-  <%= @user_profile.head_regional_projects %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:head_regional_projects) %>:</b>
+    <%= @user_profile.head_regional_projects %>
+  </p>
 
-<p>
-  <b>Head international projects:</b>
-  <%= @user_profile.head_international_projects %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:head_international_projects) %>:</b>
+    <%= @user_profile.head_international_projects %>
+  </p>
 
-<p>
-  <b>Partner local projects:</b>
-  <%= @user_profile.partner_local_projects %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:partner_local_projects) %>:</b>
+    <%= @user_profile.partner_local_projects %>
+  </p>
 
-<p>
-  <b>Partner national projects:</b>
-  <%= @user_profile.partner_national_projects %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:partner_national_projects) %>:</b>
+    <%= @user_profile.partner_national_projects %>
+  </p>
 
-<p>
-  <b>Partner regional projects:</b>
-  <%= @user_profile.partner_regional_projects %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:partner_regional_projects) %>:</b>
+    <%= @user_profile.partner_regional_projects %>
+  </p>
 
-<p>
-  <b>Partner international projects:</b>
-  <%= @user_profile.partner_international_projects %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:partner_international_projects) %>:</b>
+    <%= @user_profile.partner_local_projects %>
+  </p>
 
-<p>
-  <b>Previous year budget:</b>
-  <%= @user_profile.previous_year_budget %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:previous_year_budget) %>:</b>
+    <%= @user_profile.previous_year_budget %>
+  </p>
 
-<p>
-  <b>Gef recipient:</b>
-  <%= @user_profile.gef_recipient %>
-</p>
+  <p>
+    <b><%= UserProfile.human_attribute_name(:gef_recipient) %>:</b>
+    <%= @user_profile.gef_recipient %>
+  </p>
 
 
-<%= link_to "#{t('action.edit')}", edit_user_profile_path(@user_profile) %> |
-<%= link_to "#{t('action.back')}", user_profiles_path %>
+  <%= link_to "#{t('action.edit')}", edit_user_profile_path(@user_profile) %> |
+  <%= link_to "#{t('action.back')}", user_profiles_path %>
+</div>

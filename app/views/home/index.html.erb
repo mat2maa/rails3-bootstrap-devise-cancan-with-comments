@@ -64,7 +64,7 @@
 
 <% else %>
   <div class="span6">
-    <h4>Постоечки корисник?</h4>
+    <h4><%= t('home.login_title') %></h4>
     <%= minimal_nested_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
       <%= f.input :email, :autofocus => true, :placeholder => User.human_attribute_name('email') %>
       <%= f.input :password, :placeholder => User.human_attribute_name('password') %>
