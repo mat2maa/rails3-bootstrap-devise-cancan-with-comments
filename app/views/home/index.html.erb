@@ -18,49 +18,8 @@
       ) %>
 <% end %>
 <% if user_signed_in? %>
-  <div class="span12">
-    <table class="table table-striped">
-      <tr>
-        <th><%= UserProfile.human_attribute_name('logo') %></th>
-        <th><%= User.model_name.human %></th>
-        <th><%= NewsPost.human_attribute_name('title') %></th>
-        <th><%= NewsPost.human_attribute_name('short_description') %></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
 
-      <% NewsPost.order('created_at DESC').limit(3).each do |news_post| %>
-        <tr>
-          <td><%= image_tag news_post.user.user_profile.logo_url(:thumb).to_s %></td>
-          <td><%= news_post.user.user_profile.name %></td>
-          <td><%= news_post.title %></td>
-          <td><%= news_post.short_description %></td>
-          <td>
-            <% if can? :read, news_post %>
-              <%= link_to "#{t('action.show')}", news_post %>&nbsp;
-            <% end %>
-          </td>
-          <td>
-            <% if can? :edit, news_post %>
-              <%= link_to "#{t('action.edit')}", edit_news_post_path(news_post) %>&nbsp;
-            <% end %>
-          </td>
-          <td>
-            <% if can? :destroy, news_post %>
-              <%= link_to "#{t('action.destroy')}", news_post, :method => :delete, :data => {:confirm => "#{t('alert.are_you_sure')}"} %>&nbsp;
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
-
-    <% if can? :create, NewsPost %>
-      <br/>
-      <%= link_to "#{t(:new, :gender => :f)} #{NewsPost.model_name.human}", new_news_post_path %>
-    <% end %>
-
-  </div>
+  <%= render :partial => 'news_posts' %>
 
 <% else %>
   <div class="span6">

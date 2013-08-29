@@ -3,5 +3,5 @@
   <br>
   <h4><%= User.human_attribute_name(:email) %>: <%= @user.email if @user.email %></h4>
   <br>
-  <%= link_to 'Show user profile', user_profile_path(@user_profile.id) %>
+  <%= link_to "#{t('action.show')} #{UserProfile.model_name.human(:count => 1)}", user_profile_path(@user_profile.id) %>
 </div>
