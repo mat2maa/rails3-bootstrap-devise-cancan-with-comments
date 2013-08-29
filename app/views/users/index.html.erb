@@ -1,13 +1,14 @@
 <div class="span12">
-  <h3>Users</h3>
+  <h1><%= User.model_name.human(:count => 2).mb_chars.titlecase.to_s %></h1>
+  <br>
   <table class="table table-striped">
     <thead>
     <tr>
-      <th>Logo</th>
-      <th>User</th>
-      <th>Email</th>
-      <th>Registered</th>
-      <th>Role</th>
+      <th><%= UserProfile.human_attribute_name(:logo) %></th>
+      <th><%= User.model_name.human(:count => 1) %></th>
+      <th><%= User.human_attribute_name(:email) %></th>
+      <th><%= User.human_attribute_name(:registered) %></th>
+      <th><%= Role.model_name.human(:count => 1) %></th>
       <th></th>
       <th></th>
       <th></th>
@@ -22,12 +23,20 @@
         <td><%= user.created_at.to_date %></td>
         <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
         <td>
-          <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button">Change role</a>
+          <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button"><%= "#{t('action.edit')} #{Role.model_name.human(:count => 1)}" %></a>
           <%= render user %>
         </td>
-        <td><%= link_to("Delete user", user_path(user), :data => {:confirm => "Are you sure?"}, :method => :delete, :class => 'btn btn-mini') unless user == current_user %></td>
-        <td><%= link_to "#{t('action.show')}",
-                        user_path(user) %></td>
+        <td>
+          <% if can? :destroy, user %>
+            <%= link_to("#{t('action.destroy')} #{User.model_name.human(:count => 1)}", user_path(user), :data => {:confirm => t('alert.are_you_sure')}, :method => :delete, :class => 'btn btn-mini') unless user == current_user %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :read, user %>
+            <%= link_to "#{t('action.show')}",
+                        user_path(user) %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
     </tbody>

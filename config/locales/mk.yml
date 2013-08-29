@@ -318,6 +318,9 @@ mk:
       user:
         one: корисник
         other: корисници
+      role:
+        one: функција
+        other: функции
       user_profile:
         one: кориснички профил
         other: кориснички профили
@@ -373,7 +376,10 @@ mk:
         password_confirmation: потврда на лозинката
         current_password: сегашна лозинка
         remember_me: зачувај
+        registered: регистриран на
 #        user_profile_attributes:
+      role:
+        name: име
       user_profile:
         flat_number: број на стан
         building_number: број на зграда

@@ -1,5 +1,7 @@
 <div class="span12">
-  <h3>User</h3>
-  <p>Email: <%= @user.email if @user.email %></p>
+  <h1><%= User.model_name.human(:count => 2).mb_chars.titlecase.to_s %></h1>
+  <br>
+  <h4><%= User.human_attribute_name(:email) %>: <%= @user.email if @user.email %></h4>
+  <br>
   <%= link_to 'Show user profile', user_profile_path(@user_profile.id) %>
 </div>
