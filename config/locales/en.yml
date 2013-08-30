@@ -36,6 +36,7 @@ en:
     step_3_title: 3. Other information
   user_profile_form:
     logo_title: Logo of the organization (choose a file or a link)
+    logo_request: Pleas complete your profile by uploading the logo of your organization (choose a file or a link)
     address_title: Address of the organization
     web_title: Web details
     contact_title: Contact details
