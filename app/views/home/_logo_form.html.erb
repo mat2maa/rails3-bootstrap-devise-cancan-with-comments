@@ -1,0 +1,41 @@
+<%= minimal_nested_form_for @user_profile,
+                            :as => :user_profile,
+                            :url => user_profile_path(@user_profile.id),
+                            :html => {:class => 'form-vertical', :multipart => true} do |f| %>
+  <div class="span12 dynamic-form">
+
+    <div class="form-inputs dynamic-form-inputs">
+
+      <div class="controls controls-row">
+        <h5 class="controls-row-header"><%= t('user_profile_form.logo_title') %></h5>
+
+        <%= f.input_field :remote_logo_url,
+                          :placeholder => UserProfile.human_attribute_name(:remote_logo_url),
+                          :class => 'ngo expert institution media span4' %>
+
+        <div class="input-append span4 file-input">
+          <input id="logo-upload" class="input-large" type="text">
+          <a class="btn" onclick="$('input[id=user_profile_logo]').click();">Browse</a>
+        </div>
+
+        <%= f.input_field :logo,
+                          :class => 'hidden-input ngo expert institution media span4',
+                          :as => :file %>
+      </div>
+
+    </div>
+
+    <%= f.button :submit,
+                 'ажурирај',
+                 :class => 'btn-primary' %>
+
+  </div>
+
+<% end %>
+
+<script type="text/javascript">
+  $('input[id=user_profile_logo]').change(function () {
+    var path = $(this).val().split('\\');
+    $('#logo-upload').val(path[path.length - 1]);
+  });
+</script>

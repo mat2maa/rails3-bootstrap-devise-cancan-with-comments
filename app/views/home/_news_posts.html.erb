@@ -1,60 +1,39 @@
-<div class="module" id="news_posts_module">
-  <% if can? :create, NewsPost %>
-    <%= link_to "#{t(:new, :gender => :f)} #{NewsPost.model_name.human}", new_news_post_path %>
-  <% end %>
-  <br>
-  <br>
-  <% NewsPost.order('created_at DESC').limit(3).each do |news_post| %>
-    <div class="module-item">
-      <%= image_tag news_post.user.user_profile.logo_url(:thumb).to_s %>
-      <%= news_post.user.user_profile.name %>
-      <hr>
-      <p><%= news_post.title %></p>
-      <p><%= news_post.short_description %></p>
-    </div>
-  <% end %>
+<div class="module" id="news-posts-module">
+  <div class="module-header" id="news-posts-header">
+    <h4 class="pull-left"><%= t('modules.news', :count => 2) %></h4>
+
+    <% if can? :create, NewsPost %>
+      <%= link_to raw("<i class='icon-plus-sign icon-white'></i>"), new_news_post_path, :class => 'pull-right' %>
+    <% end %>
+
+  </div>
+
+  <div class="module-content" id="news-posts-content">
+    <% @news_posts.each do |news_post| %>
+      <div class="module-item">
+        <div class="module-author">
+          <a class="module-author-icon pull-left" href="#">
+            <%= image_tag news_post.user.user_profile.logo_url(:thumb).to_s, :width => 20 %>
+          </a>
+          <h4 class="module-author-name media-heading pull-left">
+            <%= news_post.user.user_profile.name %>
+          </h4>
+          <% if can? :edit, news_post %>
+            <%= link_to raw("<i class='icon-edit'></i>"), edit_news_post_path(news_post.id), :class => 'pull-right' %>
+          <% end %>
+          <% if can? :read, news_post %>
+            <%= link_to raw("<i class='icon-share'></i>"), news_post_path(news_post.id), :class => 'pull-right' %>
+          <% end %>
+        </div>
+        <hr>
+        <div class="module-title">
+          <h5><%= news_post.title %></h5>
+        </div>
+        <div class="module-subtitle">
+          <h6><%= news_post.short_description %></h6>
+        </div>
+        <%= link_to 'external link', news_post.link %>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-<!--<div class="span12">-->
-  <!--<table class="table table-striped">-->
-    <!--<tr>-->
-      <!--<th><%= UserProfile.human_attribute_name('logo') %></th>-->
-      <!--<th><%= User.model_name.human %></th>-->
-      <!--<th><%= NewsPost.human_attribute_name('title') %></th>-->
-      <!--<th><%= NewsPost.human_attribute_name('short_description') %></th>-->
-      <!--<th></th>-->
-      <!--<th></th>-->
-      <!--<th></th>-->
-    <!--</tr>-->
-
-    <!--<% NewsPost.order('created_at DESC').limit(3).each do |news_post| %>-->
-      <!--<tr>-->
-        <!--<td><%= image_tag news_post.user.user_profile.logo_url(:thumb).to_s %></td>-->
-        <!--<td><%= news_post.user.user_profile.name %></td>-->
-        <!--<td><%= news_post.title %></td>-->
-        <!--<td><%= news_post.short_description %></td>-->
-        <!--<td>-->
-          <!--<% if can? :read, news_post %>-->
-            <%#= link_to "#{t('action.show')}", news_post %>&nbsp;
-          <!--<% end %>-->
-        <!--</td>-->
-        <!--<td>-->
-          <!--<% if can? :edit, news_post %>-->
-            <%#= link_to "#{t('action.edit')}", edit_news_post_path(news_post) %>&nbsp;
-          <!--<% end %>-->
-        <!--</td>-->
-        <!--<td>-->
-          <!--<% if can? :destroy, news_post %>-->
-            <%#= link_to "#{t('action.destroy')}", news_post, :method => :delete, :data => {:confirm => "#{t('alert.are_you_sure')}"} %>&nbsp;
-          <!--<% end %>-->
-        <!--</td>-->
-      <!--</tr>-->
-    <!--<% end %>-->
-  <!--</table>-->
-
-  <!--<% if can? :create, NewsPost %>-->
-    <!--<br/>-->
-    <!--<%= link_to "#{t(:new, :gender => :f)} #{NewsPost.model_name.human}", new_news_post_path %>-->
-  <!--<% end %>-->
-
-<!--</div>-->

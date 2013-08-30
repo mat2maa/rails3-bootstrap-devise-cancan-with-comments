@@ -19,12 +19,22 @@
 <% end %>
 <% if user_signed_in? %>
 
-  <%= render :partial => 'news_posts' %>
+  <% if @news_post_count != 0 %>
+    <% content_for :modules do %>
+      <div class="span12">
+        <%= render :partial => 'news_posts' %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if @user_profile.logo.blank? %>
+    <%= render :partial => 'logo_form' %>
+  <% end %>
 
 <% else %>
   <div class="span6">
     <h4><%= t('home.login_title') %></h4>
-    <%= minimal_nested_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+    <%= minimal_nested_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical'}) do |f| %>
       <%= f.input :email, :autofocus => true, :placeholder => User.human_attribute_name('email') %>
       <%= f.input :password, :placeholder => User.human_attribute_name('password') %>
       <%= f.input_field :remember_me, :inline_label => User.human_attribute_name('remember_me'),
@@ -37,13 +47,13 @@
   <div class="span6">
     <h4>
       <%= t('home.sign_up_title') %><br>
-      <%= t('home.sign_up_subtitle') %> <%= link_to(t('home.here'), new_user_registration_path)  %>
+      <%= t('home.sign_up_subtitle') %> <%= link_to(t('home.here'), new_user_registration_path) %>
     </h4>
   </div>
 <% end %><%= content_for :scripts do %>
   <script type="text/javascript" charset="utf-8">
-    Gmaps.map.callback = function() {
-      google.maps.event.addDomListener(window, "resize", function() {
+    Gmaps.map.callback = function () {
+      google.maps.event.addDomListener(window, "resize", function () {
         var map = Gmaps.map.serviceObject;
         var center = map.getCenter();
         google.maps.event.trigger(map, 'resize');

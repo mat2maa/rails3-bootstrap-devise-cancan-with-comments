@@ -1,42 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Ekosfera" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails3 Bootstrap Devise Cancan" %>">
-    <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= yield :scripts %>
-    <%= csrf_meta_tags %>
-    <%= yield(:head) %>
-  </head>
-  <body class="<%= controller_name %> <%= action_name %>">
-    <div class="navbar navbar-fixed-top navbar-inverse">
-      <nav class="navbar-inner">
-        <div class="container">
-          <%= render 'layouts/navigation' %>
-        </div>
-      </nav>
-    </div>
-    <div id="main" role="main">
-      <%= yield :map %>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Ekosfera" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails3 Bootstrap Devise Cancan" %>">
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= yield :scripts %>
+  <%= csrf_meta_tags %>
+  <%= yield(:head) %>
+</head>
+<body class="<%= controller_name %> <%= action_name %>">
+  <!--<div id="menu">-->
+
+  <!--</div>-->
+  <div class="navbar navbar-fixed-top navbar-inverse">
+    <!--<a class="btn btn-small menu-trigger" href="#"><i class="icon-list"></i></a>-->
+    <nav class="navbar-inner">
       <div class="container">
-        <div class="content">
-           <div class="row">
-            <div class="span12">
-              <%= render 'layouts/messages' %>
-            </div>
-            <%= yield %>
+        <%= render 'layouts/navigation' %>
+      </div>
+    </nav>
+  </div>
+  <%= yield :map %>
+  <div class="modular-content">
+    <div class="container">
+      <div class="row">
+        <%= yield :modules %>
+      </div>
+    </div>
+    <!--! end of .container -->
+  </div>
+  <!--! end of .modular-content -->
+  <div id="main" role="main">
+    <div class="container">
+      <div class="content">
+        <div class="row">
+          <div class="span12">
+            <%= render 'layouts/messages' %>
           </div>
-        </div>
-      </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
-    <div class="navbar navbar-fixed-bottom navbar-inverse" id="footer">
-      <div class="navbar-inner">
-        <div class="container">
-          <%= render 'layouts/footer' %>
+          <%= yield %>
         </div>
       </div>
     </div>
-  </body>
+    <!--! end of .container -->
+  </div>
+  <!--! end of #main -->
+  <div class="navbar navbar-fixed-bottom navbar-inverse" id="footer">
+    <div class="navbar-inner">
+      <div class="container">
+        <%= render 'layouts/footer' %>
+      </div>
+    </div>
+  </div>
+</body>
 </html>

@@ -1,5 +1,6 @@
 .map_container {
     width: 100%;
+    margin-bottom: 12px; /* For box-shadow */
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -23,7 +24,7 @@
     max-width: none;
 }
 
-@media screen and (min-height: 900px) {
+@media screen and (min-width: 1200px) and (min-height: 900px) {
     .gmaps4rails_map {
         height: 600px;
     }

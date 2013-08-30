@@ -69,6 +69,10 @@ mk:
   alert:
     are_you_sure: Сигурни ли сте?
     submitting: Се испраќа...
+  modules:
+    news:
+      one: вест
+      other: вести
   date:
     abbr_day_names:
     - Нед
