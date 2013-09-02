@@ -57,6 +57,9 @@ gem 'acts_as_commentable_with_threading'
 # WYSIWYG Editor for posts
 gem 'bootstrap-wysihtml5-rails'
 
+#Facebook Graph
+gem 'koala', '~> 1.7.0rc1'
+
 group :development do
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
   gem 'quiet_assets'

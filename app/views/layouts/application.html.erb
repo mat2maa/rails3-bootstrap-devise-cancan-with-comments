@@ -11,11 +11,20 @@
   <%= yield(:head) %>
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
-  <!--<div id="menu">-->
-
-  <!--</div>-->
+  <div id="menu">
+    <ul>
+      <% @posts.each do |post| %>
+        <li>
+          <p><%= post["created_time"] %></p>
+          <p><%= image_tag post["picture"] if post["picture"].present? %></p>
+          <p><%= post["description"] %></p>
+          <p><%= post["caption"] %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
   <div class="navbar navbar-fixed-top navbar-inverse">
-    <!--<a class="btn btn-small menu-trigger" href="#"><i class="icon-list"></i></a>-->
+    <a class="btn btn-small menu-trigger" href="#"><i class="icon-list"></i></a>
     <nav class="navbar-inner">
       <div class="container">
         <%= render 'layouts/navigation' %>

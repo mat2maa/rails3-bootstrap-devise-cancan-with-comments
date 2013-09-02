@@ -175,6 +175,10 @@ hr {
 }
 
 // jPanelMenu
+#menu {
+  display: none;
+}
+
 .menu-trigger {
   position: absolute;
   left: 10px;
@@ -188,6 +192,29 @@ hr {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+#jPanelMenu-menu ul {
+  border-bottom: 1px solid #484848;
+  margin: 0;
+  padding: 0;
+}
+
+#jPanelMenu-menu li {
+  background: #3b3b3b;
+  background: -o-linear-gradient(top, #3e3e3e, #383838);
+  background: -ms-linear-gradient(top, #3e3e3e, #383838);
+  background: -moz-linear-gradient(top, #3e3e3e, #383838);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #3e3e3e), color-stop(1, #383838));
+  background: -webkit-linear-gradient(#3e3e3e, #383838);
+  background: linear-gradient(top, #3e3e3e, #383838);
+  display: block;
+  padding: 0.5em 5%;
+  border-top: 1px solid #484848;
+  border-bottom: 1px solid #2e2e2e;
+  text-decoration: none;
+  text-shadow: 0 -1px 2px #222;
+  color: #f7f7f7;
 }
 
 #main {
@@ -468,8 +495,8 @@ input.required {
 // Modules
   .modular-content {
     position: absolute;
-    /*top: 0;*/
-    top: 104px;
+    top: 0;
+    /*top: 104px;*/
     width: 100%;
     z-index: 2;
   }
