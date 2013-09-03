@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     authorize! :update, @user, :message => 'Немате админитраторски привилегии.'
     @user = User.find(params[:id])
 
-    @old_name = @user.roles.first.name
+    @old_name = @user.roles.present? ? @user.roles.first.name : ''
 
     @user.assign_attributes(params[:user], :as => :admin)
 
